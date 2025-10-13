@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
 	try {
-		const [rows] = await pool.query('SELECT NOW() AS current_time');
+		const [rows] = await pool.query("SELECT NOW() as 'current_time'");
 		res.json({ success: true, time: rows[0].current_time });
 	} catch (error) {
 		console.error(error);
