@@ -1,0 +1,32 @@
+.navLinks {
+	margin-right: 1.1rem;
+	cursor: pointer;
+	align-content: center;
+	margin-bottom: 0;
+	font-weight: 500;
+	color: #4b4b4b;
+}
+
+.navLinks.active,
+.navLinks.active a {
+	text-decoration: underline;
+	cursor: default;
+}
+
+.navbarDiv {
+	height: 120px;
+}
+
+.navLang {
+	cursor: pointer;
+}
+
+.carouselText,
+.carouselHeading {
+	display: none;
+}
+
+.carouselText.active,
+.carouselHeading.active {
+	display: block;
+}
