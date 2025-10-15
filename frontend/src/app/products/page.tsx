@@ -2,6 +2,11 @@ import Image from 'next/image';
 import MainPoint from '@/components/mainPoint';
 import '../../../public/support/css/homepage.css';
 
+export const metadata: Metadata = {
+	title: 'Our Products & Services | ABB Insurance Brokers ',
+	description: 'Helping you find the best insurance options.',
+};
+
 export default function Products() {
 	return (
 		<div className="pageContent">

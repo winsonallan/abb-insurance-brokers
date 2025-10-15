@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: 'ABB Insurance Brokers',
+	title: 'Welcome | ABB Insurance Brokers',
 	description: 'Helping you find the best insurance options.',
 };
 

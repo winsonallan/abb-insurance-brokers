@@ -1,4 +1,5 @@
 'use client';
+
 import Image from 'next/image';
 import '../../public/support/css/components/navbar.css';
 import { createElementNames } from '../../public/support/js/createElementNames.js';
