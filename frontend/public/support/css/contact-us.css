@@ -1,0 +1,30 @@
+.formDiv {
+	width: 65%;
+	padding-right: 2rem;
+}
+
+.contactDiv {
+	width: 35%;
+	padding-left: 2rem;
+}
+
+.borderLeftBlue {
+	border-left: 1px solid var(--lightgreyblue);
+}
+
+.contactInfo {
+	width: 100%;
+	padding-left: 2rem;
+	margin-bottom: 2rem;
+}
+
+.contactSubmit {
+	margin-top: 2rem;
+	padding: 0.5rem 1rem;
+	border: 1px solid #fff;
+	border-radius: 0.5rem;
+	background-color: var(--mainblue);
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}

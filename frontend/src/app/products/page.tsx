@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import MainPoint from '@/components/mainPoint';
 import '../../../public/support/css/homepage.css';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'Our Products & Services | ABB Insurance Brokers ',
@@ -20,7 +21,7 @@ export default function Products() {
 						>
 							<div className="pointText left">
 								<div className="pointHeading">
-									<h1 className="text-2xl">
+									<h1 className="text-2xl productHeadingText">
 										<b>Asuransiku.id</b>
 									</h1>
 								</div>
@@ -75,7 +76,7 @@ export default function Products() {
 						>
 							<div className="pointText left">
 								<div className="pointHeading">
-									<h1 className="text-2xl">
+									<h1 className="text-2xl productHeadingText">
 										<b>Claims Management</b>
 									</h1>
 								</div>
@@ -130,7 +131,7 @@ export default function Products() {
 						>
 							<div className="pointText right">
 								<div className="pointHeading">
-									<h1 className="text-2xl">
+									<h1 className="text-2xl productHeadingText">
 										<b>Risk Management</b>
 									</h1>
 								</div>
@@ -157,7 +158,7 @@ export default function Products() {
 						>
 							<div className="pointText left">
 								<div className="pointHeading">
-									<h1 className="text-2xl">
+									<h1 className="text-2xl productHeadingText">
 										<b>Insurance Management</b>
 									</h1>
 								</div>

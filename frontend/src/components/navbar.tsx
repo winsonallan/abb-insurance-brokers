@@ -34,7 +34,6 @@ export default function Navbar() {
 					paddingBottom: '1.25rem',
 					paddingLeft: '3rem',
 					paddingRight: '3rem',
-					borderBottom: '1px solid var(--lightskyblue)',
 				}}
 			>
 				<Image

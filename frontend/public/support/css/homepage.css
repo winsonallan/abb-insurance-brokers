@@ -37,3 +37,7 @@
 	width: 50%;
 	position: relative;
 }
+
+.productHeadingText {
+	color: var(--mainblue);
+}
