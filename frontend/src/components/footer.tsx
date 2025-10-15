@@ -5,7 +5,11 @@ export default function Footer() {
 	return (
 		<div
 			className="p-12"
-			style={{ backgroundColor: 'var(--darkblue)', color: 'white' }}
+			style={{
+				backgroundColor: 'var(--darkblue)',
+				color: 'white',
+				height: '120px',
+			}}
 		>
 			© 2025 PT. ABB Insurance Brokers. All Rights Reserved.
 		</div>

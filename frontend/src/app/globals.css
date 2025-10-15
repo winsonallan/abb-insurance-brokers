@@ -38,3 +38,33 @@ body {
 a {
 	color: var(--linkblue);
 }
+
+html,
+body {
+	margin: 0;
+}
+
+.page-container {
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 240px); /* full viewport height */
+}
+
+.content-wrap {
+	flex: 1;
+	padding: 1.5rem 0;
+}
+
+.leftPoint {
+	padding-left: 3rem;
+	padding-right: 1.5rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	background: var(--darkgradient);
+	color: var(--background);
+	width: max-content;
+	outline: 1px solid #fff;
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	margin-bottom: 1rem;
+}

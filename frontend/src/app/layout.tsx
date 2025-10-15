@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
-import './globals.css';
 import { Inter } from 'next/font/google';
+
+import '@fortawesome/fontawesome-free/css/all.css';
+
+import './globals.css';
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
-import '@fortawesome/fontawesome-free/css/all.css';
 
 // Load the font
 const inter = Inter({

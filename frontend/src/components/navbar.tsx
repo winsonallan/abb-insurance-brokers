@@ -8,16 +8,14 @@ const openLinks = (index: number): void => {
 	if (index === 0) window.location.href = '/';
 	if (index === 1) window.location.href = '/products';
 	if (index === 2) window.location.href = '/our-team';
-	if (index === 3) window.location.href = '/about-us';
-	if (index === 4) window.location.href = '/contact-us';
-	if (index === 5) window.location.href = '/careers';
-	if (index === 6) window.location.href = '/news';
+	if (index === 3) window.location.href = '/contact-us';
+	if (index === 4) window.location.href = '/careers';
+	if (index === 5) window.location.href = '/news';
 };
 
 const navbarLinks = [
-	'Produk Kami',
+	'Produk & Jasa Kami',
 	'Tim Kami',
-	'Tentang Kami',
 	'Hubungi Kami',
 	'Karir',
 	'Berita',
