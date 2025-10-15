@@ -44,7 +44,7 @@ export default function Carousel({ imagesData }: CarouselProps) {
 									key={`contentHeading__${i}`}
 									className={`carouselHeading ${i === currentIndex ? 'active' : ''} text-4xl containerHeader__text`}
 									id={`carouselHeading__${i}`}
-									style={{ fontWeight: 500, color: '#232ade' }}
+									style={{ fontWeight: 'bold', color: '#232ade' }}
 								>
 									{src.caption}
 								</h1>
