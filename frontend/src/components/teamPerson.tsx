@@ -38,6 +38,7 @@ export default function TeamPerson({ groupData }: TeamGroup) {
 									borderRadius: '50%',
 									marginTop: '1rem',
 									marginBottom: '.5rem',
+									boxShadow: '5px 5px 5px var(--lightskyblue)',
 								}}
 							/>
 						</div>
