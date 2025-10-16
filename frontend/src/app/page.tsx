@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 import Carousel from '@/components/homeCarousel';
 import '../../public/support/css/homepage.css';
 import MainPoint from '@/components/mainPoint';

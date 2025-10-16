@@ -22,7 +22,7 @@ export default function DesktopNavbar({
 				className="flex fixed top-0 left-0 w-full z-10 navbarDiv"
 				style={{
 					color: 'var(--foreground)',
-					background: 'var(--white)',
+					background: 'white',
 					paddingTop: '1.25rem',
 					paddingBottom: '1.25rem',
 					paddingLeft: '3rem',
@@ -82,7 +82,7 @@ export default function DesktopNavbar({
 
 						{/* Language Dropdown */}
 						{langMenuOpen && (
-							<div className="absolute top-[4rem] right-[5rem] mt-2 bg-[var(--white)] border border-[var(--whiteblue)] rounded-md shadow-md w-24 text-center">
+							<div className="absolute top-[4rem] right-[5rem] mt-2 bg-white border border-[var(--whiteblue)] rounded-md shadow-md w-24 text-center">
 								{['EN', 'ID'].map((lang) => (
 									<button
 										key={lang}

@@ -24,7 +24,7 @@ export default function MobileNavbar({
 			className="flex lg:hidden fixed top-0 left-0 w-full z-10 items-center justify-between px-6 py-4 h-[107px]"
 			style={{
 				color: 'var(--foreground)',
-				background: 'var(--white)',
+				background: 'white',
 				borderBottom: '3px solid var(--whiteblue)',
 			}}
 		>
@@ -66,7 +66,7 @@ export default function MobileNavbar({
 
 				{/* Language Dropdown */}
 				{langMenuOpen && (
-					<div className="absolute top-[100%] right-0 mt-2 bg-[var(--white)] border border-[var(--whiteblue)] rounded-md shadow-md w-24 text-center z-20">
+					<div className="absolute top-[100%] right-0 mt-2 bg-white border border-[var(--whiteblue)] rounded-md shadow-md w-24 text-center z-20">
 						{['EN', 'ID'].map((lang) => (
 							<button
 								key={lang}
