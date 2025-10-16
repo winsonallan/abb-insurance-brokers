@@ -71,7 +71,7 @@ export default function Products() {
 					</div>
 
 					<div className="w-full block lg:hidden">
-						<div className="pointContent h-[500px] flex flex-col">
+						<div className="pointContent flex flex-col">
 							<div>
 								<div className="pointImage text-center">
 									<Image
@@ -109,18 +109,17 @@ export default function Products() {
 										accumsan cursus mi aliquet sed. Phasellus dignissim purus at
 										justo fermentum mattis.
 									</div>
-									<div style={{ marginTop: '2rem' }}>
-										<a href="https://www.asuransiku.id">
-											&gt; Visit Asuransiku.id
-										</a>
+									<div style={{ marginTop: '2rem', textAlign: 'center' }}>
+										<a href="https://www.asuransiku.id">Visit Asuransiku.id</a>
+										<br />
 										<br />
 										<a href="https://play.google.com/store/apps/details?id=id.asuransiku.app.abb">
-											&gt; Download and install the Asuransiku.id app (Android)
+											Download and install the Asuransiku.id app (Android)
 										</a>
 										<br />
+										<br />
 										<a href="https://play.google.com/store/apps/details?id=id.asuransiku.pro">
-											&gt; Download and install the Asuransiku.id Pro app
-											(Android)
+											Download and install the Asuransiku.id Pro app (Android)
 										</a>
 									</div>
 								</div>
