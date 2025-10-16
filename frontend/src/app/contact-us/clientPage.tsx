@@ -12,7 +12,7 @@ export default function ContactUsClient() {
 						<b>Contact Us</b>
 					</h1>
 					<div className="flex">
-						<div className="formDiv">
+						<div className="formDiv w-full lg:w-[65%]">
 							<form action="">
 								<div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 									<div className="sm:col-span-3">
@@ -139,8 +139,8 @@ export default function ContactUsClient() {
 								</button>
 							</form>
 						</div>
-						<div className="contactDiv">
-							<div className="contactInfo borderLeftBlue">
+						<div className="contactDiv w-[35%] hidden lg:block pl-8">
+							<div className="contactInfo pl-8 borderLeftBlue">
 								<b style={{ color: 'var(--mainblue)' }}>
 									PT. ABB Insurance Brokers{' '}
 								</b>
@@ -154,14 +154,14 @@ export default function ContactUsClient() {
 								Indonesia
 							</div>
 
-							<div className="contactInfo borderLeftBlue flex">
+							<div className="contactInfo pl-8 borderLeftBlue flex">
 								<span style={{ marginRight: '.9rem', color: '#2c923e' }}>
 									<i className="fa-solid fa-phone-volume"></i>
 								</span>
 								+62 21 806 00 828
 							</div>
 
-							<div className="contactInfo borderLeftBlue flex">
+							<div className="contactInfo pl-8 borderLeftBlue flex">
 								<Image
 									src={`/support/images/icons/whatsapp.png`}
 									alt="WA (Claim)"
@@ -172,7 +172,7 @@ export default function ContactUsClient() {
 								+62 878 7502 7161 (Claim Only)
 							</div>
 
-							<div className="contactInfo borderLeftBlue flex">
+							<div className="contactInfo pl-8 borderLeftBlue flex">
 								<span
 									style={{ marginRight: '.9rem', color: 'var(--mainblue)' }}
 								>
@@ -180,6 +180,46 @@ export default function ContactUsClient() {
 								</span>
 								info@abb-insurance.com
 							</div>
+						</div>
+					</div>
+					<div className="contactDiv block lg:hidden mt-12 w-full pl-0">
+						<div className="contactInfo">
+							<b style={{ color: 'var(--mainblue)' }}>
+								PT. ABB Insurance Brokers{' '}
+							</b>
+							<br />
+							Synergy Building, 15th floor
+							<br />
+							Jl. Jalur Sutera Barat Kav. 17, Alam Sutera
+							<br />
+							Tangerang, Banten 15143
+							<br />
+							Indonesia
+						</div>
+
+						<div className="contactInfo flex">
+							<span style={{ marginRight: '.9rem', color: '#2c923e' }}>
+								<i className="fa-solid fa-phone-volume"></i>
+							</span>
+							+62 21 806 00 828
+						</div>
+
+						<div className="contactInfo flex">
+							<Image
+								src={`/support/images/icons/whatsapp.png`}
+								alt="WA (Claim)"
+								width={20}
+								height={20}
+								style={{ marginRight: '.9rem', objectFit: 'scale-down' }}
+							/>
+							+62 878 7502 7161 (Claim Only)
+						</div>
+
+						<div className="contactInfo flex">
+							<span style={{ marginRight: '.9rem', color: 'var(--mainblue)' }}>
+								<i className="fa-solid fa-envelope"></i>
+							</span>
+							info@abb-insurance.com
 						</div>
 					</div>
 				</main>
