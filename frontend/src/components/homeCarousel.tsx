@@ -34,7 +34,7 @@ export default function Carousel({ imagesData }: CarouselProps) {
 		<div className="relative h-230 w-full">
 			<div className="w-full absolute h-230 z-1">
 				<div
-					className="floatingContainer right flex flex-col p-8 right-[0px] md:right-14 md:w-[500px] h-[500px]"
+					className="floatingContainer right flex flex-col p-8 right-[0px] md:right-14 md:w-[500px] h-[600px]"
 					style={{ justifyContent: 'space-between' }}
 				>
 					<div className="containerContent">
