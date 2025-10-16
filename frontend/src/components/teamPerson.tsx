@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 interface TeamMemberProps {
 	name: string;
-	imgUrl: string;
+	path_url: string;
 	position: string;
-	details: string;
+	description: string;
 }
 
 interface TeamGroup {
