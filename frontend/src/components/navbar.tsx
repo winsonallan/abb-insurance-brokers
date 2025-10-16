@@ -8,15 +8,15 @@ import NavbarSpacing from './navbarSpacing';
 const openLinks = (index: number): void => {
 	if (index === 0) window.location.href = '/';
 	if (index === 1) window.location.href = '/products';
-	if (index === 2) window.location.href = '/our-team';
-	if (index === 3) window.location.href = '/contact-us';
-	if (index === 4) window.location.href = '/careers';
-	if (index === 5) window.location.href = '/news';
+	if (index === 2) window.location.href = '/contact-us';
+	if (index === 3) window.location.href = '/careers';
+	if (index === 4) window.location.href = '/news';
+	if (index === 6) window.location.href = '/login';
 };
 
 const navbarLinks = [
 	'Produk & Jasa Kami',
-	'Tim Kami',
+
 	'Hubungi Kami',
 	'Karir',
 	'Berita',
@@ -29,11 +29,12 @@ export default function Navbar() {
 				className="flex fixed top-0 left-0 w-full z-10 navbarDiv"
 				style={{
 					color: 'var(--foreground)',
-					background: 'var(--lightgradient)',
+					background: 'var(--white)',
 					paddingTop: '1.25rem',
 					paddingBottom: '1.25rem',
 					paddingLeft: '3rem',
 					paddingRight: '3rem',
+					borderBottom: '3px solid var(--whiteblue)',
 				}}
 			>
 				<Image
@@ -94,7 +95,7 @@ export default function Navbar() {
 							className="navLinks"
 							id={`navLink__login`}
 							type="button"
-							onClick={() => openLinks(8)}
+							onClick={() => openLinks(6)}
 						>
 							Login
 						</button>

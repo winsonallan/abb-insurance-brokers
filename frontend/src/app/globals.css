@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-	--background: #ffffff;
+	--white: #ffffff;
+	--background: var(--white);
 	--foreground: #444444;
 	--darkerblue: #0b092b;
 	--darkblue: #00007e;
 	--mainblue: #353cca;
 	--lightishblue: #7b7df1;
 	--lightgreyblue: #c9caea;
-	--lightskyblue: rgb(199, 212, 235);
+	--lightskyblue: #c7d4eb;
 	--linkblue: #0d6efd;
 	--darkgradient: linear-gradient(
 		90deg,
@@ -23,6 +24,7 @@
 		rgba(243, 243, 254, 0.9) 48%,
 		rgb(252, 252, 252) 100%
 	);
+	--whiteblue: #f4f8ff;
 }
 
 body {
@@ -69,8 +71,37 @@ body {
 	margin-bottom: 1rem;
 }
 
+.whiteLeftPoint {
+	padding-right: 1.5rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	color: var(--darkblue);
+	outline: 1px solid #fff;
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	margin-bottom: 1rem;
+}
+
 .pageContent {
 	padding-top: 3rem;
 	padding-bottom: 3rem;
 	position: relative;
+}
+
+body {
+	--s: 80px; /* control the size*/
+	--c1: #ffffff;
+	--c2: #f4f8ff;
+
+	--_s: calc(1 * var(--s)) calc(1 * var(--s));
+	--_g: 35.36% 35.36% at;
+	--_c: #0000 66%, var(--c2) 68% 70%, #0000 72%;
+	background:
+		radial-gradient(var(--_g) 100% 25%, var(--_c)) var(--s) var(--s) / var(--_s),
+		radial-gradient(var(--_g) 0 75%, var(--_c)) var(--s) var(--s) / var(--_s),
+		radial-gradient(var(--_g) 100% 25%, var(--_c)) 0 0 / var(--_s),
+		radial-gradient(var(--_g) 0 75%, var(--_c)) 0 0 / var(--_s),
+		repeating-conic-gradient(var(--c1) 0 25%, #0000 0 50%) 0 0 / var(--_s),
+		radial-gradient(var(--_c)) 0 calc(var(--s) / 2) / var(--s) var(--s)
+		var(--c1);
 }

@@ -2,7 +2,7 @@ import pool from '../../config/db.js';
 
 // READ
 export const getAllTeamMembers = async () => {
-	const [rows] = await pool.query('SELECT * FROM tr_team');
+	const [rows] = await pool.query('SELECT * FROM tr_team ORDER BY `order` ASC');
 
 	return rows;
 };

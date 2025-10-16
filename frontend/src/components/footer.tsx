@@ -9,6 +9,7 @@ export default function Footer() {
 				backgroundColor: 'var(--darkblue)',
 				color: 'white',
 				height: '120px',
+				borderTop: '3px solid var(--whiteblue)',
 			}}
 		>
 			© 2025 PT. ABB Insurance Brokers. All Rights Reserved.

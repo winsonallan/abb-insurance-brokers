@@ -34,7 +34,7 @@ export default function Carousel({ imagesData }: CarouselProps) {
 		<div className="relative h-230 w-full">
 			<div className="w-full absolute h-230 z-1">
 				<div
-					className="floatingContainer left flex flex-col p-8"
+					className="floatingContainer right flex flex-col p-8 right-[0px] md:right-14 md:w-[500px] h-[500px]"
 					style={{ justifyContent: 'space-between' }}
 				>
 					<div className="containerContent">
@@ -44,7 +44,7 @@ export default function Carousel({ imagesData }: CarouselProps) {
 									key={`contentHeading__${i}`}
 									className={`carouselHeading ${i === currentIndex ? 'active' : ''} text-4xl containerHeader__text`}
 									id={`carouselHeading__${i}`}
-									style={{ fontWeight: 'bold', color: '#232ade' }}
+									style={{ fontWeight: 'bold', color: 'var(--darkblue)' }}
 								>
 									{src.caption}
 								</h1>

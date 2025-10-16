@@ -14,12 +14,15 @@ interface TeamGroup {
 export default function TeamPerson({ groupData }: TeamGroup) {
 	return (
 		<div style={{ marginBottom: '5rem' }}>
-			<div className="flex" style={{ justifyContent: 'center' }}>
+			<div
+				className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-8"
+				style={{ justifyContent: 'center' }}
+			>
 				{groupData.map((src, i) => (
 					<div
 						className="personContainer"
 						key={`container__${src.name}`}
-						style={{ marginRight: '1rem', marginLeft: '1rem', width: '550px' }}
+						style={{ marginRight: '1rem', marginLeft: '1rem' }}
 					>
 						<div
 							className="personImage flex"
@@ -35,7 +38,7 @@ export default function TeamPerson({ groupData }: TeamGroup) {
 								style={{
 									objectFit: 'fill',
 									objectPosition: 'top',
-									borderRadius: '50%',
+									borderRadius: '.5rem',
 									marginTop: '1rem',
 									marginBottom: '.5rem',
 									boxShadow: '5px 5px 5px var(--lightskyblue)',
@@ -48,6 +51,7 @@ export default function TeamPerson({ groupData }: TeamGroup) {
 								textAlign: 'center',
 								fontWeight: 'bold',
 								fontSize: '1.2rem',
+								height: '5rem',
 							}}
 						>
 							{src.name}
