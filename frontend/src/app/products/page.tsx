@@ -13,178 +13,370 @@ export default function Products() {
 		<div className="pageContent">
 			<div className="page-container">
 				<main className="content-wrap">
-					<MainPoint pointText="Our Products" />
-					<div className="pointContent flex">
-						<div
-							className="pointLeft flex flex-col"
-							style={{ justifyContent: 'center' }}
-						>
-							<div className="pointText left">
-								<div className="pointHeading">
-									<h1 className="text-2xl productHeadingText">
-										<b>Asuransiku.id</b>
-									</h1>
-								</div>
-								<div className="pointDetails">
-									In rhoncus leo in purus iaculis pulvinar. Curabitur ac
-									elementum nisi. In scelerisque risus ut felis dapibus, sit
-									amet pretium diam convallis. Aenean sagittis lacus sit amet
-									vestibulum vehicula. Mauris rhoncus nulla in erat dignissim,
-									quis sollicitudin libero ornare. Nam cursus libero arcu,
-									accumsan cursus mi aliquet sed. Phasellus dignissim purus at
-									justo fermentum mattis.
-								</div>
-								<div style={{ marginTop: '2rem' }}>
-									<a href="https://www.asuransiku.id">
-										&gt; Visit Asuransiku.id
-									</a>
-									<br />
-									<a href="https://play.google.com/store/apps/details?id=id.asuransiku.app.abb">
-										&gt; Download and install the Asuransiku.id app (Android)
-									</a>
-									<br />
-									<a href="https://play.google.com/store/apps/details?id=id.asuransiku.pro">
-										&gt; Download and install the Asuransiku.id Pro app
-										(Android)
-									</a>
-								</div>
-							</div>
-						</div>
-						<div className="pointRight">
-							<div className="pointImage">
-								<Image
-									src={`/support/images/our-products/asuransiku-id.png`}
-									alt="Carousel background"
-									fill
-									style={{
-										objectFit: 'contain',
-										outline: '1px solid #fff',
-										borderRadius: '.7rem',
-										border: '6px solid var(--mainblue)',
-										padding: '1rem',
-									}}
-								/>
-							</div>
-						</div>
-					</div>
-
-					<MainPoint pointText="Our Services" />
-					<div className="pointContent flex">
-						<div
-							className="pointLeft flex flex-col"
-							style={{ justifyContent: 'center' }}
-						>
-							<div className="pointText left">
-								<div className="pointHeading">
-									<h1 className="text-2xl productHeadingText">
-										<b>Claims Management</b>
-									</h1>
-								</div>
-								<div className="pointDetails">
-									In rhoncus leo in purus iaculis pulvinar. Curabitur ac
-									elementum nisi. In scelerisque risus ut felis dapibus, sit
-									amet pretium diam convallis. Aenean sagittis lacus sit amet
-									vestibulum vehicula. Mauris rhoncus nulla in erat dignissim,
-									quis sollicitudin libero ornare. Nam cursus libero arcu,
-									accumsan cursus mi aliquet sed. Phasellus dignissim purus at
-									justo fermentum mattis.
-								</div>
-								<div style={{ marginTop: '2rem' }}>
-									<a href="/claims-management">Learn More &gt;&gt;</a>
+					<MainPoint pointText="Our Products" pointClassName="leftPoint" />
+					<div className="w-full hidden lg:block">
+						<div className="pointContent h-[500px] flex">
+							<div
+								className="pointLeft flex flex-col"
+								style={{ justifyContent: 'center' }}
+							>
+								<div className="pointText left">
+									<div className="pointHeading">
+										<h1 className="text-2xl productHeadingText">
+											<b>Asuransiku.id</b>
+										</h1>
+									</div>
+									<div className="pointDetails">
+										In rhoncus leo in purus iaculis pulvinar. Curabitur ac
+										elementum nisi. In scelerisque risus ut felis dapibus, sit
+										amet pretium diam convallis. Aenean sagittis lacus sit amet
+										vestibulum vehicula. Mauris rhoncus nulla in erat dignissim,
+										quis sollicitudin libero ornare. Nam cursus libero arcu,
+										accumsan cursus mi aliquet sed. Phasellus dignissim purus at
+										justo fermentum mattis.
+									</div>
+									<div style={{ marginTop: '2rem' }}>
+										<a href="https://www.asuransiku.id">
+											&gt; Visit Asuransiku.id
+										</a>
+										<br />
+										<a href="https://play.google.com/store/apps/details?id=id.asuransiku.app.abb">
+											&gt; Download and install the Asuransiku.id app (Android)
+										</a>
+										<br />
+										<a href="https://play.google.com/store/apps/details?id=id.asuransiku.pro">
+											&gt; Download and install the Asuransiku.id Pro app
+											(Android)
+										</a>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div className="pointRight">
-							<div className="pointImage">
-								<Image
-									src={`/support/images/our-services/claims-management.jpeg`}
-									alt="Carousel background"
-									fill
-									style={{
-										objectFit: 'cover',
-										outline: '1px solid #fff',
-										borderRadius: '.7rem',
-									}}
-								/>
-							</div>
-						</div>
-					</div>
-
-					<div className="pointContent flex">
-						<div className="pointRight">
-							<div className="pointImage">
-								<Image
-									src={`/support/images/our-services/risk-management.jpeg`}
-									alt="Carousel background"
-									fill
-									style={{
-										objectFit: 'cover',
-										outline: '1px solid #fff',
-										borderRadius: '.7rem',
-									}}
-								/>
-							</div>
-						</div>
-						<div
-							className="pointLeft flex flex-col"
-							style={{ justifyContent: 'center' }}
-						>
-							<div className="pointText right">
-								<div className="pointHeading">
-									<h1 className="text-2xl productHeadingText">
-										<b>Risk Management</b>
-									</h1>
-								</div>
-								<div className="pointDetails">
-									Sed finibus sapien erat, vitae porttitor metus consequat in.
-									Ut ipsum velit, interdum vel diam sit amet, elementum
-									ullamcorper justo. Ut pharetra, risus nec mattis auctor,
-									libero tellus placerat lacus, id sollicitudin eros nisl sit
-									amet erat. Vestibulum hendrerit mauris id convallis fermentum.
-									Mauris consectetur sed nisl et volutpat. Vestibulum consequat
-									leo sit amet tortor ornare cursus.
-								</div>
-								<div style={{ marginTop: '2rem' }}>
-									<a href="/risk-management">Learn More &gt;&gt;</a>
+							<div className="pointRight">
+								<div className="pointImage">
+									<Image
+										src={`/support/images/our-products/asuransiku-id.png`}
+										alt="Carousel background"
+										fill
+										style={{
+											objectFit: 'contain',
+											outline: '1px solid #fff',
+											borderRadius: '.7rem',
+											border: '6px solid var(--mainblue)',
+											padding: '1rem',
+										}}
+									/>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div className="pointContent flex">
-						<div
-							className="pointLeft flex flex-col"
-							style={{ justifyContent: 'center' }}
-						>
-							<div className="pointText left">
-								<div className="pointHeading">
-									<h1 className="text-2xl productHeadingText">
-										<b>Insurance Management</b>
-									</h1>
+					<div className="w-full block lg:hidden">
+						<div className="pointContent h-[500px] flex flex-col">
+							<div>
+								<div className="pointImage text-center">
+									<Image
+										src={`/support/images/our-products/asuransiku-id.png`}
+										alt="Carousel background"
+										width={600}
+										height={300}
+										style={{
+											objectFit: 'contain',
+											outline: '1px solid #fff',
+											borderRadius: '.7rem',
+											border: '6px solid var(--mainblue)',
+											padding: '1rem',
+											margin: 'auto',
+										}}
+									/>
 								</div>
-								<div className="pointDetails">
-									Sed ac arcu consectetur, ullamcorper leo vitae, pretium nulla.
-									Vestibulum et euismod magna, a accumsan ligula. Nunc pretium
-									mi velit, quis laoreet lacus mattis quis. Duis malesuada
-									dictum ornare.
-								</div>
-								<div style={{ marginTop: '2rem' }}>
-									<a href="insurance-management">Learn More &gt;&gt;</a>
+							</div>
+							<div
+								className="flex flex-col mt-6"
+								style={{ justifyContent: 'center' }}
+							>
+								<div className="pointText">
+									<div className="pointHeading text-center">
+										<h1 className="text-2xl productHeadingText">
+											<b>Asuransiku.id</b>
+										</h1>
+									</div>
+									<div className="pointDetails text-center">
+										In rhoncus leo in purus iaculis pulvinar. Curabitur ac
+										elementum nisi. In scelerisque risus ut felis dapibus, sit
+										amet pretium diam convallis. Aenean sagittis lacus sit amet
+										vestibulum vehicula. Mauris rhoncus nulla in erat dignissim,
+										quis sollicitudin libero ornare. Nam cursus libero arcu,
+										accumsan cursus mi aliquet sed. Phasellus dignissim purus at
+										justo fermentum mattis.
+									</div>
+									<div style={{ marginTop: '2rem' }}>
+										<a href="https://www.asuransiku.id">
+											&gt; Visit Asuransiku.id
+										</a>
+										<br />
+										<a href="https://play.google.com/store/apps/details?id=id.asuransiku.app.abb">
+											&gt; Download and install the Asuransiku.id app (Android)
+										</a>
+										<br />
+										<a href="https://play.google.com/store/apps/details?id=id.asuransiku.pro">
+											&gt; Download and install the Asuransiku.id Pro app
+											(Android)
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div className="pointRight">
-							<div className="pointImage">
-								<Image
-									src={`/support/images/our-services/insurance-management.jpeg`}
-									alt="Insurance Management"
-									fill
-									style={{
-										objectFit: 'cover',
-										outline: '1px solid #fff',
-										borderRadius: '.7rem',
-									}}
-								/>
+					</div>
+
+					<MainPoint pointText="Our Services" pointClassName="leftPoint" />
+					<div className="w-full hidden lg:block">
+						<div className="pointContent h-[500px] flex">
+							<div
+								className="pointLeft flex flex-col"
+								style={{ justifyContent: 'center' }}
+							>
+								<div className="pointText left">
+									<div className="pointHeading">
+										<h1 className="text-2xl productHeadingText">
+											<b>Claims Management</b>
+										</h1>
+									</div>
+									<div className="pointDetails">
+										In rhoncus leo in purus iaculis pulvinar. Curabitur ac
+										elementum nisi. In scelerisque risus ut felis dapibus, sit
+										amet pretium diam convallis. Aenean sagittis lacus sit amet
+										vestibulum vehicula. Mauris rhoncus nulla in erat dignissim,
+										quis sollicitudin libero ornare. Nam cursus libero arcu,
+										accumsan cursus mi aliquet sed. Phasellus dignissim purus at
+										justo fermentum mattis.
+									</div>
+									<div style={{ marginTop: '2rem' }}>
+										<a href="/claims-management">Learn More &gt;&gt;</a>
+									</div>
+								</div>
+							</div>
+							<div className="pointRight">
+								<div className="pointImage">
+									<Image
+										src={`/support/images/our-services/claims-management.jpeg`}
+										alt="Carousel background"
+										fill
+										style={{
+											objectFit: 'cover',
+											outline: '1px solid #fff',
+											borderRadius: '.7rem',
+										}}
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div className="pointContent h-[500px] flex">
+							<div className="pointRight">
+								<div className="pointImage">
+									<Image
+										src={`/support/images/our-services/risk-management.jpeg`}
+										alt="Carousel background"
+										fill
+										style={{
+											objectFit: 'cover',
+											outline: '1px solid #fff',
+											borderRadius: '.7rem',
+										}}
+									/>
+								</div>
+							</div>
+							<div
+								className="pointLeft flex flex-col"
+								style={{ justifyContent: 'center' }}
+							>
+								<div className="pointText right">
+									<div className="pointHeading">
+										<h1 className="text-2xl productHeadingText">
+											<b>Risk Management</b>
+										</h1>
+									</div>
+									<div className="pointDetails">
+										Sed finibus sapien erat, vitae porttitor metus consequat in.
+										Ut ipsum velit, interdum vel diam sit amet, elementum
+										ullamcorper justo. Ut pharetra, risus nec mattis auctor,
+										libero tellus placerat lacus, id sollicitudin eros nisl sit
+										amet erat. Vestibulum hendrerit mauris id convallis
+										fermentum. Mauris consectetur sed nisl et volutpat.
+										Vestibulum consequat leo sit amet tortor ornare cursus.
+									</div>
+									<div style={{ marginTop: '2rem' }}>
+										<a href="/risk-management">Learn More &gt;&gt;</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div className="pointContent h-[500px] flex">
+							<div
+								className="pointLeft flex flex-col"
+								style={{ justifyContent: 'center' }}
+							>
+								<div className="pointText left">
+									<div className="pointHeading">
+										<h1 className="text-2xl productHeadingText">
+											<b>Insurance Management</b>
+										</h1>
+									</div>
+									<div className="pointDetails">
+										Sed ac arcu consectetur, ullamcorper leo vitae, pretium
+										nulla. Vestibulum et euismod magna, a accumsan ligula. Nunc
+										pretium mi velit, quis laoreet lacus mattis quis. Duis
+										malesuada dictum ornare.
+									</div>
+									<div style={{ marginTop: '2rem' }}>
+										<a href="insurance-management">Learn More &gt;&gt;</a>
+									</div>
+								</div>
+							</div>
+							<div className="pointRight">
+								<div className="pointImage">
+									<Image
+										src={`/support/images/our-services/insurance-management.jpeg`}
+										alt="Insurance Management"
+										fill
+										style={{
+											objectFit: 'cover',
+											outline: '1px solid #fff',
+											borderRadius: '.7rem',
+										}}
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className="w-full block lg:hidden">
+						<div className="pointContent flex flex-col">
+							<div>
+								<div className="pointImageVertical text-center">
+									<Image
+										src={`/support/images/our-services/claims-management.jpeg`}
+										alt="Carousel background"
+										width={600}
+										height={300}
+										style={{
+											objectFit: 'cover',
+											outline: '1px solid #fff',
+											borderRadius: '.7rem',
+											margin: 'auto',
+											height: '300px',
+										}}
+									/>
+								</div>
+							</div>
+							<div
+								className="flex flex-col mt-6"
+								style={{ justifyContent: 'center' }}
+							>
+								<div className="pointText">
+									<div className="pointHeading text-center">
+										<h1 className="text-2xl productHeadingText">
+											<b>Claims Management</b>
+										</h1>
+									</div>
+									<div className="pointDetails text-center">
+										In rhoncus leo in purus iaculis pulvinar. Curabitur ac
+										elementum nisi. In scelerisque risus ut felis dapibus, sit
+										amet pretium diam convallis. Aenean sagittis lacus sit amet
+										vestibulum vehicula. Mauris rhoncus nulla in erat dignissim,
+										quis sollicitudin libero ornare. Nam cursus libero arcu,
+										accumsan cursus mi aliquet sed. Phasellus dignissim purus at
+										justo fermentum mattis.
+									</div>
+									<div style={{ marginTop: '2rem', textAlign: 'center' }}>
+										<a href="/claims-management">Learn More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="pointContent flex flex-col">
+							<div>
+								<div className="pointImageVertical text-center">
+									<Image
+										src={`/support/images/our-services/risk-management.jpeg`}
+										alt="Carousel background"
+										width={600}
+										height={300}
+										style={{
+											objectFit: 'cover',
+											outline: '1px solid #fff',
+											borderRadius: '.7rem',
+											margin: 'auto',
+										}}
+									/>
+								</div>
+							</div>
+							<div
+								className="flex flex-col mt-6"
+								style={{ justifyContent: 'center' }}
+							>
+								<div className="pointText">
+									<div className="pointHeading text-center">
+										<h1 className="text-2xl productHeadingText">
+											<b>Risk Management</b>
+										</h1>
+									</div>
+									<div className="pointDetails text-center">
+										In rhoncus leo in purus iaculis pulvinar. Curabitur ac
+										elementum nisi. In scelerisque risus ut felis dapibus, sit
+										amet pretium diam convallis. Aenean sagittis lacus sit amet
+										vestibulum vehicula. Mauris rhoncus nulla in erat dignissim,
+										quis sollicitudin libero ornare. Nam cursus libero arcu,
+										accumsan cursus mi aliquet sed. Phasellus dignissim purus at
+										justo fermentum mattis.
+									</div>
+									<div style={{ marginTop: '2rem', textAlign: 'center' }}>
+										<a href="/claims-management">Learn More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="pointContent flex flex-col">
+							<div>
+								<div className="pointImageVertical text-center">
+									<Image
+										src={`/support/images/our-services/insurance-management.jpeg`}
+										alt="Carousel background"
+										width={600}
+										height={300}
+										style={{
+											objectFit: 'cover',
+											outline: '1px solid #fff',
+											borderRadius: '.7rem',
+											margin: 'auto',
+										}}
+									/>
+								</div>
+							</div>
+							<div
+								className="flex flex-col mt-6"
+								style={{ justifyContent: 'center' }}
+							>
+								<div className="pointText">
+									<div className="pointHeading text-center">
+										<h1 className="text-2xl productHeadingText">
+											<b>Insurance Management</b>
+										</h1>
+									</div>
+									<div className="pointDetails text-center">
+										In rhoncus leo in purus iaculis pulvinar. Curabitur ac
+										elementum nisi. In scelerisque risus ut felis dapibus, sit
+										amet pretium diam convallis. Aenean sagittis lacus sit amet
+										vestibulum vehicula. Mauris rhoncus nulla in erat dignissim,
+										quis sollicitudin libero ornare. Nam cursus libero arcu,
+										accumsan cursus mi aliquet sed. Phasellus dignissim purus at
+										justo fermentum mattis.
+									</div>
+									<div style={{ marginTop: '2rem', textAlign: 'center' }}>
+										<a href="/insurance-management">Learn More</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
