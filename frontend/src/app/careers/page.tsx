@@ -76,7 +76,6 @@ export default function Careers() {
 									style={{
 										objectFit: 'cover',
 										objectPosition: 'top',
-										marginBottom: '.5rem',
 									}}
 								/>
 							</div>
