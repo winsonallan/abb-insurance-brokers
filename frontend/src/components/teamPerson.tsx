@@ -38,7 +38,7 @@ export default function TeamPerson({ groupData }: TeamGroup) {
 								style={{
 									objectFit: 'fill',
 									objectPosition: 'top',
-									borderRadius: '.5rem',
+									borderRadius: '50%',
 									marginTop: '1rem',
 									marginBottom: '.5rem',
 									boxShadow: '5px 5px 5px var(--lightskyblue)',

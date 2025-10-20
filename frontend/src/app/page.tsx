@@ -1,5 +1,3 @@
-'use client';
-
 import Carousel from '@/components/homeCarousel';
 import '../../public/support/css/homepage.css';
 import MainPoint from '@/components/mainPoint';
