@@ -89,19 +89,55 @@ body {
 }
 
 body {
-	--s: 80px; /* control the size*/
+	--s: 80px; /* control the base pattern size */
 	--c1: #ffffff;
 	--c2: #f4f8ff;
 
 	--_s: calc(1 * var(--s)) calc(1 * var(--s));
 	--_g: 35.36% 35.36% at;
 	--_c: #0000 66%, var(--c2) 68% 70%, #0000 72%;
+
+	/* base structure (unchanged) */
 	background:
 		radial-gradient(var(--_g) 100% 25%, var(--_c)) var(--s) var(--s) / var(--_s),
 		radial-gradient(var(--_g) 0 75%, var(--_c)) var(--s) var(--s) / var(--_s),
 		radial-gradient(var(--_g) 100% 25%, var(--_c)) 0 0 / var(--_s),
 		radial-gradient(var(--_g) 0 75%, var(--_c)) 0 0 / var(--_s),
+		/* layered “random” squiggly waves */
+		repeating-linear-gradient(
+			7deg,
+			transparent 0 47%,
+			var(--c2) 48% 50%,
+			transparent 51% 100%
+		) 0 0 / 140px 160px,
+		repeating-linear-gradient(
+			11deg,
+			transparent 0 44%,
+			var(--c2) 45% 47%,
+			transparent 48% 100%
+		)
+		40px 40px / 180px 190px,
+		repeating-linear-gradient(
+			-6deg,
+			transparent 0 48%,
+			var(--c2) 49% 51%,
+			transparent 52% 100%
+		)
+		-30px 60px / 210px 200px,
+		repeating-linear-gradient(
+			3deg,
+			transparent 0 46%,
+			var(--c2) 47% 49%,
+			transparent 50% 100%
+		)
+		70px 80px / 230px 250px,
+		/* subtle conic structure for depth */
 		repeating-conic-gradient(var(--c1) 0 25%, #0000 0 50%) 0 0 / var(--_s),
+		/* base color */
 		radial-gradient(var(--_c)) 0 calc(var(--s) / 2) / var(--s) var(--s)
 		var(--c1);
+
+	background-blend-mode:
+		normal, normal, normal, normal, soft-light, soft-light, soft-light,
+		soft-light, normal, normal;
 }
