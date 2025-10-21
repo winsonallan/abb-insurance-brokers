@@ -15,7 +15,7 @@ export default function News() {
 				<main className="content-wrap">
 					<div className="flex w-full mb-8">
 						<div className="w-1/2 xl:w-2/9" style={{ alignContent: 'center' }}>
-							<h1 className="text-3xl" style={{ color: 'var(--mainblud)' }}>
+							<h1 className="text-3xl" style={{ color: 'var(--mainblue)' }}>
 								<b>Latest Articles</b>
 							</h1>
 						</div>
