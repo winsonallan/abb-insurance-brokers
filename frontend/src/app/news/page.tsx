@@ -25,12 +25,12 @@ export default function News() {
 					</div>
 					<div className="latestNews grid grid-cols-1 2xl:grid-cols-2 gap-8 text-white">
 						{/* Big Cover */}
-
 						<div
-							className="row-span-3 bg-[var(--darkblue)]"
+							className="row-span-3"
 							style={{
 								border: '1px solid white',
 								borderRadius: '.5rem',
+								background: 'var(--darkflippedgradient)',
 							}}
 						>
 							<a
@@ -54,6 +54,7 @@ export default function News() {
 								</div>
 								<div className="font-bold p-4">
 									<span className="text-sm">John Doe | 23 October 2024</span>
+									<br />
 									<br />
 									<span className="text-lg">
 										Bitcoin Is Being Treated Just Like Gold

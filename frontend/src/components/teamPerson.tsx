@@ -41,7 +41,7 @@ export default function TeamPerson({ groupData }: TeamGroup) {
 									borderRadius: '50%',
 									marginTop: '1rem',
 									marginBottom: '.5rem',
-									boxShadow: '5px 5px 5px var(--lightskyblue)',
+									boxShadow: '5px 5px 5px var(--lightgreyblue)',
 								}}
 							/>
 						</div>
@@ -52,13 +52,18 @@ export default function TeamPerson({ groupData }: TeamGroup) {
 								fontWeight: 'bold',
 								fontSize: '1.2rem',
 								height: '5rem',
+								color: 'var(--darkblue)',
 							}}
 						>
 							{src.name}
 						</div>
 						<div
 							className="personPosition p-2"
-							style={{ textAlign: 'center', fontWeight: 'bold' }}
+							style={{
+								textAlign: 'center',
+								fontWeight: 'bold',
+								color: 'var(--darkblue)',
+							}}
 						>
 							{src.position}
 						</div>

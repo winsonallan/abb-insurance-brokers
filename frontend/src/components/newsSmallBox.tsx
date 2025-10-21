@@ -23,9 +23,10 @@ export default function NewsSmallBox({
 				className="hidden lg:block"
 			>
 				<div
-					className="flex bg-[var(--darkblue)]"
+					className="flex"
 					style={{
 						borderRadius: '.5rem',
+						background: 'var(--darkflippedgradient)',
 					}}
 				>
 					<div className="imageDiv full h-[230px] relative w-1/2">
@@ -60,9 +61,10 @@ export default function NewsSmallBox({
 				className="block lg:hidden"
 			>
 				<div
-					className="flex flex-col bg-[var(--darkblue)]"
+					className="flex flex-col"
 					style={{
 						borderRadius: '.6rem',
+						background: 'var(--darkflippedgradient)',
 					}}
 				>
 					<div className="imageDiv w-full h-[230px] relative">
