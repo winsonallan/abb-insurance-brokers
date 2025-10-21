@@ -25,35 +25,41 @@ export default function News() {
 					</div>
 					<div className="latestNews grid grid-cols-1 2xl:grid-cols-2 gap-8 text-white">
 						{/* Big Cover */}
-						<div
-							className="row-span-3 bg-[var(--darkblue)]"
-							style={{
-								border: '1px solid white',
-								borderRadius: '.5rem',
-							}}
+						<a
+							href=" "
+							style={{ textDecoration: 'none', color: 'white' }}
+							className="hidden lg:block"
 						>
-							<div className="imageDiv w-full h-[620px] relative mb-2">
-								<Image
-									className="latestBigImage"
-									src="/support/images/news/1.jpeg"
-									alt="Career Image"
-									fill
-									style={{
-										objectFit: 'cover',
-										objectPosition: 'top',
-										borderTopLeftRadius: '.5rem',
-										borderTopRightRadius: '.5rem',
-									}}
-								/>
+							<div
+								className="row-span-3 bg-[var(--darkblue)]"
+								style={{
+									border: '1px solid white',
+									borderRadius: '.5rem',
+								}}
+							>
+								<div className="imageDiv w-full h-[620px] relative mb-2">
+									<Image
+										className="latestBigImage"
+										src="/support/images/news/1.jpeg"
+										alt="Career Image"
+										fill
+										style={{
+											objectFit: 'cover',
+											objectPosition: 'top',
+											borderTopLeftRadius: '.5rem',
+											borderTopRightRadius: '.5rem',
+										}}
+									/>
+								</div>
+								<div className="font-bold p-4">
+									<span className="text-sm">John Doe | 23 October 2024</span>
+									<br />
+									<span className="text-lg">
+										Bitcoin Is Being Treated Just Like Gold
+									</span>
+								</div>
 							</div>
-							<div className="font-bold p-4">
-								<span className="text-sm">John Doe | 23 October 2024</span>
-								<br />
-								<span className="text-lg">
-									Bitcoin Is Being Treated Just Like Gold
-								</span>
-							</div>
-						</div>
+						</a>
 
 						{/* Misc Cover */}
 						<div
