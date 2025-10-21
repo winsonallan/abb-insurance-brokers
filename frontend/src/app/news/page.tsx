@@ -25,17 +25,18 @@ export default function News() {
 					</div>
 					<div className="latestNews grid grid-cols-1 2xl:grid-cols-2 gap-8 text-white">
 						{/* Big Cover */}
-						<a
-							href=" "
-							style={{ textDecoration: 'none', color: 'white' }}
-							className="hidden lg:block"
+
+						<div
+							className="row-span-3 bg-[var(--darkblue)]"
+							style={{
+								border: '1px solid white',
+								borderRadius: '.5rem',
+							}}
 						>
-							<div
-								className="row-span-3 bg-[var(--darkblue)]"
-								style={{
-									border: '1px solid white',
-									borderRadius: '.5rem',
-								}}
+							<a
+								href=" "
+								style={{ textDecoration: 'none', color: 'white' }}
+								className="h-full w-full"
 							>
 								<div className="imageDiv w-full h-[620px] relative mb-2">
 									<Image
@@ -58,8 +59,8 @@ export default function News() {
 										Bitcoin Is Being Treated Just Like Gold
 									</span>
 								</div>
-							</div>
-						</a>
+							</a>
+						</div>
 
 						{/* Misc Cover */}
 						<div
