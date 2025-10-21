@@ -1,14 +1,28 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
+
 import NewsSmallBox from '@/components/newsSmallBox';
+
+export const metadata: Metadata = {
+	title: 'News | ABB Insurance Brokers',
+	description: 'Helping you find the best insurance options.',
+};
 
 export default function News() {
 	return (
 		<div className="pageContent">
 			<div className="page-container pl-12 pr-12 md:pl-36 md:pr-36 lg:pl-48 lg:pr-48 xl:pl-52 xl:pr-52">
 				<main className="content-wrap">
-					<h1 className="text-3xl mb-8" style={{ color: 'var(--mainblue)' }}>
-						<b>Latest Articles</b>
-					</h1>
+					<div className="flex w-full mb-8">
+						<div className="w-1/2 xl:w-2/9" style={{ alignContent: 'center' }}>
+							<h1 className="text-3xl" style={{ color: 'var(--mainblud)' }}>
+								<b>Latest Articles</b>
+							</h1>
+						</div>
+						<div className="w-1/2 xl:w-7/9" style={{ alignContent: 'center' }}>
+							<hr style={{ borderTop: '2px solid var(--mainblue)' }} />
+						</div>
+					</div>
 					<div className="latestNews grid grid-cols-1 2xl:grid-cols-2 gap-8 text-white">
 						{/* Big Cover */}
 						<div
@@ -70,13 +84,22 @@ export default function News() {
 						</div>
 					</div>
 
-					<h1
-						className="text-2xl mb-8 mt-16"
-						style={{ color: 'var(--mainblue)' }}
-					>
-						<b>More Articles</b>
-					</h1>
-
+					<div className="flex w-full mt-24 mb-12">
+						<div className="w-1/3 pr-8" style={{ alignContent: 'center' }}>
+							<hr style={{ borderTop: '2px solid var(--mainblue)' }} />
+						</div>
+						<div
+							className="w-1/3 text-center"
+							style={{ alignContent: 'center' }}
+						>
+							<h1 className="text-2xl " style={{ color: 'var(--mainblue)' }}>
+								<b>More Articles</b>
+							</h1>
+						</div>
+						<div className="w-1/3 pl-8" style={{ alignContent: 'center' }}>
+							<hr style={{ borderTop: '2px solid var(--mainblue)' }} />
+						</div>
+					</div>
 					<div
 						className="otherNews grid grid-cols-1 xl:grid-cols-2 gap-8"
 						style={{ color: 'white' }}
