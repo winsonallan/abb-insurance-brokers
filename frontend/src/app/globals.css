@@ -16,6 +16,12 @@
 		rgba(53, 60, 202, 1) 67%,
 		rgba(83, 83, 204) 100%
 	);
+	--darkergradient: linear-gradient(
+		235deg,
+		var(--darkblue) 0%,
+		rgb(23, 29, 147) 67%,
+		var(--darkblue) 100%
+	);
 	--darkflippedgradient: linear-gradient(
 		270deg,
 		rgba(0, 0, 126, 1) 0%,

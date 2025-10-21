@@ -6,7 +6,7 @@ export default function Footer() {
 		<div
 			className="p-12"
 			style={{
-				backgroundColor: 'var(--darkblue)',
+				background: 'var(--darkergradient)',
 				color: 'white',
 				height: '120px',
 				borderTop: '3px solid var(--whiteblue)',
