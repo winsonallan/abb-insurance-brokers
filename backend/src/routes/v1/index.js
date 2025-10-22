@@ -15,7 +15,7 @@ import userRoutes from './userRoutes.js';
 const router = express.Router();
 
 router.use('/admins', adminRoutes);
-router.use('/berita-posts', beritaPostsRoutes);
+router.use('/news', beritaPostsRoutes);
 router.use('/career-posts', careerPostsRoutes);
 router.use('/careers', careerRoutes);
 router.use('/contact', contactRoutes);

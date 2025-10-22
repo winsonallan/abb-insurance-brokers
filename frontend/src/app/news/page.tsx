@@ -2,13 +2,29 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import NewsSmallBox from '@/components/newsSmallBox';
+import { shortDateConverter } from '../../../public/support/js/timeConverter.js';
+import { apiURL } from '../../../public/support/js/webState';
 
 export const metadata: Metadata = {
 	title: 'News | ABB Insurance Brokers',
 	description: 'Helping you find the best insurance options.',
 };
 
-export default function News() {
+async function getNews(): Promise<News | null> {
+	const res = await fetch(`${apiURL}news`, {
+		next: { revalidate: 60 }, // optional: ISR caching
+	});
+
+	if (!res.ok) return null;
+
+	const { data } = await res.json();
+	return data;
+}
+
+export default async function News() {
+	const news = await getNews();
+	const bigImgData = JSON.parse(news[0].images);
+
 	return (
 		<div className="pageContent">
 			<div className="page-container pl-12 pr-12 md:pl-36 md:pr-36 lg:pl-48 lg:pr-48 xl:pl-52 xl:pr-52">
@@ -34,14 +50,14 @@ export default function News() {
 							}}
 						>
 							<a
-								href=" "
+								href={`/news/${news[0].slug}`}
 								style={{ textDecoration: 'none', color: 'white' }}
 								className="h-full w-full"
 							>
 								<div className="imageDiv w-full h-[620px] relative mb-2">
 									<Image
 										className="latestBigImage"
-										src="/support/images/news/1.jpeg"
+										src={`/support/images/news/${bigImgData.cover}`}
 										alt="Career Image"
 										fill
 										style={{
@@ -53,7 +69,9 @@ export default function News() {
 									/>
 								</div>
 								<div className="font-bold p-4">
-									<span className="text-sm">John Doe | 23 October 2024</span>
+									<span className="text-sm">
+										{news[0].author} | {shortDateConverter(news[0].created_at)}
+									</span>
 									<br />
 									<br />
 									<span className="text-lg">
