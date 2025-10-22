@@ -37,6 +37,22 @@ export const getBeritaPosts = async (req, res) => {
 	}
 };
 
+export const getRandomBeritaPosts = async (req, res) => {
+	try {
+		const { number, slug } = req.params;
+		const articles = await Model.getBeritaRandomPosts(number, slug);
+		if (!articles)
+			return res
+				.status(404)
+				.json({ success: false, error: 'No Articles Found!' });
+
+		res.json({ success: true, data: articles });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ success: false, error: 'Failed to fetch articles' });
+	}
+};
+
 export const getBeritaPost = async (req, res) => {
 	try {
 		const { slug } = req.params;

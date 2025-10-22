@@ -8,7 +8,7 @@ interface newsSmallBoxProps {
 	page_url: string;
 }
 
-export default function NewsSmallBox({
+export default function NewsExtraSmallBox({
 	author,
 	date,
 	title,
@@ -30,7 +30,7 @@ export default function NewsSmallBox({
 						background: 'var(--darkflippedgradient)',
 					}}
 				>
-					<div className="imageDiv full h-[230px] relative w-1/2">
+					<div className="imageDiv full h-[130px] relative w-1/2">
 						<Image
 							src={`/support/images/news/${img_url}`}
 							alt={title}
@@ -43,15 +43,13 @@ export default function NewsSmallBox({
 							}}
 						/>
 					</div>
-					<div className="p-4 font-bold w-1/2">
-						<span className="text-sm">
+					<div className="p-4 font-bold w-1/2 text-sm">
+						<span className="text-xs">
 							{author}&nbsp;|&nbsp;{date}
 						</span>
 						<br />
 						<br />
-						<span className=" text-elipsis" style={{ whiteSpace: 'wrap' }}>
-							{title}
-						</span>
+						<span className="w-full line-clamp-2">{title}</span>
 					</div>
 				</div>
 			</a>
@@ -69,7 +67,7 @@ export default function NewsSmallBox({
 						background: 'var(--darkflippedgradient)',
 					}}
 				>
-					<div className="imageDiv w-full h-[230px] relative">
+					<div className="imageDiv w-full h-[130px] relative">
 						<Image
 							src={`/support/images/news/${img_url}`}
 							alt={title}
@@ -82,15 +80,13 @@ export default function NewsSmallBox({
 							}}
 						/>
 					</div>
-					<div className="p-4 font-bold full">
-						<span className="text-sm">
+					<div className="p-4 font-bold full text-sm">
+						<span className="text-xs">
 							{author}&nbsp;|&nbsp;{date}
 						</span>
 						<br />
 						<br />
-						<span className=" text-elipsis" style={{ whiteSpace: 'wrap' }}>
-							{title}
-						</span>
+						<span className="truncate">{title}</span>
 					</div>
 				</div>
 			</a>

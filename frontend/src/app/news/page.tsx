@@ -43,6 +43,7 @@ export default async function News() {
 						{/* Big Cover */}
 						<div
 							className="row-span-3"
+							title={news[0].title}
 							style={{
 								border: '1px solid white',
 								borderRadius: '.5rem',

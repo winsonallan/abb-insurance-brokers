@@ -37,7 +37,7 @@ export default function Navbar() {
 
 			{/* --- Dropdown Menu --- */}
 			{menuOpen && (
-				<div className="flex flex-col lg:hidden fixed top-[107px] left-0 w-full bg-[var(--white)] border-b-2 border-[var(--whiteblue)] shadow-lg z-10">
+				<div className="flex flex-col lg:hidden fixed top-[107px] left-0 w-full bg-white border-b-2 border-[var(--whiteblue)] shadow-lg z-10">
 					{navbarLinks.map((label, i) => (
 						<button
 							type="button"

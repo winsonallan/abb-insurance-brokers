@@ -15,16 +15,17 @@ export default function NewsCarousel({ imagesData }: CarouselImages) {
 
 	return (
 		<div className="flex flex-col gap-4">
-			<div className="relative w-[1000px] h-[550px] flex justify-center overflow-hidden rounded-lg m-auto">
+			<div className="relative w-full lg:w-5/8 h-[350px] flex justify-center overflow-hidden rounded-lg m-auto">
 				<div
 					key={finalImages[currentIndex]}
 					className="fade-wrapper absolute inset-0"
+					style={{ alignContent: 'center' }}
 				>
 					<Image
 						src={`/support/images/news/${finalImages[currentIndex]}`}
 						alt="Main News Image"
-						width={1000}
-						height={550}
+						width={800}
+						height={600}
 						className="object-cover object-top rounded-lg"
 					/>
 				</div>

@@ -20,6 +20,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.5",
+		"@tailwindcss/line-clamp": "^0.4.4",
 		"@tailwindcss/postcss": "^4",
 		"@types/jsdom": "^27.0.0",
 		"@types/node": "^20",

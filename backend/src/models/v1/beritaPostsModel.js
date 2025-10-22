@@ -51,3 +51,30 @@ export const getBeritaPosts = async () => {
 	);
 	return rows;
 };
+
+export const getRandomBeritaPosts = async (number, slug) => {
+	const [rows] = await pool.query(
+		`
+			SELECT
+				tr_berita_posts.id, 
+				tr_berita_posts.title, 
+				tr_berita_posts.slug,
+				tr_berita_posts.images,
+				tr_berita_posts.content,
+				m_admins.name AS author,
+				tr_berita_posts.created_at,
+				tr_berita_posts.updated_at 
+			FROM 
+				tr_berita_posts
+			JOIN
+				m_admins ON tr_berita_posts.author_id = m_admins.id
+			WHERE
+				tr_berita_posts.slug != ?
+			ORDER BY RAND()
+			LIMIT ?
+		`,
+		[slug, number],
+	);
+
+	return rows;
+};
