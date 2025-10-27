@@ -3,7 +3,6 @@ import parse from 'html-react-parser';
 import { JSDOM } from 'jsdom';
 
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import NewsCarousel from '@/components/newsCarousel';
 import NewsExtraSmallBox from '@/components/newsExtraSmallBox';
 
@@ -26,19 +25,20 @@ const purify = DOMPurify(window);
 
 async function getNews(slug: string): Promise<News | null> {
 	const res = await fetch(`${apiURL}news/${slug}`, {
-		next: { revalidate: 60 }, // optional: ISR caching
+		next: { revalidate: 60 },
 	});
-
 	if (!res.ok) return null;
 	const { data } = await res.json();
 	return data;
 }
 
-async function getRandomNews(slug: string, num: number): Promise<News | null> {
+async function getRandomNews(
+	slug: string,
+	num: number,
+): Promise<News[] | null> {
 	const res = await fetch(`${apiURL}news/random/${slug}/${num}`, {
 		next: { revalidate: 60 },
 	});
-
 	if (!res.ok) return null;
 	const { data } = await res.json();
 	return data;
@@ -51,7 +51,6 @@ export async function generateMetadata({
 }) {
 	const { slug } = await params;
 	const news = await getNews(slug);
-
 	if (!news) {
 		return {
 			title: 'News not found | My Website',
@@ -61,7 +60,7 @@ export async function generateMetadata({
 
 	return {
 		title: `${news.title} | My Website`,
-		description: news.content.slice(0, 150), // or whatever preview you want
+		description: news.content.slice(0, 150),
 	};
 }
 
@@ -74,112 +73,84 @@ export default async function NewsDetail({
 	const news = await getNews(slug);
 	const moreNews = await getRandomNews(slug, 5);
 
-	if (news) {
-		const imagesData = JSON.parse(news.images);
-		const safeHTML = purify.sanitize(news.content);
-
+	if (!news) {
 		return (
 			<div className="pageContent">
-				<div className="page-container pl-12 pr-12 md:pl-36 md:pr-36 lg:pl-48 lg:pr-48 xl:pl-52 xl:pr-52">
-					<main className="content-wrap">
-						<div className="grid grid-cols-8 w-full">
-							<div className="col-span-8 grid grid-cols-8">
-								<div className="w-full pr-8 col-span-8">
-									<h1
-										className="text-3xl font-bold"
-										style={{ color: 'var(--darkblue)' }}
-									>
-										{news.title}
-									</h1>
-									<p className="font-bold" style={{ color: 'var(--mainblue)' }}>
-										by {news.author} | {timeConverter(news.created_at)}
-									</p>
-									<br />
-									<div className="grid grid-cols-8 w-full">
-										<div className="col-span-5">
-											<NewsCarousel imagesData={imagesData} />
-											<br />
-											<article
-												className="prose text-justify"
-												style={{ lineHeight: '1.5' }}
-											>
-												{parse(safeHTML)}
-											</article>
-										</div>
-										<div className="col-span-3 pl-12">
-											<div
-												style={{
-													justifyContent: 'space-between',
-													alignItems: 'center',
-												}}
-											>
-												<h1
-													className="text-2xl font-bold"
-													style={{
-														color: 'var(--darkblue)',
-														textAlign: 'right',
-													}}
-												>
-													Read More
-												</h1>
-												<hr
-													className="w-full mt-2 mb-4"
-													style={{ borderTop: '2px solid var(--mainblue)' }}
-												/>
-												<div className="w-full grid grid-cols-1 gap-y-4">
-													<NewsExtraSmallBox
-														author="Joe Doe"
-														date="21 October 2024"
-														title="New Range Rover Just Got Released! How Does It Compare To Other Cars of Similar Price Points?"
-														img_url="2.jpeg"
-														page_url=" "
-													/>
-													<NewsExtraSmallBox
-														author="Jane Doe"
-														date="12 October 2024"
-														title="The Spanish Government Has Just Started A Tourism Program... Is It A Good One?"
-														img_url="3.jpg"
-														page_url=" "
-													/>
-													<NewsExtraSmallBox
-														author="Jack Doe"
-														date="12 October 2024"
-														title="Medication Prices Hit All Time High Thanks To Donald Trump"
-														img_url="4.jpeg"
-														page_url=" "
-													/>
-													<NewsExtraSmallBox
-														author="Jane Doe"
-														date="12 October 2024"
-														title="The Spanish Government Has Just Started A Tourism Program... Is It A Good One?"
-														img_url="3.jpg"
-														page_url=" "
-													/>
-													<NewsExtraSmallBox
-														author="Jack Doe"
-														date="12 October 2024"
-														title="Medication Prices Hit All Time High Thanks To Donald Trump"
-														img_url="4.jpeg"
-														page_url=" "
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+				<div className="page-container px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36">
+					<main className="content-wrap py-8 text-center">
+						<h1>News of {slug} is not found!</h1>
 					</main>
 				</div>
 			</div>
 		);
 	}
 
+	const imagesData = JSON.parse(news.images);
+	const safeHTML = purify.sanitize(news.content);
+
 	return (
 		<div className="pageContent">
-			<div className="page-container pl-12 pr-12 md:pl-36 md:pr-36 lg:pl-48 lg:pr-48 xl:pl-52 xl:pr-52">
-				<main className="content-wrap">
-					<h1>News of {slug} is not found!</h1>
+			<div className="page-container px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36">
+				<main className="content-wrap py-8">
+					{/* HEADER */}
+					<div className="mb-6">
+						<h1 className="text-2xl sm:text-3xl font-bold text-[var(--darkblue)]">
+							{news.title}
+						</h1>
+						<p className="font-bold text-[var(--mainblue)] text-sm sm:text-base">
+							by {news.author} | {timeConverter(news.created_at)}
+						</p>
+					</div>
+
+					{/* GRID LAYOUT */}
+					<div className="grid grid-cols-1 lg:grid-cols-8 gap-8">
+						{/* LEFT MAIN CONTENT */}
+						<div className="lg:col-span-5 space-y-6">
+							<NewsCarousel imagesData={imagesData} />
+
+							<article
+								className="prose max-w-none text-justify leading-relaxed"
+								style={{ color: 'var(--darkblue)' }}
+							>
+								{parse(safeHTML)}
+							</article>
+						</div>
+
+						{/* SIDEBAR - READ MORE */}
+						<div className="lg:col-span-3">
+							<div className="flex flex-col">
+								<h1 className="text-xl sm:text-2xl font-bold text-[var(--darkblue)] text-right lg:text-left">
+									Read More
+								</h1>
+								<hr className="w-full mt-2 mb-4 border-t-2 border-[var(--mainblue)]" />
+								<div className="grid gap-4">
+									{/* Desktop and mobile-friendly boxes */}
+									{moreNews
+										? moreNews.map((item) => (
+												<NewsExtraSmallBox
+													key={item.id}
+													author={item.author}
+													date={timeConverter(item.created_at)}
+													title={item.title}
+													img_url={JSON.parse(item.images).cover}
+													page_url={`/news/${item.slug}`}
+												/>
+											))
+										: // fallback demo content if API fails
+											[1, 2, 3].map((i) => (
+												<NewsExtraSmallBox
+													key={i}
+													author="Jane Doe"
+													date="12 October 2024"
+													title="Sample article"
+													img_url="3.jpg"
+													page_url="#"
+												/>
+											))}
+								</div>
+							</div>
+						</div>
+					</div>
 				</main>
 			</div>
 		</div>

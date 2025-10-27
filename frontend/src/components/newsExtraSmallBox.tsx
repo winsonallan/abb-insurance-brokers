@@ -30,7 +30,7 @@ export default function NewsExtraSmallBox({
 						background: 'var(--darkflippedgradient)',
 					}}
 				>
-					<div className="imageDiv full h-[130px] relative w-1/2">
+					<div className="imageDiv full h-[230px] relative w-1/2">
 						<Image
 							src={`/support/images/news/${img_url}`}
 							alt={title}
@@ -43,13 +43,13 @@ export default function NewsExtraSmallBox({
 							}}
 						/>
 					</div>
-					<div className="p-4 font-bold w-1/2 text-sm">
-						<span className="text-xs">
+					<div className="p-4 font-bold w-1/2 text-md">
+						<span className="text-sm">
 							{author}&nbsp;|&nbsp;{date}
 						</span>
 						<br />
 						<br />
-						<span className="w-full line-clamp-2">{title}</span>
+						<span className="w-full line-clamp-3">{title}</span>
 					</div>
 				</div>
 			</a>
@@ -67,7 +67,7 @@ export default function NewsExtraSmallBox({
 						background: 'var(--darkflippedgradient)',
 					}}
 				>
-					<div className="imageDiv w-full h-[130px] relative">
+					<div className="imageDiv w-full h-[230px] relative">
 						<Image
 							src={`/support/images/news/${img_url}`}
 							alt={title}
@@ -80,8 +80,8 @@ export default function NewsExtraSmallBox({
 							}}
 						/>
 					</div>
-					<div className="p-4 font-bold full text-sm">
-						<span className="text-xs">
+					<div className="p-4 font-bold full text-md">
+						<span className="text-sm">
 							{author}&nbsp;|&nbsp;{date}
 						</span>
 						<br />
