@@ -20,19 +20,9 @@ export default function AdminNewsPanel() {
 
 					<div className="grid grid-cols-4">
 						<div
-							className="flex flex-col gap-y-4 mr-5 overflow-y-auto"
+							className="flex flex-col gap-y-4 mr-5 overflow-y-auto pr-5"
 							style={{ height: '800px', maxHeight: '800px' }}
 						>
-							<NewsItem title="This is the title" status="Published" />
-							<NewsItem title="This is the title 2" status="Published" />
-							<NewsItem title="This is the title" status="Published" />
-							<NewsItem title="This is the title 2" status="Published" />
-							<NewsItem title="This is the title" status="Published" />
-							<NewsItem title="This is the title 2" status="Published" />
-							<NewsItem title="This is the title" status="Published" />
-							<NewsItem title="This is the title 2" status="Published" />
-							<NewsItem title="This is the title" status="Published" />
-							<NewsItem title="This is the title 2" status="Published" />
 							<NewsItem title="This is the title" status="Published" />
 							<NewsItem title="This is the title 2" status="Published" />
 							<NewsItem title="This is the title" status="Published" />
