@@ -9,6 +9,11 @@
 	--lightishblue: #7b7df1;
 	--lightgreyblue: #c9caea;
 	--lightskyblue: #c7d4eb;
+	--lighterskyblue: rgb(221, 228, 240);
+	--superlightblue: #f0f5ff;
+	--lightoceanblue: #90b5ff;
+	--lighteroceanblue: #bdd3ff;
+	--almostwhite: #f1f1f1;
 	--linkblue: #0d6efd;
 	--darkgradient: linear-gradient(
 		90deg,
@@ -36,6 +41,34 @@
 		rgb(252, 252, 252) 100%
 	);
 	--whiteblue: #f4f8ff;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--almostwhite);
+	border-radius: 10px;
+	width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--lighteroceanblue);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--lightoceanblue);
+	border-radius: 10px;
+}
+
+@-moz-document url-prefix() {
+	* {
+		scrollbar-color: var(--lighteroceanblue) var(--almostwhite);
+		scrollbar-width: thin;
+	}
 }
 
 body {

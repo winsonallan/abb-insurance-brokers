@@ -13,10 +13,12 @@ export const getBeritaPost = async (slug) => {
 	const [rows] = await pool.query(
 		`SELECT 
 			tr_berita_posts.id, 
-			tr_berita_posts.title, 
+			tr_berita_posts.title_en,
+			tr_berita_posts.title_id, 
 			tr_berita_posts.slug,
 			tr_berita_posts.images,
 			tr_berita_posts.content,
+			tr_berita_posts.status,
 			m_admins.name AS author,
 			tr_berita_posts.created_at,
 			tr_berita_posts.updated_at
@@ -35,10 +37,12 @@ export const getBeritaPosts = async () => {
 	const [rows] = await pool.query(
 		`SELECT 
 			tr_berita_posts.id, 
-			tr_berita_posts.title, 
+			tr_berita_posts.title_en,
+			tr_berita_posts.title_id,
 			tr_berita_posts.slug,
 			tr_berita_posts.images,
 			tr_berita_posts.content,
+			tr_berita_posts.status,
 			m_admins.name AS author,
 			tr_berita_posts.created_at,
 			tr_berita_posts.updated_at 
@@ -57,10 +61,12 @@ export const getRandomBeritaPosts = async (number, slug) => {
 		`
 			SELECT
 				tr_berita_posts.id, 
-				tr_berita_posts.title, 
+				tr_berita_posts.title_en,
+				tr_berita_posts.title_id,
 				tr_berita_posts.slug,
 				tr_berita_posts.images,
 				tr_berita_posts.content,
+				tr_berita_posts.status,
 				m_admins.name AS author,
 				tr_berita_posts.created_at,
 				tr_berita_posts.updated_at 

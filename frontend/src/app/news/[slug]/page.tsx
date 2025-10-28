@@ -1,23 +1,27 @@
-import DOMPurify from 'dompurify';
 import parse from 'html-react-parser';
+import DOMPurify from 'isomorphic-dompurify';
 import { JSDOM } from 'jsdom';
 
-import type { Metadata } from 'next';
 import NewsCarousel from '@/components/newsCarousel';
 import NewsExtraSmallBox from '@/components/newsExtraSmallBox';
-
 import { timeConverter } from '../../../../public/support/js/timeConverter.js';
 import { apiURL } from '../../../../public/support/js/webState.js';
 
 interface News {
 	id: number;
-	title: string;
+	title_en: string;
+	title_id: string;
 	slug: string;
 	images: string;
 	content: string;
 	author: string;
 	created_at: string;
 	updated_at: string;
+}
+
+interface Content {
+	en: string;
+	id: string;
 }
 
 const window = new JSDOM('').window;
@@ -44,6 +48,23 @@ async function getRandomNews(
 	return data;
 }
 
+function parseContent(news: string | null): Content {
+	if (!news) {
+		return {
+			en: 'The news article could not be found...',
+			id: 'Gagal menemukan artikel yang dibutuhkan...',
+		};
+	}
+
+	try {
+		// Try to parse JSON — works if it's actually stored as JSON
+		return JSON.parse(news);
+	} catch {
+		// Otherwise, assume it's a plain string (like longtext)
+		return { en: news, id: news };
+	}
+}
+
 export async function generateMetadata({
 	params,
 }: {
@@ -51,23 +72,18 @@ export async function generateMetadata({
 }) {
 	const { slug } = await params;
 	const news = await getNews(slug);
-	if (!news) {
-		return {
-			title: 'News not found | My Website',
-			description: 'The news article could not be found.',
-		};
-	}
+	const contentJSON = parseContent(news?.content ?? null);
 
 	return {
-		title: `${news.title} | My Website`,
-		description: news.content.slice(0, 150),
+		title: `${news ? news.title_en : 'Article Not Found'} | ABB Insurance Brokers`,
+		description: contentJSON.en.slice(0, 150),
 	};
 }
 
 export default async function NewsDetail({
 	params,
 }: {
-	params: Promise<{ slug: string }>;
+	params: { slug: string };
 }) {
 	const { slug } = await params;
 	const news = await getNews(slug);
@@ -85,8 +101,15 @@ export default async function NewsDetail({
 		);
 	}
 
-	const imagesData = JSON.parse(news.images);
-	const safeHTML = purify.sanitize(news.content);
+	let imagesData = { cover: '', others: [] };
+	try {
+		imagesData = JSON.parse(news.images);
+	} catch {
+		console.warn('Invalid image JSON, using fallback.');
+	}
+
+	const contentData = parseContent(news.content);
+	const safeHTML = purify.sanitize(contentData.en.replace(/\\n/g, '<br/>'));
 
 	return (
 		<div className="pageContent">
@@ -95,7 +118,7 @@ export default async function NewsDetail({
 					{/* HEADER */}
 					<div className="mb-6">
 						<h1 className="text-2xl sm:text-3xl font-bold text-[var(--darkblue)]">
-							{news.title}
+							{news.title_en}
 						</h1>
 						<p className="font-bold text-[var(--mainblue)] text-sm sm:text-base">
 							by {news.author} | {timeConverter(news.created_at)}
@@ -124,20 +147,24 @@ export default async function NewsDetail({
 								</h1>
 								<hr className="w-full mt-2 mb-4 border-t-2 border-[var(--mainblue)]" />
 								<div className="grid gap-4">
-									{/* Desktop and mobile-friendly boxes */}
 									{moreNews
-										? moreNews.map((item) => (
-												<NewsExtraSmallBox
-													key={item.id}
-													author={item.author}
-													date={timeConverter(item.created_at)}
-													title={item.title}
-													img_url={JSON.parse(item.images).cover}
-													page_url={`/news/${item.slug}`}
-												/>
-											))
-										: // fallback demo content if API fails
-											[1, 2, 3].map((i) => (
+										? moreNews.map((item) => {
+												let img = 'default.jpg';
+												try {
+													img = JSON.parse(item.images).cover;
+												} catch {}
+												return (
+													<NewsExtraSmallBox
+														key={item.id}
+														author={item.author}
+														date={timeConverter(item.created_at)}
+														title={item.title_en}
+														img_url={img}
+														page_url={`/news/${item.slug}`}
+													/>
+												);
+											})
+										: [1, 2, 3].map((i) => (
 												<NewsExtraSmallBox
 													key={i}
 													author="Jane Doe"

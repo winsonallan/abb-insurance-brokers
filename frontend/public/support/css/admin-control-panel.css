@@ -1,0 +1,9 @@
+.carouselItem,
+.teamItem,
+.careerItem {
+	border: 3px solid var(--lightskyblue);
+	border-radius: 0.5rem;
+	width: 500px;
+	min-width: 500px;
+	background-color: var(--superlightblue);
+}
