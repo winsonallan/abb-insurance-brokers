@@ -30,6 +30,7 @@ export const getBeritaPost = async (slug) => {
 			tr_berita_posts.slug = ?`,
 		[slug],
 	);
+
 	return rows[0];
 };
 
@@ -53,6 +54,7 @@ export const getBeritaPosts = async () => {
 		ORDER BY
 			tr_berita_posts.created_at DESC`,
 	);
+
 	return rows;
 };
 
@@ -79,7 +81,7 @@ export const getRandomBeritaPosts = async (number, slug) => {
 			ORDER BY RAND()
 			LIMIT ?
 		`,
-		[slug, number],
+		[slug, parseInt(number)],
 	);
 
 	return rows;

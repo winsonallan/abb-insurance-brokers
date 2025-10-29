@@ -1,7 +1,9 @@
+'use client';
+
+import Cookies from 'js-cookie';
 import Image from 'next/image';
-import type { Dispatch, SetStateAction } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import { createElementNames } from '../../../public/support/js/createElementNames.js';
-import { apiURL } from '../../../public/support/js/webState.js';
 import { logout } from '../navbar';
 import { navbarLinks, openLinks } from './navbarUtils.js';
 
@@ -10,6 +12,7 @@ interface DesktopNavbarProps {
 	setLangMenuOpen: Dispatch<SetStateAction<boolean>>;
 	currentLang: string;
 	setCurrentLang: Dispatch<SetStateAction<string>>;
+	loggedIn: boolean;
 }
 
 export default function DesktopNavbar({
@@ -17,9 +20,10 @@ export default function DesktopNavbar({
 	setLangMenuOpen,
 	currentLang,
 	setCurrentLang,
+	loggedIn,
 }: DesktopNavbarProps) {
 	return (
-		<div className="hidden lg:flex">
+		<div className="hidden xl:flex">
 			<div
 				className="flex fixed top-0 left-0 w-full z-10 navbarDiv"
 				style={{
@@ -115,22 +119,45 @@ export default function DesktopNavbar({
 						</div>
 
 						{/* Login Button */}
-						<button
-							className="navLinks"
-							id={`navLink__login`}
-							type="button"
-							onClick={() => openLinks(6)}
-						>
-							Login
-						</button>
-						<button
-							className="navLinks"
-							id="navLink__login"
-							type="button"
-							onClick={logout}
-						>
-							Logout
-						</button>
+						{/* Auth Buttons */}
+						{!loggedIn ? (
+							<button
+								className="text-center cursor-pointer"
+								id="navLink__login"
+								type="button"
+								onClick={() => openLinks(6)}
+							>
+								Login
+							</button>
+						) : (
+							<>
+								{/* Admin Tools */}
+								<button
+									type="button"
+									className="tex-center cursor-pointer"
+									id="navLink__admin-tools"
+									onClick={() => openLinks(7)}
+								>
+									Admin Tools
+								</button>
+
+								<div className="mx-3" style={{ color: 'var(--foreground)' }}>
+									&#124;
+								</div>
+
+								{/* Logout */}
+								<button
+									className="text-center cursor-pointer"
+									type="button"
+									onClick={() => {
+										logout();
+										setIsLoggedIn(false);
+									}}
+								>
+									Logout
+								</button>
+							</>
+						)}
 					</div>
 				</nav>
 			</div>

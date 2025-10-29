@@ -9,6 +9,12 @@ export default function LoginClient() {
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
 
+	const loginFunction = async (e) => {
+		e.preventDefault();
+		await handleLogin(e);
+		window.location.href = '/admin-control-panel';
+	};
+
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
@@ -49,7 +55,7 @@ export default function LoginClient() {
 						</h1>
 						<br />
 						<div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-							<form onSubmit={handleLogin} className="col-span-5">
+							<form onSubmit={loginFunction} className="col-span-5">
 								<div className="sm:col-span-6 mb-8">
 									<label
 										htmlFor="username"

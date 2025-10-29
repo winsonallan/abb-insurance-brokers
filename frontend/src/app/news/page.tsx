@@ -11,14 +11,17 @@ export const metadata: Metadata = {
 };
 
 async function getNews(): Promise<News | null> {
-	const res = await fetch(`${apiURL}news`, {
-		next: { revalidate: 60 }, // optional: ISR caching
-	});
+	try {
+		const res = await fetch(`${apiURL}news`, {
+			next: { revalidate: 60 }, // optional: ISR caching
+		});
 
-	if (!res.ok) return null;
+		const { data } = await res.json();
 
-	const { data } = await res.json();
-	return data;
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 export default async function News() {

@@ -6,14 +6,17 @@ export const login = async (req, res) => {
 		const { username, password } = req.body;
 
 		if (!username || !password)
-			return res
-				.status(400)
-				.json({ message: 'Username and password required!' });
+			return res.status(400).json({
+				authenticated: false,
+				message: 'Username and password required!',
+			});
 
 		const admin = await Model.login(username, password);
 
 		if (!admin)
-			return res.status(401).json({ message: 'Invalid Credentials!' });
+			return res
+				.status(401)
+				.json({ authenticated: false, message: 'Invalid Credentials!' });
 
 		const token = jwt.sign(
 			{ id: admin.id, username: admin.username, role: admin.role },
@@ -29,6 +32,7 @@ export const login = async (req, res) => {
 		});
 
 		res.json({
+			authenticated: true,
 			success: true,
 			data: {
 				id: admin.id,
@@ -50,5 +54,17 @@ export const logout = (req, res) => {
 		sameSite: 'Strict',
 	});
 
-	res.json({ success: true, message: 'Logged Out' });
+	res.json({ success: true, authenticated: false, message: 'Logged Out' });
+};
+
+export const checkLogin = (req, res) => {
+	const token = req.cookies.token;
+	if (!token) return res.json({ authenticated: false });
+
+	try {
+		const decoded = jwt.verify(token, process.env.JWT_SECRET);
+		res.json({ authenticated: true, user: decoded });
+	} catch (error) {
+		res.json({ authenticated: false, message: error });
+	}
 };

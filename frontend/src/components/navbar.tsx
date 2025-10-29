@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
 
 import '../../public/support/css/components/navbar.css';
 
@@ -16,12 +17,34 @@ export async function logout() {
 		method: 'POST',
 		credentials: 'include',
 	});
+
+	Cookies.remove('token');
+	window.location.href = '/';
 }
 
 export default function Navbar() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [langMenuOpen, setLangMenuOpen] = useState(false);
 	const [currentLang, setCurrentLang] = useState('EN');
+
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+	useEffect(() => {
+		const checkAuth = async () => {
+			try {
+				const res = await fetch(`${apiURL}auth/check`, {
+					credentials: 'include', // send cookies!
+				});
+				const data = await res.json();
+				console.log(data.authenticated);
+				setIsLoggedIn(data.authenticated);
+			} catch {
+				setIsLoggedIn(false);
+			}
+		};
+
+		checkAuth();
+	}, []);
 
 	return (
 		<>
@@ -31,6 +54,7 @@ export default function Navbar() {
 				setLangMenuOpen={setLangMenuOpen}
 				currentLang={currentLang}
 				setCurrentLang={setCurrentLang}
+				loggedIn={isLoggedIn}
 			/>
 
 			{/* --- Mobile Navbar --- */}
@@ -45,7 +69,8 @@ export default function Navbar() {
 
 			{/* --- Dropdown Menu --- */}
 			{menuOpen && (
-				<div className="flex flex-col lg:hidden fixed top-[107px] left-0 w-full bg-white border-b-2 border-[var(--whiteblue)] shadow-lg z-10">
+				<div className="flex flex-col xl:hidden fixed top-[107px] left-0 w-full bg-white border-b-2 border-[var(--whiteblue)] shadow-lg z-10">
+					{/* Common navigation links */}
 					{navbarLinks.map((label, i) => (
 						<button
 							type="button"
@@ -64,28 +89,55 @@ export default function Navbar() {
 					{/* Divider */}
 					<div className="border-t border-[var(--whiteblue)] my-2"></div>
 
-					{/* Language & Login */}
-					<div className="flex justify-center items-center gap-4 pb-4">
-						<button
-							className="navLinks"
-							id="navLink__login"
-							type="button"
-							onClick={() => {
-								openLinks(6);
-								setMenuOpen(false);
-							}}
-						>
-							Login
-						</button>
-						<button
-							className="navLinks"
-							id="navLink__login"
-							type="button"
-							onClick={logout}
-						>
-							Logout
-						</button>
-					</div>
+					{/* Conditional Menus */}
+					{!isLoggedIn ? (
+						// When NOT logged in
+						<div className="flex flex-col items-center gap-2 pb-4">
+							<button
+								className="navLinks"
+								id="navLink__login"
+								type="button"
+								onClick={() => {
+									openLinks(6);
+									setMenuOpen(false);
+								}}
+							>
+								Login
+							</button>
+						</div>
+					) : (
+						// When logged in
+						<>
+							<button
+								type="button"
+								className="navLinks py-3 text-center border-t border-[var(--whiteblue)]"
+								id="navLink__admin-tools"
+								onClick={() => {
+									openLinks(7);
+									setMenuOpen(false);
+								}}
+							>
+								Admin Tools
+							</button>
+
+							<div className="border-t border-[var(--whiteblue)] my-2"></div>
+
+							<div className="flex justify-center items-center gap-4 pb-4">
+								<button
+									className="navLinks"
+									id="navLink__logout"
+									type="button"
+									onClick={() => {
+										logout();
+										setIsLoggedIn(false);
+										setMenuOpen(false);
+									}}
+								>
+									Logout
+								</button>
+							</div>
+						</>
+					)}
 				</div>
 			)}
 

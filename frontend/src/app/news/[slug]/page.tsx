@@ -88,6 +88,7 @@ export default async function NewsDetail({
 	const { slug } = await params;
 	const news = await getNews(slug);
 	const moreNews = await getRandomNews(slug, 5);
+	console.log(moreNews);
 
 	if (!news) {
 		return (
@@ -128,7 +129,13 @@ export default async function NewsDetail({
 					{/* GRID LAYOUT */}
 					<div className="grid grid-cols-1 lg:grid-cols-8 gap-8">
 						{/* LEFT MAIN CONTENT */}
-						<div className="lg:col-span-5 space-y-6">
+						<div
+							className={
+								moreNews?.length > 0
+									? 'lg:col-span-5 space-y-6'
+									: 'col-span-8 space-y-6'
+							}
+						>
 							<NewsCarousel imagesData={imagesData} />
 
 							<article
@@ -140,43 +147,47 @@ export default async function NewsDetail({
 						</div>
 
 						{/* SIDEBAR - READ MORE */}
-						<div className="lg:col-span-3">
-							<div className="flex flex-col">
-								<h1 className="text-xl sm:text-2xl font-bold text-[var(--darkblue)] text-right lg:text-left">
-									Read More
-								</h1>
-								<hr className="w-full mt-2 mb-4 border-t-2 border-[var(--mainblue)]" />
-								<div className="grid gap-4">
-									{moreNews
-										? moreNews.map((item) => {
-												let img = 'default.jpg';
-												try {
-													img = JSON.parse(item.images).cover;
-												} catch {}
-												return (
+						{moreNews?.length > 0 ? (
+							<div className="lg:col-span-3">
+								<div className="flex flex-col">
+									<h1 className="text-xl sm:text-2xl font-bold text-[var(--darkblue)] text-right lg:text-left">
+										Read More
+									</h1>
+									<hr className="w-full mt-2 mb-4 border-t-2 border-[var(--mainblue)]" />
+									<div className="grid gap-4">
+										{moreNews
+											? moreNews.map((item) => {
+													let img = 'default.jpg';
+													try {
+														img = JSON.parse(item.images).cover;
+													} catch {}
+													return (
+														<NewsExtraSmallBox
+															key={item.id}
+															author={item.author}
+															date={timeConverter(item.created_at)}
+															title={item.title_en}
+															img_url={img}
+															page_url={`/news/${item.slug}`}
+														/>
+													);
+												})
+											: [1, 2, 3].map((i) => (
 													<NewsExtraSmallBox
-														key={item.id}
-														author={item.author}
-														date={timeConverter(item.created_at)}
-														title={item.title_en}
-														img_url={img}
-														page_url={`/news/${item.slug}`}
+														key={i}
+														author="Jane Doe"
+														date="12 October 2024"
+														title="Sample article"
+														img_url="3.jpg"
+														page_url="#"
 													/>
-												);
-											})
-										: [1, 2, 3].map((i) => (
-												<NewsExtraSmallBox
-													key={i}
-													author="Jane Doe"
-													date="12 October 2024"
-													title="Sample article"
-													img_url="3.jpg"
-													page_url="#"
-												/>
-											))}
+												))}
+									</div>
 								</div>
 							</div>
-						</div>
+						) : (
+							''
+						)}
 					</div>
 				</main>
 			</div>

@@ -5,6 +5,7 @@ export const openLinks = (index) => {
 	if (index === 3) window.location.href = '/careers';
 	if (index === 4) window.location.href = '/news';
 	if (index === 6) window.location.href = '/login';
+	if (index === 7) window.location.href = '/admin-control-panel';
 };
 
 export const navbarLinks = [

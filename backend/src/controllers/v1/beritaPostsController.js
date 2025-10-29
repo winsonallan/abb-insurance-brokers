@@ -40,7 +40,7 @@ export const getBeritaPosts = async (req, res) => {
 export const getRandomBeritaPosts = async (req, res) => {
 	try {
 		const { number, slug } = req.params;
-		const articles = await Model.getBeritaRandomPosts(number, slug);
+		const articles = await Model.getRandomBeritaPosts(number, slug);
 		if (!articles)
 			return res
 				.status(404)

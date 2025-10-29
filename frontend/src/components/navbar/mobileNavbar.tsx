@@ -22,7 +22,7 @@ export default function MobileNavbar({
 }: MobileNavbarProps) {
 	return (
 		<div
-			className="flex lg:hidden fixed top-0 left-0 w-full z-10 items-center justify-between px-6 py-4 h-[107px] bg-white"
+			className="flex xl:hidden fixed top-0 left-0 w-full z-10 items-center justify-between px-6 py-4 h-[107px] bg-white"
 			style={{
 				color: 'var(--foreground)',
 				borderBottom: '3px solid var(--whiteblue)',
