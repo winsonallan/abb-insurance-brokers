@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import type { Dispatch, SetStateAction } from 'react';
 import { createElementNames } from '../../../public/support/js/createElementNames.js';
+import { apiURL } from '../../../public/support/js/webState.js';
+import { logout } from '../navbar';
 import { navbarLinks, openLinks } from './navbarUtils.js';
 
 interface DesktopNavbarProps {
@@ -120,6 +122,14 @@ export default function DesktopNavbar({
 							onClick={() => openLinks(6)}
 						>
 							Login
+						</button>
+						<button
+							className="navLinks"
+							id="navLink__login"
+							type="button"
+							onClick={logout}
+						>
+							Logout
 						</button>
 					</div>
 				</nav>

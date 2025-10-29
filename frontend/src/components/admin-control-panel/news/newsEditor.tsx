@@ -10,12 +10,20 @@ interface imagesData {
 }
 
 interface newsEditor {
-	title: string;
-	content: string;
+	title_en: string;
+	title_id: string;
+	content_en: string;
+	content_id: string;
 	imagesData: imagesData[];
 }
 
-export default function NewsEditor({ title, content, imagesData }: newsEditor) {
+export default function NewsEditor({
+	title_en,
+	title_id,
+	content_en,
+	content_id,
+	imagesData,
+}: newsEditor) {
 	const editorRef = useRef(null);
 	const editorRefID = useRef(null);
 
@@ -60,12 +68,13 @@ export default function NewsEditor({ title, content, imagesData }: newsEditor) {
 									border: '2px solid var(--lightskyblue)',
 									borderRadius: '5px',
 								}}
+								value={title_en}
 							/>
 						</div>
 					</div>
 					{/* Title (ID) */}
 					<div
-						className="titleDiv pt-1 pb-2 flex"
+						className="titleDiv pt-4 pb-2 flex"
 						style={{
 							borderBottom: '2px solid var(--lightskyblue)',
 							alignItems: 'center',
@@ -82,6 +91,7 @@ export default function NewsEditor({ title, content, imagesData }: newsEditor) {
 									border: '2px solid var(--lightskyblue)',
 									borderRadius: '5px',
 								}}
+								value={title_id}
 							/>
 						</div>
 					</div>
@@ -108,12 +118,12 @@ export default function NewsEditor({ title, content, imagesData }: newsEditor) {
 							Add New Image
 						</button>
 						<div className="flex gap-x-4 pt-1 pb-1 overflow-x-auto h-[380px] w-full">
-							<EditorImage src="1.jpeg" title={title} />
-							<EditorImage src="2.jpeg" title={title} />
-							<EditorImage src="3.jpg" title={title} />
-							<EditorImage src="1.jpeg" title={title} />
-							<EditorImage src="2.jpeg" title={title} />
-							<EditorImage src="3.jpg" title={title} />
+							<EditorImage src="1.jpeg" title={title_en} />
+							<EditorImage src="2.jpeg" title={title_en} />
+							<EditorImage src="3.jpg" title={title_en} />
+							<EditorImage src="1.jpeg" title={title_en} />
+							<EditorImage src="2.jpeg" title={title_en} />
+							<EditorImage src="3.jpg" title={title_en} />
 						</div>
 					</div>
 
@@ -129,7 +139,7 @@ export default function NewsEditor({ title, content, imagesData }: newsEditor) {
 							tinymceScriptSrc="/tinymce/tinymce.min.js"
 							licenseKey="gpl"
 							onInit={(_evt, editor) => (editorRef.current = editor)}
-							initialValue={content}
+							initialValue={content_en}
 							init={{
 								height: 500,
 								menubar: false,
@@ -175,7 +185,7 @@ export default function NewsEditor({ title, content, imagesData }: newsEditor) {
 							tinymceScriptSrc="/tinymce/tinymce.min.js"
 							licenseKey="gpl"
 							onInit={(_evt, editor) => (editorRefID.current = editor)}
-							initialValue={content}
+							initialValue={content_id}
 							init={{
 								height: 500,
 								menubar: false,

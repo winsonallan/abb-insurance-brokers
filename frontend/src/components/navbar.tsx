@@ -5,10 +5,18 @@ import { useState } from 'react';
 import '../../public/support/css/components/navbar.css';
 
 import { createElementNames } from '../../public/support/js/createElementNames.js';
+import { apiURL } from '../../public/support/js/webState.js';
 import DesktopNavbar from './navbar/desktopNavbar';
 import MobileNavbar from './navbar/mobileNavbar';
 import { navbarLinks, openLinks } from './navbar/navbarUtils.js';
 import NavbarSpacing from './navbarSpacing';
+
+export async function logout() {
+	await fetch(`${apiURL}auth/logout`, {
+		method: 'POST',
+		credentials: 'include',
+	});
+}
 
 export default function Navbar() {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -68,6 +76,14 @@ export default function Navbar() {
 							}}
 						>
 							Login
+						</button>
+						<button
+							className="navLinks"
+							id="navLink__login"
+							type="button"
+							onClick={logout}
+						>
+							Logout
 						</button>
 					</div>
 				</div>

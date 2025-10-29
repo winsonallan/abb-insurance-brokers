@@ -1,10 +1,12 @@
 import express from 'express';
 
 import adminRoutes from './adminRoutes.js';
+import authRoutes from './authRoutes.js';
 import beritaPostsRoutes from './beritaPostsRoutes.js';
 import careerPostsRoutes from './careerPostsRoutes.js';
 import careerRoutes from './careerRoutes.js';
 import contactRoutes from './contactsRoutes.js';
+import { authenticateToken } from './middleware/auth.js';
 import miscImagesRoutes from './miscImagesRoutes.js';
 import postImagesRoutes from './postImagesRoutes.js';
 import postTagsRoutes from './postTagsRoutes.js';
@@ -14,7 +16,8 @@ import userRoutes from './userRoutes.js';
 
 const router = express.Router();
 
-router.use('/admins', adminRoutes);
+router.use('/admins', authenticateToken, adminRoutes);
+router.use('/auth', authRoutes);
 router.use('/news', beritaPostsRoutes);
 router.use('/career-posts', careerPostsRoutes);
 router.use('/careers', careerRoutes);

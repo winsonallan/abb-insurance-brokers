@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Dispatch, SetStateAction } from 'react';
+import { logout } from '../navbar';
 import { openLinks } from './navbarUtils.js';
 
 interface MobileNavbarProps {

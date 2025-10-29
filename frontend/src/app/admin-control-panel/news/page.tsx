@@ -24,15 +24,15 @@ export default function AdminNewsPanel() {
 							style={{ height: '800px', maxHeight: '800px' }}
 						>
 							<NewsItem title="This is the title" status="Published" />
-							<NewsItem title="This is the title 2" status="Published" />
-							<NewsItem title="This is the title" status="Published" />
-							<NewsItem title="This is the title 2" status="Published" />
-							<NewsItem title="This is the title" status="Published" />
-							<NewsItem title="This is the title 2" status="Published" />
+							<NewsItem title="This is the title 2" status="Draft" />
+							<NewsItem title="This is the title" status="Hidden" />
+							<NewsItem title="This is the title 2" status="Updating" />
 						</div>
 						<NewsEditor
-							title="This is the title"
-							content="This is the content"
+							title_en="This is the title"
+							title_id="Ini adalah judulnya"
+							content_en="This is the content"
+							content_id="Ini adalah konten artikelnya"
 							imagesData={imagesArr}
 						></NewsEditor>
 					</div>
