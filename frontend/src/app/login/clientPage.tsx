@@ -22,9 +22,15 @@ export default function LoginClient() {
 			});
 
 			const data = await result.json();
+
+			if (!result.ok) {
+				setError(data.message);
+				return;
+			}
+
 			return data;
 		} catch (error) {
-			setError(`Login Failed: ${error}`);
+			setError(`Something went wrong. Please try again later...: ${error}`);
 		}
 	};
 
