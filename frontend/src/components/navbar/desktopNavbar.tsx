@@ -1,9 +1,9 @@
 'use client';
 
-import Cookies from 'js-cookie';
 import Image from 'next/image';
-import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import { createElementNames } from '../../../public/support/js/createElementNames.js';
+import { imagesURL } from '../../../public/support/js/webState.js';
 import { logout } from '../navbar';
 import { navbarLinks, openLinks } from './navbarUtils.js';
 
@@ -13,6 +13,7 @@ interface DesktopNavbarProps {
 	currentLang: string;
 	setCurrentLang: Dispatch<SetStateAction<string>>;
 	loggedIn: boolean;
+	setIsLoggedIn: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function DesktopNavbar({
@@ -21,6 +22,7 @@ export default function DesktopNavbar({
 	currentLang,
 	setCurrentLang,
 	loggedIn,
+	setIsLoggedIn,
 }: DesktopNavbarProps) {
 	return (
 		<div className="hidden xl:flex">
@@ -37,7 +39,7 @@ export default function DesktopNavbar({
 				}}
 			>
 				<Image
-					src="/support/images/Logo ABB.png"
+					src={`${imagesURL}Logo ABB.png`}
 					alt="logo"
 					style={{
 						objectFit: 'cover',
@@ -88,7 +90,9 @@ export default function DesktopNavbar({
 
 						{/* Language Dropdown */}
 						{langMenuOpen && (
-							<div className="absolute top-[4rem] right-[5rem] mt-2 bg-white border border-[var(--whiteblue)] rounded-md shadow-md w-24 text-center">
+							<div
+								className={`absolute top-[4rem] ${loggedIn ? 'right-[12rem]' : 'right-[3.8rem]'} mt-2 bg-white border border-[var(--whiteblue)] rounded-md shadow-md w-24 text-center`}
+							>
 								{['EN', 'ID'].map((lang) => (
 									<button
 										key={lang}

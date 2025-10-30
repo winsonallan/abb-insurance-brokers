@@ -2,15 +2,17 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import JobList from '@/components/jobList';
 import NoJob from '@/components/noJob';
-import { apiURL } from '../../../public/support/js/webState';
+import { apiURL, imagesURL } from '../../../public/support/js/webState';
 
 interface JobData {
 	position_name: string;
 	department_name: string;
 	employment_type: string;
 	location: string;
-	key_responsibility: string;
-	requirements: string;
+	key_responsibility_en: string;
+	key_responsibility_id: string;
+	requirements_en: string;
+	requirements_id: string;
 	apply_email: string;
 }
 
@@ -69,7 +71,7 @@ export default function Careers() {
 								}}
 							>
 								<Image
-									src="/support/images/careers/collage-2.png"
+									src={`${imagesURL}careers/collage-2.png`}
 									alt="Career Image"
 									width={800}
 									height={600}
@@ -96,8 +98,10 @@ export default function Careers() {
 							department={data.department_name}
 							employmentType={data.employment_type}
 							location={data.location}
-							keyRes={data.key_responsibility}
-							requirements={data.requirements}
+							keyResEN={data.key_responsibility_en}
+							keyResID={data.key_responsibility_id}
+							requirementsEN={data.requirements_en}
+							requirementsID={data.requirements_id}
 							applyEmail={data.apply_email}
 						/>
 					))}

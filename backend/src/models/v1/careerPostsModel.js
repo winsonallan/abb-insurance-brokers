@@ -8,8 +8,10 @@ export const getAllCareerPosts = async () => {
       m_department.department_name,
       tr_career_posts.location,
       tr_career_posts.employment_type,
-      tr_career_posts.key_responsibility,
-      tr_career_posts.requirements,
+      tr_career_posts.key_responsibility_en,
+      tr_career_posts.key_responsibility_id,
+      tr_career_posts.requirements_en,
+      tr_career_posts.requirements_id,
       tr_career_posts.is_active,
       m_career.apply_email
     FROM tr_career_posts 

@@ -2,6 +2,7 @@
 
 import '../../../public/support/css/contact-us.css';
 import Image from 'next/image';
+import { imagesURL } from '../../../public/support/js/webState';
 
 export default function ContactUsClient() {
 	return (
@@ -163,7 +164,7 @@ export default function ContactUsClient() {
 
 							<div className="contactInfo pl-8 borderLeftBlue flex">
 								<Image
-									src={`/support/images/icons/whatsapp.png`}
+									src={`${imagesURL}icons/whatsapp.png`}
 									alt="WA (Claim)"
 									width={20}
 									height={20}
@@ -206,7 +207,7 @@ export default function ContactUsClient() {
 
 						<div className="contactInfo flex">
 							<Image
-								src={`/support/images/icons/whatsapp.png`}
+								src={`${imagesURL}icons/whatsapp.png`}
 								alt="WA (Claim)"
 								width={20}
 								height={20}

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Dispatch, SetStateAction } from 'react';
+import { imagesURL } from '../../../public/support/js/webState';
 import { logout } from '../navbar';
 import { openLinks } from './navbarUtils.js';
 
@@ -30,11 +31,16 @@ export default function MobileNavbar({
 		>
 			{/* Logo */}
 			<Image
-				src="/support/images/Logo ABB.png"
+				src={`${imagesURL}Logo ABB.png`}
 				alt="logo"
 				width={180}
 				height={50}
-				style={{ objectFit: 'cover', cursor: 'pointer' }}
+				style={{
+					objectFit: 'cover',
+					cursor: 'pointer',
+					width: 'auto',
+					height: 'auto',
+				}}
 				onClick={() => openLinks(0)}
 			/>
 

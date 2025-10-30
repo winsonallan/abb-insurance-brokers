@@ -1,3 +1,4 @@
+import path from 'node:path';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -13,6 +14,7 @@ app.use(
 		credentials: true,
 	}),
 );
+app.use('/images', express.static(path.join(process.cwd(), 'public/images')));
 
 app.use(express.json());
 app.use(cookieParser());

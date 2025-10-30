@@ -1,16 +1,35 @@
+'use client';
+import { type Dispatch, type SetStateAction, useState } from 'react';
+
 interface newsSmallBoxProps {
 	title: string;
 	status: string;
+	id: number;
+	pickedArticle: number;
+	setPickedArticle: Dispatch<SetStateAction<number>>;
 }
 
-export default function NewsItem({ title, status }: newsSmallBoxProps) {
+export default function NewsItem({
+	title,
+	status,
+	id,
+	pickedArticle,
+	setPickedArticle,
+}: newsSmallBoxProps) {
 	return (
-		<div
+		<button
+			className={
+				pickedArticle === id ? 'border-2 border-solid border-(--darkblue)' : ''
+			}
 			style={{
 				borderRadius: '.5rem',
 				background: 'var(--superlightblue)',
 				color: 'var(--foreground)',
 				cursor: 'pointer',
+			}}
+			type="button"
+			onClick={() => {
+				setPickedArticle(id);
 			}}
 		>
 			<div
@@ -27,6 +46,6 @@ export default function NewsItem({ title, status }: newsSmallBoxProps) {
 			<div className="pt-2 pb-4 font-bold text-center w-full">
 				<span style={{ whiteSpace: 'wrap' }}>{title}</span>
 			</div>
-		</div>
+		</button>
 	);
 }

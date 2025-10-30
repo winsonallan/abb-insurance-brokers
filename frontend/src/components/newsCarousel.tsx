@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
+import { imagesURL } from '../../public/support/js/webState';
 
 interface CarouselImages {
 	imagesData: {
@@ -23,11 +24,12 @@ export default function NewsCarousel({ imagesData }: CarouselImages) {
 					style={{ alignContent: 'center' }}
 				>
 					<Image
-						src={`/support/images/news/${finalImages[currentIndex]}`}
+						src={`${imagesURL}news/${finalImages[currentIndex]}`}
 						alt="Main News Image"
 						width={800}
 						height={600}
 						className="object-contain rounded-lg"
+						style={{ width: 'auto', height: 'auto' }}
 					/>
 				</div>
 			</div>
@@ -91,10 +93,11 @@ export default function NewsCarousel({ imagesData }: CarouselImages) {
 							}`}
 						>
 							<Image
-								src={`/support/images/news/${src}`}
+								src={`${imagesURL}news/${src}`}
 								alt={`Thumbnail ${index + 1}`}
 								fill
 								className="object-cover object-top"
+								sizes="{max-width: 207px} 100vw"
 							/>
 						</button>
 					))}

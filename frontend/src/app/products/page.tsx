@@ -2,6 +2,7 @@ import Image from 'next/image';
 import MainPoint from '@/components/mainPoint';
 import '../../../public/support/css/homepage.css';
 import type { Metadata } from 'next';
+import { imagesURL } from '../../../public/support/js/webState';
 
 export const metadata: Metadata = {
 	title: 'Our Products & Services | ABB Insurance Brokers ',
@@ -54,7 +55,7 @@ export default function Products() {
 							<div className="pointRight">
 								<div className="pointImage">
 									<Image
-										src={`/support/images/our-products/asuransiku-id.png`}
+										src={`${imagesURL}our-products/asuransiku-id.png`}
 										alt="Carousel background"
 										fill
 										style={{
@@ -75,7 +76,7 @@ export default function Products() {
 							<div>
 								<div className="pointImage text-center">
 									<Image
-										src={`/support/images/our-products/asuransiku-id.png`}
+										src={`${imagesURL}our-products/asuransiku-id.png`}
 										alt="Carousel background"
 										width={600}
 										height={300}
@@ -157,7 +158,7 @@ export default function Products() {
 							<div className="pointRight">
 								<div className="pointImage">
 									<Image
-										src={`/support/images/our-services/claims-management.jpeg`}
+										src={`${imagesURL}our-services/claims-management.jpeg`}
 										alt="Carousel background"
 										fill
 										style={{
@@ -174,7 +175,7 @@ export default function Products() {
 							<div className="pointRight">
 								<div className="pointImage">
 									<Image
-										src={`/support/images/our-services/risk-management.jpeg`}
+										src={`${imagesURL}our-services/risk-management.jpeg`}
 										alt="Carousel background"
 										fill
 										style={{
@@ -236,7 +237,7 @@ export default function Products() {
 							<div className="pointRight">
 								<div className="pointImage">
 									<Image
-										src={`/support/images/our-services/insurance-management.jpeg`}
+										src={`${imagesURL}our-services/insurance-management.jpeg`}
 										alt="Insurance Management"
 										fill
 										style={{
@@ -255,7 +256,7 @@ export default function Products() {
 							<div>
 								<div className="pointImageVertical text-center">
 									<Image
-										src={`/support/images/our-services/claims-management.jpeg`}
+										src={`${imagesURL}our-services/claims-management.jpeg`}
 										alt="Carousel background"
 										width={600}
 										height={300}
@@ -298,7 +299,7 @@ export default function Products() {
 							<div>
 								<div className="pointImageVertical text-center">
 									<Image
-										src={`/support/images/our-services/risk-management.jpeg`}
+										src={`${imagesURL}our-services/risk-management.jpeg`}
 										alt="Carousel background"
 										width={600}
 										height={300}
@@ -340,7 +341,7 @@ export default function Products() {
 							<div>
 								<div className="pointImageVertical text-center">
 									<Image
-										src={`/support/images/our-services/insurance-management.jpeg`}
+										src={`${imagesURL}our-services/insurance-management.jpeg`}
 										alt="Carousel background"
 										width={600}
 										height={300}

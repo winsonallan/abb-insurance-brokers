@@ -36,7 +36,6 @@ export default function Navbar() {
 					credentials: 'include', // send cookies!
 				});
 				const data = await res.json();
-				console.log(data.authenticated);
 				setIsLoggedIn(data.authenticated);
 			} catch {
 				setIsLoggedIn(false);
@@ -55,6 +54,7 @@ export default function Navbar() {
 				currentLang={currentLang}
 				setCurrentLang={setCurrentLang}
 				loggedIn={isLoggedIn}
+				setIsLoggedIn={setIsLoggedIn}
 			/>
 
 			{/* --- Mobile Navbar --- */}

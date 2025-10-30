@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import NewsSmallBox from '@/components/newsSmallBox';
 import { shortDateConverter } from '../../../public/support/js/timeConverter.js';
-import { apiURL } from '../../../public/support/js/webState';
+import { apiURL, imagesURL } from '../../../public/support/js/webState.js';
 
 export const metadata: Metadata = {
 	title: 'News | ABB Insurance Brokers',
@@ -18,6 +18,7 @@ async function getNews(): Promise<News | null> {
 
 		const { data } = await res.json();
 
+		console.log(data);
 		return data;
 	} catch (error) {
 		console.log(error);
@@ -61,9 +62,10 @@ export default async function News() {
 								<div className="imageDiv w-full h-[620px] relative mb-2">
 									<Image
 										className="latestBigImage"
-										src={`/support/images/news/${bigImgData.cover}`}
-										alt="Career Image"
+										src={`${imagesURL}news/${bigImgData.cover}`}
+										alt={news[0].title_en ? news[0].title_en : news[0].title_id}
 										fill
+										sizes="(max-height:620px)"
 										style={{
 											objectFit: 'cover',
 											objectPosition: 'top',

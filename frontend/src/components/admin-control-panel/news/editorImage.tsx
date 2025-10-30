@@ -1,11 +1,14 @@
 import Image from 'next/image';
+import { imagesURL } from '../../../../public/support/js/webState';
 
 export default function EditorImage({
 	src,
 	title,
+	slug,
 }: {
 	src: string;
 	title: string;
+	slug: string;
 }) {
 	return (
 		<div className="flex flex-col">
@@ -21,7 +24,7 @@ export default function EditorImage({
 				}}
 			>
 				<Image
-					src={`/support/images/news/${src}`}
+					src={`${imagesURL}news/${slug}/${src}`}
 					alt={title}
 					fill
 					style={{
@@ -30,15 +33,6 @@ export default function EditorImage({
 						borderRadius: '5px',
 					}}
 				/>
-			</div>
-			<div
-				className="links flex flex-col gap-x-5 justify-center text-center pt-4"
-				style={{ color: 'var(--linkblue)' }}
-			>
-				<div className="moveUpLink">Move Up</div>
-				<div className="editLink">Replace</div>
-				<div className="editLink">Remove</div>
-				<div className="moveDownLink">Move Down</div>
 			</div>
 		</div>
 	);

@@ -13,7 +13,8 @@ interface News {
 	title_id: string;
 	slug: string;
 	images: string;
-	content: string;
+	content_en: string;
+	content_id: string;
 	author: string;
 	created_at: string;
 	updated_at: string;
@@ -48,21 +49,11 @@ async function getRandomNews(
 	return data;
 }
 
-function parseContent(news: string | null): Content {
-	if (!news) {
-		return {
-			en: 'The news article could not be found...',
-			id: 'Gagal menemukan artikel yang dibutuhkan...',
-		};
-	}
-
-	try {
-		// Try to parse JSON — works if it's actually stored as JSON
-		return JSON.parse(news);
-	} catch {
-		// Otherwise, assume it's a plain string (like longtext)
-		return { en: news, id: news };
-	}
+function parseContent(news_en: string | null, news_id: string | null): Content {
+	return {
+		en: news_en,
+		ID: news_id,
+	};
 }
 
 export async function generateMetadata({
@@ -72,10 +63,10 @@ export async function generateMetadata({
 }) {
 	const { slug } = await params;
 	const news = await getNews(slug);
-	const contentJSON = parseContent(news?.content ?? null);
+	const contentJSON = parseContent(news?.content_en, news?.content_id);
 
 	return {
-		title: `${news ? news.title_en : 'Article Not Found'} | ABB Insurance Brokers`,
+		title: `${news?.title_en ? news.title_en : news.title_id} | ABB Insurance Brokers`,
 		description: contentJSON.en.slice(0, 150),
 	};
 }
@@ -88,7 +79,6 @@ export default async function NewsDetail({
 	const { slug } = await params;
 	const news = await getNews(slug);
 	const moreNews = await getRandomNews(slug, 5);
-	console.log(moreNews);
 
 	if (!news) {
 		return (
@@ -109,8 +99,9 @@ export default async function NewsDetail({
 		console.warn('Invalid image JSON, using fallback.');
 	}
 
-	const contentData = parseContent(news.content);
-	const safeHTML = purify.sanitize(contentData.en.replace(/\\n/g, '<br/>'));
+	const contentData = parseContent(news?.content_en, news?.content_id);
+	const safeHTMLEN = purify.sanitize(contentData.en?.replace(/\\n/g, '<br/>'));
+	const safeHTMLID = purify.sanitize(contentData.id?.replace(/\\n/g, '<br/>'));
 
 	return (
 		<div className="pageContent">
@@ -142,7 +133,7 @@ export default async function NewsDetail({
 								className="prose max-w-none text-justify leading-relaxed"
 								style={{ color: 'var(--darkblue)' }}
 							>
-								{parse(safeHTML)}
+								{parse(safeHTMLEN)}
 							</article>
 						</div>
 

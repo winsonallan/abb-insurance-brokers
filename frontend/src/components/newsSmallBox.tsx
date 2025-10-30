@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { imagesURL } from '../../public/support/js/webState';
 
 interface newsSmallBoxProps {
 	author: string;
@@ -32,9 +33,10 @@ export default function NewsSmallBox({
 				>
 					<div className="imageDiv full h-[230px] relative w-1/2">
 						<Image
-							src={`/support/images/news/${img_url}`}
+							src={`${imagesURL}news/${img_url}`}
 							alt={title}
 							fill
+							sizes="(max-width:50%)"
 							style={{
 								objectFit: 'cover',
 								objectPosition: 'top',
@@ -71,9 +73,10 @@ export default function NewsSmallBox({
 				>
 					<div className="imageDiv w-full h-[230px] relative">
 						<Image
-							src={`/support/images/news/${img_url}`}
+							src={`${imagesURL}images/news/${img_url}`}
 							alt={title}
 							fill
+							sizes="(max-width:100%)"
 							style={{
 								objectFit: 'cover',
 								objectPosition: 'top',

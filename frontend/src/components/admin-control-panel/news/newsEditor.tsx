@@ -1,39 +1,155 @@
 'use client';
 
 import { Editor } from '@tinymce/tinymce-react';
-import { useRef } from 'react';
-
+import { useRef, useState } from 'react';
+import { apiURL } from '../../../../public/support/js/webState';
 import EditorImage from './editorImage';
-
-interface imagesData {
-	img_url: string;
-}
+import OverlayAddImage from './overlayAddImage';
 
 interface newsEditor {
+	slug: string;
 	title_en: string;
 	title_id: string;
 	content_en: string;
 	content_id: string;
-	imagesData: imagesData[];
+	imagesData: { cover: string; others: string[] };
+	id: number;
 }
 
+const editorPlugins = [
+	'advlist',
+	'autolink',
+	'lists',
+	'link',
+	'charmap',
+	'anchor',
+	'searchreplace',
+	'visualblocks',
+	'code',
+	'fullscreen',
+	'preview',
+	'help',
+	'wordcount',
+];
+
+const editorToolbar =
+	'undo redo | blocks | ' +
+	'bold italic underline' +
+	'alignright alignjustify | bullist numlist outdent indent | ';
+
 export default function NewsEditor({
+	slug,
 	title_en,
 	title_id,
 	content_en,
 	content_id,
 	imagesData,
+	id,
 }: newsEditor) {
-	const editorRef = useRef(null);
-	const editorRefID = useRef(null);
+	const editorRef = useRef<any>(null);
+	const editorRefID = useRef<any>(null);
+	const [showAddImagePopup, setAddImagePopup] = useState(false);
+	const { cover, others } = imagesData;
+	const [imageList, setImageList] = useState<string[]>([cover, ...others]);
+	// inside NewsEditor:
+	const [isReplaceMode, setIsReplaceMode] = useState(false);
+	const [replaceTarget, setReplaceTarget] = useState<{
+		index: number;
+		filename: string;
+	} | null>(null);
 
-	const log = () => {
-		if (editorRef.current) {
-			console.log(editorRef.current.getContent());
+	// REPLACE image — now opens the crop popup
+	const handleReplaceImage = (index: number, filenameOrUrl: string) => {
+		const filename = filenameOrUrl.split('/').pop() || filenameOrUrl;
+		setReplaceTarget({ index, filename });
+		setIsReplaceMode(true);
+		setAddImagePopup(true);
+	};
+
+	const moveImageUp = (index: number) => {
+		if (index === 0) return; // already first
+		setImageList((prev) => {
+			const updated = [...prev];
+			[updated[index - 1], updated[index]] = [
+				updated[index],
+				updated[index - 1],
+			];
+			return updated;
+		});
+	};
+
+	const moveImageDown = (index: number) => {
+		setImageList((prev) => {
+			if (index === prev.length - 1) return prev; // already last
+			const updated = [...prev];
+			[updated[index], updated[index + 1]] = [
+				updated[index + 1],
+				updated[index],
+			];
+			return updated;
+		});
+	};
+
+	// DELETE image
+	const handleDeleteImage = async (index: number, filenameOrUrl: string) => {
+		const filename = filenameOrUrl.split('/').pop() || filenameOrUrl;
+
+		try {
+			const res = await fetch(
+				`${apiURL}public/upload/news/img/${slug}/${filename}`,
+				{ method: 'DELETE' },
+			);
+
+			if (!res.ok) {
+				const msg = await res.text();
+				throw new Error(msg);
+			}
+
+			const data = await res.json();
+			if (data.success) {
+				setImageList((prev) => prev.filter((_, i) => i !== index));
+			} else {
+				alert(data.message || 'Failed to delete image');
+			}
+		} catch (err) {
+			console.error(err);
+			alert('Error deleting image');
 		}
+	};
 
-		if (editorRefID.current) {
-			console.log(editorRefID.current.getContent());
+	const handleFileSelectedForReplace = async (
+		e: React.ChangeEvent<HTMLInputElement>,
+	) => {
+		const file = e.target.files?.[0];
+		if (!file || !replaceTarget) return;
+
+		const formData = new FormData();
+		formData.append('image', file);
+
+		const { filename, index } = replaceTarget;
+
+		try {
+			const res = await fetch(
+				`${apiURL}public/upload/news/img/${slug}/${filename}`,
+				{
+					method: 'PUT',
+					body: formData,
+				},
+			);
+
+			const data = await res.json();
+			if (data.success) {
+				setImageList((prev) => {
+					const updated = [...prev];
+					updated[index] = data.path;
+					return updated;
+				});
+			} else {
+				alert(data.message || 'Failed to replace image');
+			}
+		} catch (err) {
+			console.error(err);
+			alert('Error replacing image');
 		}
 	};
 
@@ -47,6 +163,27 @@ export default function NewsEditor({
 				color: 'var(--foreground)',
 			}}
 		>
+			<OverlayAddImage
+				slug={slug}
+				showAddImage={showAddImagePopup}
+				stateFunction={setAddImagePopup}
+				replaceMode={isReplaceMode}
+				replaceTarget={replaceTarget}
+				onUploadSuccess={(newPath) => {
+					if (isReplaceMode && replaceTarget) {
+						setImageList((prev) => {
+							const updated = [...prev];
+							updated[replaceTarget.index] = newPath;
+							return updated;
+						});
+						setIsReplaceMode(false);
+						setReplaceTarget(null);
+					} else {
+						setImageList((prev) => [...prev, newPath]);
+					}
+				}}
+			/>
+
 			<form action="" method="post" className="w-full">
 				<div className="p-4 w-full">
 					{/* Title (EN) */}
@@ -114,16 +251,60 @@ export default function NewsEditor({
 								color: 'var(--foreground)',
 								borderRadius: '.5rem',
 							}}
+							onClick={() => {
+								setAddImagePopup(true);
+							}}
 						>
-							Add New Image
+							Add New Image <i className="fa-solid fa-plus"></i>
 						</button>
 						<div className="flex gap-x-4 pt-1 pb-1 overflow-x-auto h-[380px] w-full">
-							<EditorImage src="1.jpeg" title={title_en} />
-							<EditorImage src="2.jpeg" title={title_en} />
-							<EditorImage src="3.jpg" title={title_en} />
-							<EditorImage src="1.jpeg" title={title_en} />
-							<EditorImage src="2.jpeg" title={title_en} />
-							<EditorImage src="3.jpg" title={title_en} />
+							{imageList
+								? imageList.map((src, i) => (
+										<div
+											key={`image_wrap_${i}`}
+											className="flex flex-col items-center"
+										>
+											<EditorImage src={src} title={title_en} slug={slug} />
+											<div className="flex gap-2 mt-2">
+												<button
+													type="button"
+													className="p-1 bg-gray-200 rounded hover:bg-gray-300"
+													onClick={() => moveImageUp(i)}
+													disabled={i === 0}
+												>
+													↑
+												</button>
+												<button
+													type="button"
+													className="p-1 bg-gray-200 rounded hover:bg-gray-300"
+													onClick={() => moveImageDown(i)}
+													disabled={i === imageList.length - 1}
+												>
+													↓
+												</button>
+												<button
+													type="button"
+													className="p-1 bg-gray-200 rounded hover:bg-gray-300"
+													onClick={() =>
+														handleDeleteImage(i, src.split('/').pop()!)
+													}
+												>
+													<i className="fa-solid fa-trash"></i>
+												</button>
+												<button
+													type="button"
+													className="p-1 bg-gray-200 rounded hover:bg-gray-300"
+													onClick={() =>
+														handleReplaceImage(i, src.split('/').pop()!)
+													}
+												>
+													<i className="fa-solid fa-pencil"></i>
+												</button>
+											</div>
+											<input type="hidden" name={`images_${i}`} value={src} />
+										</div>
+									))
+								: ''}
 						</div>
 					</div>
 
@@ -143,29 +324,8 @@ export default function NewsEditor({
 							init={{
 								height: 500,
 								menubar: false,
-								plugins: [
-									'advlist',
-									'autolink',
-									'lists',
-									'link',
-									'image',
-									'charmap',
-									'anchor',
-									'searchreplace',
-									'visualblocks',
-									'code',
-									'fullscreen',
-									'insertdatetime',
-									'media',
-									'table',
-									'preview',
-									'help',
-									'wordcount',
-								],
-								toolbar:
-									'undo redo | blocks | ' +
-									'bold italic underline' +
-									'alignright alignjustify | bullist numlist outdent indent | ',
+								plugins: editorPlugins,
+								toolbar: editorToolbar,
 								content_style:
 									'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
 							}}
@@ -189,29 +349,8 @@ export default function NewsEditor({
 							init={{
 								height: 500,
 								menubar: false,
-								plugins: [
-									'advlist',
-									'autolink',
-									'lists',
-									'link',
-									'image',
-									'charmap',
-									'anchor',
-									'searchreplace',
-									'visualblocks',
-									'code',
-									'fullscreen',
-									'insertdatetime',
-									'media',
-									'table',
-									'preview',
-									'help',
-									'wordcount',
-								],
-								toolbar:
-									'undo redo | blocks | ' +
-									'bold italic underline' +
-									'alignright alignjustify | bullist numlist outdent indent | ',
+								plugins: editorPlugins,
+								toolbar: editorToolbar,
 								content_style:
 									'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
 							}}
@@ -220,6 +359,7 @@ export default function NewsEditor({
 					</div>
 				</div>
 				<div className="justify-center mb-3 flex gap-x-3">
+					{/* Save Draft */}
 					<button
 						type="submit"
 						className="font-bold p-2 cursor-pointer"
@@ -231,6 +371,8 @@ export default function NewsEditor({
 					>
 						Save Draft
 					</button>
+
+					{/* Publish Draft */}
 					<button
 						type="submit"
 						className="font-bold p-2 cursor-pointer"
@@ -240,8 +382,10 @@ export default function NewsEditor({
 							borderRadius: '5px',
 						}}
 					>
-						Pubish
+						Publish
 					</button>
+
+					{/* Update Draft */}
 					<button
 						type="submit"
 						className="font-bold p-2 cursor-pointer"
@@ -253,6 +397,8 @@ export default function NewsEditor({
 					>
 						Update
 					</button>
+
+					{/* Hide Article */}
 					<button
 						type="submit"
 						className="font-bold p-2 cursor-pointer"
@@ -264,6 +410,8 @@ export default function NewsEditor({
 					>
 						Hide
 					</button>
+
+					{/* Delete Article/Draft */}
 					<button
 						type="submit"
 						className="font-bold p-2 cursor-pointer"
@@ -276,6 +424,7 @@ export default function NewsEditor({
 						Delete
 					</button>
 				</div>
+				<input type="hidden" name="article_id" value={id} />
 			</form>
 		</div>
 	);

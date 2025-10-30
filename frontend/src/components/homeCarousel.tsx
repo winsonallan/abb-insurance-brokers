@@ -3,12 +3,15 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import '../../public/support/css/components/carousel.css';
+import { imagesURL } from '../../public/support/js/webState';
 
 interface CarouselImage {
 	id: number;
 	image_path: string;
-	caption: string;
-	description: string;
+	caption_en: string;
+	caption_id: string;
+	description_en: string;
+	description_id: string;
 	content_type: string;
 	link_url: string;
 	display_order: number;
@@ -46,7 +49,7 @@ export default function Carousel({ imagesData }: CarouselProps) {
 									id={`carouselHeading__${i}`}
 									style={{ fontWeight: 'bold', color: 'var(--darkblue)' }}
 								>
-									{src.caption}
+									{src.caption_en}
 								</h1>
 							))}
 						</div>
@@ -58,7 +61,7 @@ export default function Carousel({ imagesData }: CarouselProps) {
 									className={`carouselText ${i === currentIndex ? 'active' : ''}`}
 									id={`carouselText__${i}`}
 								>
-									{src.description}
+									{src.description_en}
 								</p>
 							))}
 						</div>
@@ -83,7 +86,7 @@ export default function Carousel({ imagesData }: CarouselProps) {
 						key={i}
 						className={`carouselImage ${i === currentIndex ? 'active' : ''}`}
 						id={`carouselImage__${i}`}
-						src={`/support/images/carousel/${src.image_path}`}
+						src={`${imagesURL}carousel/${src.image_path}`}
 						alt="Carousel background"
 						fill
 						style={{

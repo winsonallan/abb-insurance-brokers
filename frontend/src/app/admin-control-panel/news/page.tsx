@@ -1,43 +1,49 @@
 import type { Metadata } from 'next';
-import NewsEditor from '@/components/admin-control-panel/news/newsEditor';
-import NewsItem from '@/components/admin-control-panel/news/newsItem';
+import { apiURL } from '../../../../public/support/js/webState.js';
+
+import ClientAdminNewsPanel from './clientPage';
 
 export const metadata: Metadata = {
 	title: 'Admin News Panel | ABB Insurance Brokers',
 	description: 'Helping you find the best insurance options.',
 };
 
-const imagesArr = [{ img_url: '1.jpeg' }];
+interface articleProps {
+	author: string;
+	content_en: string;
+	content_id: string;
+	created_at: Date;
+	id: number;
+	images: string;
+	slug: string;
+	status: string;
+	title_en: string;
+	title_id: string;
+	updated_at: Date;
+}
+
+async function getNews(): Promise<News | null> {
+	try {
+		const res = await fetch(`${apiURL}news`, {
+			next: { revalidate: 60 }, // optional: ISR caching
+		});
+
+		const { data } = await res.json();
+		const modifData = data.map((src: articleProps, i: number) => {
+			src.images = src.images ? JSON.parse(src.images) : '';
+
+			return src;
+		});
+		const finData = [{}, ...modifData];
+		console.log(finData);
+		return finData;
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+const news = await getNews();
 
 export default function AdminNewsPanel() {
-	return (
-		<div className="pageContent">
-			<div className="page-container pl-12 pr-12">
-				<main className="content-wrap">
-					<h1 className="text-3xl mb-12" style={{ color: 'var(--mainblue)' }}>
-						<b>News Panel</b>
-					</h1>
-
-					<div className="grid grid-cols-4">
-						<div
-							className="flex flex-col gap-y-4 mr-5 overflow-y-auto pr-5"
-							style={{ height: '800px', maxHeight: '800px' }}
-						>
-							<NewsItem title="This is the title" status="Published" />
-							<NewsItem title="This is the title 2" status="Draft" />
-							<NewsItem title="This is the title" status="Hidden" />
-							<NewsItem title="This is the title 2" status="Updating" />
-						</div>
-						<NewsEditor
-							title_en="This is the title"
-							title_id="Ini adalah judulnya"
-							content_en="This is the content"
-							content_id="Ini adalah konten artikelnya"
-							imagesData={imagesArr}
-						></NewsEditor>
-					</div>
-				</main>
-			</div>
-		</div>
-	);
+	return <ClientAdminNewsPanel news={news} />;
 }

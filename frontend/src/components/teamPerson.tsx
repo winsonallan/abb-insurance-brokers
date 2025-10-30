@@ -1,10 +1,13 @@
 import Image from 'next/image';
+import { apiURL, imagesURL } from '../../public/support/js/webState';
 
 interface TeamMemberProps {
 	name: string;
 	path_url: string;
-	position: string;
-	description: string;
+	position_en: string;
+	position_id: string;
+	description_en: string;
+	description_id: string;
 }
 
 interface TeamGroup {
@@ -31,7 +34,7 @@ export default function TeamPerson({ groupData }: TeamGroup) {
 							<Image
 								className={`teamImage`}
 								id={`teamImage__${i}`}
-								src={`/support/images/our-team/${src.path_url}`}
+								src={`${imagesURL}our-team/${src.path_url}`}
 								alt={src.name}
 								width={400}
 								height={400}
@@ -65,13 +68,13 @@ export default function TeamPerson({ groupData }: TeamGroup) {
 								color: 'var(--darkblue)',
 							}}
 						>
-							{src.position}
+							{src.position_en}
 						</div>
 						<div
 							className="personDescription p-2"
 							style={{ textAlign: 'center' }}
 						>
-							{src.description}
+							{src.description_en}
 						</div>
 					</div>
 				))}

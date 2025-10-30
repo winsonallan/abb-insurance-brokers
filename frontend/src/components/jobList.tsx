@@ -3,8 +3,10 @@ interface JobData {
 	department: string;
 	employmentType: string;
 	location: string;
-	keyRes: string;
-	requirements: string;
+	keyResEN: string;
+	keyResID: string;
+	requirementsEN: string;
+	requirementsID: string;
 	applyEmail: string;
 }
 
@@ -13,8 +15,10 @@ export default function JobList({
 	department,
 	employmentType,
 	location,
-	keyRes,
-	requirements,
+	keyResEN,
+	keyResID,
+	requirementsEN,
+	requirementsID,
 	applyEmail,
 }: JobData) {
 	return (
@@ -74,7 +78,7 @@ export default function JobList({
 					<div className="jobDesc text-center md:text-left">
 						<b style={{ color: 'var(--darkblue)' }}>Key Responsibilities</b>
 						<br />
-						{keyRes.split(/\r?\n/).map((line, i) => (
+						{keyResEN.split(/\r?\n/).map((line, i) => (
 							<>
 								{line}
 								<br />
@@ -84,7 +88,7 @@ export default function JobList({
 						<br />
 						<b style={{ color: 'var(--darkblue)' }}>Requirements</b>
 						<br />
-						{requirements.split(/\r?\n/).map((line, i) => (
+						{requirementsEN.split(/\r?\n/).map((line, i) => (
 							<>
 								{line}
 								<br />
