@@ -110,7 +110,7 @@ export default function Navbar() {
 						<>
 							<button
 								type="button"
-								className="navLinks py-3 text-center border-t border-[var(--whiteblue)]"
+								className="navLinks py-3 text-center"
 								id="navLink__admin-tools"
 								onClick={() => {
 									openLinks(7);

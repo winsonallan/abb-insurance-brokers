@@ -19,7 +19,9 @@ export default function NewsItem({
 	return (
 		<button
 			className={
-				pickedArticle === id ? 'border-2 border-solid border-(--darkblue)' : ''
+				pickedArticle === id
+					? 'border-2 border-solid border-(--lightskyblue)'
+					: ''
 			}
 			style={{
 				borderRadius: '.5rem',

@@ -3,8 +3,10 @@ interface careerItemProps {
 	department: string;
 	type: string;
 	location: string;
-	keyResponsibilities: string;
-	requirements: string;
+	key_res_en: string;
+	requirements_en: string;
+	key_res_id: string;
+	requirements_id: string;
 	email: string;
 }
 
@@ -13,8 +15,10 @@ export default function CareerItem({
 	department,
 	type,
 	location,
-	keyResponsibilities,
-	requirements,
+	key_res_en,
+	key_res_id,
+	requirements_en,
+	requirements_id,
 	email,
 }: careerItemProps) {
 	return (
@@ -36,12 +40,24 @@ export default function CareerItem({
 				{location}
 			</div>
 			<div className="keyResponsibilitiesDiv flex flex-col mb-2">
-				<b style={{ color: 'var(--darkblue)' }}>Key Responsibilities:&nbsp;</b>
-				{keyResponsibilities}
+				<b style={{ color: 'var(--darkblue)' }}>
+					Key Responsibilities (EN):&nbsp;
+				</b>
+				{key_res_en}
+			</div>
+			<div className="keyResponsibilitiesDiv flex flex-col mb-2">
+				<b style={{ color: 'var(--darkblue)' }}>
+					Key Responsibilities (ID):&nbsp;
+				</b>
+				{key_res_id}
 			</div>
 			<div className="requirementDiv flex flex-col mb-2">
-				<b style={{ color: 'var(--darkblue)' }}>Requirements:&nbsp;</b>
-				{requirements}
+				<b style={{ color: 'var(--darkblue)' }}>Requirements (EN):&nbsp;</b>
+				{requirements_en}
+			</div>
+			<div className="requirementDiv flex flex-col mb-2">
+				<b style={{ color: 'var(--darkblue)' }}>Requirements (ID):&nbsp;</b>
+				{requirements_id}
 			</div>
 			<div className="emailDiv flex flex-col mb-2">
 				<b style={{ color: 'var(--darkblue)' }}>Email:&nbsp;</b>

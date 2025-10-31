@@ -70,7 +70,7 @@ export default function NewsExtraSmallBox({
 				>
 					<div className="imageDiv w-full h-[230px] relative">
 						<Image
-							src={`/support/images/news/${img_url}`}
+							src={`${imagesURL}news/${img_url}`}
 							alt={title}
 							fill
 							style={{

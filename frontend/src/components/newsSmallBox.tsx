@@ -73,7 +73,7 @@ export default function NewsSmallBox({
 				>
 					<div className="imageDiv w-full h-[230px] relative">
 						<Image
-							src={`${imagesURL}images/news/${img_url}`}
+							src={`${imagesURL}news/${img_url}`}
 							alt={title}
 							fill
 							sizes="(max-width:100%)"

@@ -52,7 +52,7 @@ async function getRandomNews(
 function parseContent(news_en: string | null, news_id: string | null): Content {
 	return {
 		en: news_en,
-		ID: news_id,
+		id: news_id,
 	};
 }
 

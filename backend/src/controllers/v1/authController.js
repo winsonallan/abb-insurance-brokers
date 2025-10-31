@@ -63,6 +63,24 @@ export const checkLogin = (req, res) => {
 
 	try {
 		const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+		const timeLeft = decoded.exp * 1000 - Date.now();
+
+		if (timeLeft < 30 * 60 * 1000) {
+			const newToken = jwt.sign(
+				{ id: decoded.id, username: decoded.username, role: decoded.role },
+				process.env.JWT_SECRET,
+				{ expiresIn: '4h' },
+			);
+
+			res.cookie('token', newToken, {
+				httpOnly: true,
+				secure: process.env.NODE_ENV === 'production',
+				sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+				maxAge: 4 * 60 * 60 * 1000,
+			});
+		}
+
 		res.json({ authenticated: true, user: decoded });
 	} catch (error) {
 		res.json({ authenticated: false, message: error });

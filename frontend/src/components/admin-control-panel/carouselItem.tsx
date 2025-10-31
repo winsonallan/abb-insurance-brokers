@@ -1,31 +1,43 @@
 interface CarouselItemProps {
 	fileName: string;
 	fileURL: string;
-	heading: string;
-	text: string;
+	heading_en: string;
+	heading_id: string;
+	text_en: string;
+	text_id: string;
 }
 
 export default function CarouselItem({
 	fileName,
 	fileURL,
-	heading,
-	text,
+	heading_en,
+	heading_id,
+	text_en,
+	text_id,
 }: CarouselItemProps) {
 	return (
 		<div className="carouselItem py-2 px-4">
 			<div className="fileDiv flex flex-row mb-1">
-				<b style={{ color: 'var(--darkblue)' }}>File:&nbsp;</b>
+				<b style={{ color: 'var(--darkblue)' }}>Image:&nbsp;</b>
 				<a href={fileURL}>
 					<u>{fileName}</u>
 				</a>
 			</div>
-			<div className="headingTextDiv flex flex-row mb-1">
-				<b style={{ color: 'var(--darkblue)' }}>Heading:&nbsp;</b>
-				{heading}
+			<div className="headingENTextDiv flex flex-row mb-1">
+				<b style={{ color: 'var(--darkblue)' }}>Heading (EN):&nbsp;</b>
+				{heading_en}
+			</div>
+			<div className="headingIDTextDiv flex flex-row mb-1">
+				<b style={{ color: 'var(--darkblue)' }}>Heading (ID):&nbsp;</b>
+				{heading_id}
+			</div>
+			<div className="carouselTextENDiv flex flex-row mb-1">
+				<b style={{ color: 'var(--darkblue)' }}>Content (EN):&nbsp;</b>
+				{text_en}
 			</div>
 			<div className="carouselTextDiv flex flex-row mb-1">
-				<b style={{ color: 'var(--darkblue)' }}>Content:&nbsp;</b>
-				{text}
+				<b style={{ color: 'var(--darkblue)' }}>Content (ID):&nbsp;</b>
+				{text_id}
 			</div>
 			<div
 				className="w-full mt-2 flex flex-row"

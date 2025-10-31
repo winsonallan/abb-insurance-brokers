@@ -17,7 +17,7 @@ export default function NewsCarousel({ imagesData }: CarouselImages) {
 
 	return (
 		<div className="flex flex-col gap-4">
-			<div className="relative w-full lg:w-5/8 h-[400px] flex justify-center overflow-hidden rounded-lg m-auto px-2">
+			<div className="relative w-full lg:w-5/8 h-[600px] flex justify-center overflow-hidden rounded-lg m-auto px-2">
 				<div
 					key={finalImages[currentIndex]}
 					className="fade-wrapper aboslute inset-0"

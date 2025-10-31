@@ -3,7 +3,17 @@
 .careerItem {
 	border: 3px solid var(--lightskyblue);
 	border-radius: 0.5rem;
-	width: 500px;
-	min-width: 500px;
+	width: 650px;
+	min-width: 650px;
 	background-color: var(--superlightblue);
+}
+
+.carouselItem b {
+	width: 125px;
+	min-width: 125px;
+}
+
+.careerItem b,
+.teamItem b {
+	width: 250px;
 }

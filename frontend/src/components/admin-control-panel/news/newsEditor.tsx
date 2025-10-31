@@ -1,7 +1,10 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny:  False Positive */
+/** biome-ignore-all lint/style/noNonNullAssertion: Needed for Regex */
 'use client';
 
 import { Editor } from '@tinymce/tinymce-react';
 import { useRef, useState } from 'react';
+import TinyMCEEditor from '@/components/tinyMCEEditor';
 import { apiURL } from '../../../../public/support/js/webState';
 import EditorImage from './editorImage';
 import OverlayAddImage from './overlayAddImage';
@@ -15,27 +18,6 @@ interface newsEditor {
 	imagesData: { cover: string; others: string[] };
 	id: number;
 }
-
-const editorPlugins = [
-	'advlist',
-	'autolink',
-	'lists',
-	'link',
-	'charmap',
-	'anchor',
-	'searchreplace',
-	'visualblocks',
-	'code',
-	'fullscreen',
-	'preview',
-	'help',
-	'wordcount',
-];
-
-const editorToolbar =
-	'undo redo | blocks | ' +
-	'bold italic underline' +
-	'alignright alignjustify | bullist numlist outdent indent | ';
 
 export default function NewsEditor({
 	slug,
@@ -114,42 +96,6 @@ export default function NewsEditor({
 		} catch (err) {
 			console.error(err);
 			alert('Error deleting image');
-		}
-	};
-
-	const handleFileSelectedForReplace = async (
-		e: React.ChangeEvent<HTMLInputElement>,
-	) => {
-		const file = e.target.files?.[0];
-		if (!file || !replaceTarget) return;
-
-		const formData = new FormData();
-		formData.append('image', file);
-
-		const { filename, index } = replaceTarget;
-
-		try {
-			const res = await fetch(
-				`${apiURL}public/upload/news/img/${slug}/${filename}`,
-				{
-					method: 'PUT',
-					body: formData,
-				},
-			);
-
-			const data = await res.json();
-			if (data.success) {
-				setImageList((prev) => {
-					const updated = [...prev];
-					updated[index] = data.path;
-					return updated;
-				});
-			} else {
-				alert(data.message || 'Failed to replace image');
-			}
-		} catch (err) {
-			console.error(err);
-			alert('Error replacing image');
 		}
 	};
 
@@ -257,7 +203,7 @@ export default function NewsEditor({
 						>
 							Add New Image <i className="fa-solid fa-plus"></i>
 						</button>
-						<div className="flex gap-x-4 pt-1 pb-1 overflow-x-auto h-[380px] w-full">
+						<div className="flex gap-x-4 pt-1 pb-1 overflow-x-auto h-[280px] w-full">
 							{imageList
 								? imageList.map((src, i) => (
 										<div
@@ -316,20 +262,7 @@ export default function NewsEditor({
 						<span className="font-bold">Content (EN):</span>
 						<br />
 						<br />
-						<Editor
-							tinymceScriptSrc="/tinymce/tinymce.min.js"
-							licenseKey="gpl"
-							onInit={(_evt, editor) => (editorRef.current = editor)}
-							initialValue={content_en}
-							init={{
-								height: 500,
-								menubar: false,
-								plugins: editorPlugins,
-								toolbar: editorToolbar,
-								content_style:
-									'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-							}}
-						/>
+						<TinyMCEEditor ref={editorRef} />
 						<br />
 					</div>
 
@@ -341,20 +274,7 @@ export default function NewsEditor({
 						<span className="font-bold">Content (ID):</span>
 						<br />
 						<br />
-						<Editor
-							tinymceScriptSrc="/tinymce/tinymce.min.js"
-							licenseKey="gpl"
-							onInit={(_evt, editor) => (editorRefID.current = editor)}
-							initialValue={content_id}
-							init={{
-								height: 500,
-								menubar: false,
-								plugins: editorPlugins,
-								toolbar: editorToolbar,
-								content_style:
-									'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-							}}
-						/>
+						<TinyMCEEditor ref={editorRefID} />
 						<br />
 					</div>
 				</div>
