@@ -22,6 +22,7 @@ interface CarouselProps {
 }
 
 export default function Carousel({ imagesData }: CarouselProps) {
+	console.log(imagesData);
 	const carouselLen = imagesData.length;
 
 	const [currentIndex, setCurrentIndex] = useState(0);

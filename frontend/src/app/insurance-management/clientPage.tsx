@@ -14,7 +14,7 @@ const InsuranceMindMap = dynamic(() => import('./InsuranceMindMap'), {
 
 export default function InsuranceManagementClient() {
 	useEffect(() => {
-		AOS.init({ duration: 800, once: false, offset: 80 });
+		AOS.init({ duration: 800, once: true, offset: 80 });
 	});
 
 	return (
@@ -22,12 +22,26 @@ export default function InsuranceManagementClient() {
 			<div className="page-container pl-12 pr-12">
 				<main className="content-wrap">
 					<h1
-						className="text-3xl mb-12"
+						className="text-3xl mb-4"
 						style={{ color: 'var(--mainblue)' }}
 						data-aos="fade-right"
 					>
 						<b>Insurance Management</b>
 					</h1>
+
+					<p data-aos="fade-right">
+						Insurance should do more than just protect — it should empower. At
+						ABB, we approach insurance management as a partnership built on
+						transparency, understanding, and long-term value. Our goal is to
+						help you make confident decisions by identifying only the coverage
+						that truly serves your needs, ensuring every policy contributes real
+						protection and tangible value. We see insurance not as a luxury or a
+						formality, but as a strategic investment in your peace of mind and
+						business continuity. Whether you're seeking to safeguard assets,
+						reduce exposure, or optimize risk placement, our expertise is
+						focused on aligning the right coverage with the right purpose —
+						nothing more, nothing less.
+					</p>
 
 					{/* === Our Commitment === */}
 					<ServiceWhiteSection
@@ -75,6 +89,7 @@ export default function InsuranceManagementClient() {
 							pointText="Our Approach"
 							pointClassName="whiteLeftPoint"
 							center={true}
+							color="var(--darkblue)"
 						/>
 						<p className="text-gray-700 leading-relaxed mt-4 text-center">
 							We recognize that each and every customer, whether they are big
@@ -189,8 +204,8 @@ export default function InsuranceManagementClient() {
 						>
 							To make things simple, check out our interactive Insurance Program
 							Mindmap below. It's a visual guide that lays out all the kinds of
-							insurance we cover and shows how they fit together. Take a
-							look—see if what you need is included and get a feel for how our
+							insurance we cover and shows how they fit together. Take a look —
+							see if what you need is included and get a feel for how our
 							programs work as part of one big, connected protection plan.
 						</p>
 						<div className="w-full" data-aos="fade-up">
