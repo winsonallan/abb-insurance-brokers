@@ -8,13 +8,18 @@
 	--mainblue: #353cca;
 	--lightishblue: #7b7df1;
 	--lightgreyblue: #c9caea;
+	--skyblue: #92baff;
 	--lightskyblue: #c7d4eb;
 	--lighterskyblue: rgb(221, 228, 240);
 	--superlightblue: #f0f5ff;
 	--lightoceanblue: #90b5ff;
 	--lighteroceanblue: #bdd3ff;
+	--superlightoceanblue: #f4f8ff;
 	--almostwhite: #f1f1f1;
 	--linkblue: #0d6efd;
+	--greenishblue: #40c8e0;
+	--lightgreenishblue: #96fff5;
+	--darkgreenishblue: #00bca9;
 	--darkgradient: linear-gradient(
 		90deg,
 		rgba(0, 0, 126, 1) 0%,
@@ -26,6 +31,12 @@
 		var(--darkblue) 0%,
 		rgb(23, 29, 147) 67%,
 		var(--darkblue) 100%
+	);
+	--darkestgradient: linear-gradient(
+		235deg,
+		var(--darkerblue) 0%,
+		rgb(22, 27, 113) 67%,
+		var(--darkerblue) 100%
 	);
 	--darkflippedgradient: linear-gradient(
 		270deg,
@@ -184,4 +195,8 @@ body {
 	background-blend-mode:
 		normal, normal, normal, normal, soft-light, soft-light, soft-light,
 		soft-light, normal, normal;
+}
+
+.markmap-toolbar + svg {
+	display: none !important;
 }

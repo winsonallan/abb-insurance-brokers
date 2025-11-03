@@ -59,8 +59,78 @@ export default function AdminPanelClient({
 			<div className="page-container pl-12 pr-12">
 				<main className="content-wrap">
 					<h1 className="text-3xl mb-12" style={{ color: 'var(--mainblue)' }}>
-						<b>Admin Control Panel</b>
+						<b>Editor Control Panel</b>
 					</h1>
+					<div className="editNews">
+						<h1 className="text-xl mb-2" style={{ color: 'var(--darkblue)' }}>
+							<b>News</b>
+						</h1>
+						<div
+							className="w-full mb-8"
+							style={{
+								alignContent: 'center',
+								justifyContent: 'center',
+							}}
+						>
+							<a href="/admin-control-panel/news">
+								Click here&nbsp;&nbsp;
+								<i className="fas fa-external-link"></i>
+							</a>
+						</div>
+					</div>
+
+					<div className="addEditor mb-8">
+						<form action="">
+							<h1 className="text-xl mb-2" style={{ color: 'var(--darkblue)' }}>
+								<b>Add Editor</b>
+							</h1>
+							<div className="flex mt-2 mb-2" style={{ alignItems: 'center' }}>
+								<label htmlFor="editorName" className="font-bold">
+									Name
+								</label>
+								<input
+									type="text"
+									name=""
+									id="editorName"
+									className="ml-5 w-[500px] px-2 py-1 border-2 border-[var(--lightskyblue)] rounded"
+								/>
+							</div>
+							<div className="flex mt-2 mb-2" style={{ alignItems: 'center' }}>
+								<label htmlFor="editorUsername" className="font-bold">
+									Username
+								</label>
+								<input
+									type="text"
+									name=""
+									id="editorUsername"
+									className="ml-5 w-[500px] px-2 py-1 border-2 border-[var(--lightskyblue)] rounded"
+								/>
+							</div>
+							<div className="flex mt-2 mb-2" style={{ alignItems: 'center' }}>
+								<label htmlFor="editorPassword" className="font-bold">
+									Password
+								</label>
+								<input
+									type="password"
+									name=""
+									id="editorPassword"
+									className="ml-5 w-[500px] px-2 py-1 border-2 border-[var(--lightskyblue)] rounded"
+								/>
+							</div>
+
+							<button
+								type="submit"
+								className="font-bold p-2 cursor-pointer"
+								style={{
+									backgroundColor: 'var(--darkblue)',
+									color: 'white',
+									borderRadius: '5px',
+								}}
+							>
+								Submit
+							</button>
+						</form>
+					</div>
 					<div className="editCarouselDiv mb-8 relative">
 						<OverlayCarousel
 							state={showCarouselForm}
@@ -184,23 +254,6 @@ export default function AdminPanelClient({
 									email={src.apply_email}
 								/>
 							))}
-						</div>
-					</div>
-					<div className="editNews">
-						<h1 className="text-xl mb-2" style={{ color: 'var(--darkblue)' }}>
-							<b>News</b>
-						</h1>
-						<div
-							className="w-full mb-8"
-							style={{
-								alignContent: 'center',
-								justifyContent: 'center',
-							}}
-						>
-							<a href="/admin-control-panel/news">
-								Click here&nbsp;&nbsp;
-								<i className="fas fa-external-link"></i>
-							</a>
 						</div>
 					</div>
 				</main>

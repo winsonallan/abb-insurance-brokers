@@ -1,0 +1,30 @@
+g[data-depth="1"] {
+	color: var(--greenishblue);
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+g[data-depth="2"] {
+	color: var(--lightgreenishblue);
+	font-size: 1.15rem;
+}
+
+g[data-depth="3"] {
+	color: var(--lighteroceanblue);
+}
+
+.markmap-foreign div {
+	font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.markmap-link {
+	opacity: 0.85;
+	transition: opacity 0.2s ease;
+}
+.markmap-link:hover {
+	opacity: 1;
+}
+.markmap-foreign text {
+	font-weight: 500;
+	cursor: pointer;
+}

@@ -262,7 +262,7 @@ export default function NewsEditor({
 						<span className="font-bold">Content (EN):</span>
 						<br />
 						<br />
-						<TinyMCEEditor ref={editorRef} />
+						<TinyMCEEditor ref={editorRef} defaultContent={content_en} />
 						<br />
 					</div>
 
@@ -274,7 +274,7 @@ export default function NewsEditor({
 						<span className="font-bold">Content (ID):</span>
 						<br />
 						<br />
-						<TinyMCEEditor ref={editorRefID} />
+						<TinyMCEEditor ref={editorRefID} defaultContent={content_id} />
 						<br />
 					</div>
 				</div>

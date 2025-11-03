@@ -1,8 +1,16 @@
+/** biome-ignore-all lint/suspicious/noAssignInExpressions: False Positive */
+
 'use client';
 import { Editor } from '@tinymce/tinymce-react';
 import type React from 'react';
 
-export default function TinyMCEEditor({ ref }: { ref: React.Reference }) {
+export default function TinyMCEEditor({
+	ref,
+	defaultContent,
+}: {
+	ref: React.Reference;
+	defaultContent: string | null;
+}) {
 	const editorPlugins = [
 		'advlist',
 		'autolink',
@@ -28,6 +36,7 @@ export default function TinyMCEEditor({ ref }: { ref: React.Reference }) {
 		<Editor
 			tinymceScriptSrc="/tinymce/tinymce.min.js"
 			licenseKey="gpl"
+			initialValue={defaultContent ? defaultContent : ''}
 			onInit={(_evt, editor) => (ref.current = editor)}
 			init={{
 				height: 500,

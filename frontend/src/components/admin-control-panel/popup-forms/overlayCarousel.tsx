@@ -46,8 +46,8 @@ export default function OverlayCarousel({
 					<div className="flex" style={{ alignItems: 'center' }}>
 						Image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<label
-							htmlFor="carouselImage ml-4"
-							className="cursor-pointer"
+							htmlFor="carouselImage"
+							className="cursor-pointer  ml-4"
 							style={{ color: 'var(--linkblue)' }}
 						>
 							Click here to upload... <i className="fa-solid fa-upload"></i>

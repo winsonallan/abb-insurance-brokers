@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 import './globals.css';
+import 'aos/dist/aos.css';
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 
