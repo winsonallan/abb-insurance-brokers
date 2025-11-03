@@ -30,7 +30,7 @@ export default function RiskManagementClient() {
 							reputation, and continuity. Our goal is to transform uncertainty
 							into predictable outcomes.
 						</p>
-						<section className="contractReview" data-aos="fade-right">
+						<section className="contractReview mb-8" data-aos="fade-right">
 							<h2
 								className="text-2xl mb-4 font-bold mt-8"
 								style={{ color: 'var(--darkblue)' }}
@@ -105,7 +105,7 @@ export default function RiskManagementClient() {
 								</div>
 							</div>
 						</section>
-						<section className="riskProfiling" data-aos="fade-up">
+						<section className="riskProfiling mt-16" data-aos="fade-up">
 							<h2
 								className="text-2xl mb-4 font-bold mt-8"
 								style={{ color: 'var(--darkblue)' }}
