@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
 import '../../../public/support/css/admin-control-panel.css';
-import CareerItem from '@/components/admin-control-panel/careerItem';
-import CarouselItem from '@/components/admin-control-panel/carouselItem';
-import OverlayCareers from '@/components/admin-control-panel/popup-forms/overlayCareers';
-import OverlayCarousel from '@/components/admin-control-panel/popup-forms/overlayCarousel';
-import OverlayTeam from '@/components/admin-control-panel/popup-forms/overlayTeam';
-import TeamItem from '@/components/admin-control-panel/teamItem';
-import { apiURL, imagesURL } from '../../../public/support/js/webState';
+import { apiURL } from '../../../public/support/js/webState';
 import AdminPanelClient from './clientPage';
 
 export const metadata: Metadata = {
-	title: 'Admin Control Panel | ABB Insurance Brokers',
-	description: 'Helping you find the best insurance options.',
+	title: 'Admin Login | ABB Insurance Brokers',
+	description:
+		'Secure admin login page for ABB Insurance Brokers internal access and management.',
+	keywords: [
+		'admin login',
+		'ABB Insurance Brokers admin',
+		'secure login',
+		'internal access',
+	],
+	robots: 'noindex, nofollow',
+	authors: [{ name: 'ABB Insurance Brokers' }],
 };
 
 export async function getCarousel() {

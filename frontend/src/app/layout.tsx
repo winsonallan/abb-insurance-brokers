@@ -17,7 +17,19 @@ const inter = Inter({
 
 export const metadata: Metadata = {
 	title: 'Welcome | ABB Insurance Brokers',
-	description: 'Helping you find the best insurance options.',
+	description:
+		'PT. ABB Insurance Brokers is a licensed and OJK-regulated insurance brokerage providing strategic, transparent, and client-focused solutions. We help organizations manage risk with confidence, protect what matters most, and deliver measurable value.',
+	keywords: [
+		'ABB Insurance Brokers',
+		'insurance brokers Indonesia',
+		'risk management',
+		'insurance solutions',
+		'OJK regulated',
+		'strategic insurance',
+		'client-focused insurance',
+	],
+	robots: 'index, follow',
+	authors: [{ name: 'ABB Insurance Brokers' }],
 };
 
 export default function RootLayout({

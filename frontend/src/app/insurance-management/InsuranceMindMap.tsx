@@ -1,6 +1,3 @@
-/** biome-ignore-all lint/suspicious/useIterableCallbackReturn: false positive */
-/** biome-ignore-all lint/suspicious/noExplicitAny: false positive */
-
 'use client';
 import { Transformer } from 'markmap-lib';
 import { Markmap } from 'markmap-view';
@@ -9,6 +6,7 @@ import './mindmap.css';
 
 export default function InsuranceMindMap() {
 	const refSvg = useRef<SVGSVGElement>(null);
+	const mainRef = useRef<any>(null); // ✅ store Markmap instance
 
 	useEffect(() => {
 		let main: any = null;
@@ -30,23 +28,20 @@ export default function InsuranceMindMap() {
 			assignDepth(root);
 
 			const colors = [
-				'var(--darkblue)', // depth 0 — strong anchor color for main topic
-				'var(--mainblue)', // depth 1 — softer but still prominent
-				'var(--lightishblue)', // depth 2 — gentle transition tone
-				'var(--lightskyblue)', // depth 3+ — light accent for leaf nodes
+				'var(--darkblue)',
+				'var(--mainblue)',
+				'var(--lightishblue)',
+				'var(--lightskyblue)',
 			];
 
 			const lineWidths = [5, 3, 2, 1];
 
 			const colorForDepth = (depth: number) => colors[depth % colors.length];
 			const widthForDepth = (depth: number) =>
-				lineWidths[depth % lineWidths.length] ?? '1px';
+				lineWidths[depth % lineWidths.length] ?? 1;
 
-			// ✅ Now colorFn will always get the correct depth
 			const colorFn = (node: any) => colorForDepth(node.depth || 0);
 			const widthFn = (node: any) => widthForDepth(node.depth || 0);
-
-			setTimeout(() => main?.fit?.(), 300);
 
 			const applyTextColors = () => {
 				const svg = refSvg.current;
@@ -61,10 +56,8 @@ export default function InsuranceMindMap() {
 				});
 			};
 
-			// Clear previous SVGs
-			refSvg.current.innerHTML = '';
+			refSvg.current!.innerHTML = '';
 
-			// Create maps
 			if (refSvg.current) {
 				main = Markmap.create(
 					refSvg.current,
@@ -78,10 +71,10 @@ export default function InsuranceMindMap() {
 					root,
 				);
 
+				mainRef.current = main; // ✅ save instance
 				applyTextColors();
 			}
 
-			// Apply after layout settles
 			setTimeout(() => {
 				main?.fit?.();
 				applyTextColors();
@@ -93,19 +86,23 @@ export default function InsuranceMindMap() {
 				}
 			}, 500);
 
-			// Reapply on resize
 			const handleResize = () => {
 				setTimeout(applyTextColors, 100);
 			};
 			window.addEventListener('resize', handleResize);
 
 			return () => {
+				window.removeEventListener('resize', handleResize);
 				if (refSvg.current) refSvg.current.innerHTML = '';
 			};
 		}
 
 		initMindmap();
 	}, []);
+
+	const recenterMindmap = () => {
+		mainRef.current?.fit?.();
+	};
 
 	return (
 		<div
@@ -118,6 +115,17 @@ export default function InsuranceMindMap() {
 				touchAction: 'pan-x pan-y pinch-zoom',
 			}}
 		>
+			<button
+				type="button"
+				onClick={recenterMindmap}
+				className="absolute top-2 right-2 z-10 px-4 py-2 bg-blue-600 text-white rounded shadow cursor-pointer font-bold"
+				style={{
+					background: 'var(--lightishblue)',
+					color: 'white',
+				}}
+			>
+				Re-center
+			</button>
 			<div className="w-full h-full">
 				<svg
 					ref={refSvg}

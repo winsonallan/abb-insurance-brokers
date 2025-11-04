@@ -16,7 +16,17 @@ interface JobData {
 
 export const metadata: Metadata = {
 	title: 'Careers | ABB Insurance Brokers',
-	description: 'Helping you find the best insurance options.',
+	description:
+		'Explore career opportunities at ABB Insurance Brokers. Join our team of insurance experts and grow your career in a transparent, client-focused environment.',
+	keywords: [
+		'careers ABB Insurance Brokers',
+		'insurance jobs',
+		'insurance careers Indonesia',
+		'join ABB Insurance Brokers',
+		'career opportunities',
+	],
+	robots: 'index, follow',
+	authors: [{ name: 'ABB Insurance Brokers' }],
 };
 
 const fetchAllJobs = async () => {
@@ -37,7 +47,5 @@ const { data: jobsData } = await fetchAllJobs();
 const jobLen = jobsData.length;
 
 export default function Careers() {
-	return (
-		<CareerClient jobLen={jobLen} jobsData={jobsData}/>
-	);
+	return <CareerClient jobLen={jobLen} jobsData={jobsData} />;
 }

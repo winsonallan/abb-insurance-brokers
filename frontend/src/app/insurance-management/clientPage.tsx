@@ -292,9 +292,10 @@ export default function InsuranceManagementClient() {
 							<p className="text-gray-700 mb-6 max-w-3xl">
 								We offer a broad range of insurance programs — from personal
 								lines to complex corporate solutions such as property, marine,
-								aviation, liability and employee benefits. Use the mindmap below
-								to explore how these programs connect and where they might apply
-								to your business.
+								aviation, liability and employee benefits. Use the{' '}
+								<span className="font-bold">interactive mindmap</span> below to
+								explore how these programs connect and where they might apply to
+								your business.
 							</p>
 
 							<InsuranceMindMap />
