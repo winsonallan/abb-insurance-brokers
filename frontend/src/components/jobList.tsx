@@ -22,7 +22,7 @@ export default function JobList({
 	applyEmail,
 }: JobData) {
 	return (
-		<>
+		<div className="w-full" data-aos="fade-up">
 			<hr className="mt-4 mb-4" style={{ color: 'var(--darkblue)' }} />
 
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-4">
@@ -79,20 +79,20 @@ export default function JobList({
 						<b style={{ color: 'var(--darkblue)' }}>Key Responsibilities</b>
 						<br />
 						{keyResEN.split(/\r?\n/).map((line, i) => (
-							<>
+							<div key={`key_res_en_${i}`}>
 								{line}
 								<br />
-							</>
+							</div>
 						))}
 						<br />
 						<br />
 						<b style={{ color: 'var(--darkblue)' }}>Requirements</b>
 						<br />
 						{requirementsEN.split(/\r?\n/).map((line, i) => (
-							<>
+							<div key={`req_en_${i}`}>
 								{line}
 								<br />
-							</>
+							</div>
 						))}
 						<br />
 						<br />
@@ -107,6 +107,6 @@ export default function JobList({
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }

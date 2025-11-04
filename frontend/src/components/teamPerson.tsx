@@ -1,84 +1,76 @@
+'use client';
 import Image from 'next/image';
-import { apiURL, imagesURL } from '../../public/support/js/webState';
+import { imagesURL } from '../../public/support/js/webState';
+import { motion } from 'framer-motion';
 
-interface TeamMemberProps {
-	name: string;
-	path_url: string;
-	position_en: string;
-	position_id: string;
-	description_en: string;
-	description_id: string;
+interface TeamPersonProps {
+  groupData: {
+    id?: string | number;
+    name: string;
+    position_en: string;
+    description_en?: string;
+    path_url: string;
+  }[];
 }
 
-interface TeamGroup {
-	groupData: TeamMemberProps[];
-}
+export default function TeamPerson({ groupData }: TeamPersonProps) {
+  return (
+    <div className="mt-16 grid sm:grid-cols-2 gap-6">
+      {groupData.map((person, index) => {
+        const isAnimated = index < 4; // Animate only the first 4 cards
 
-export default function TeamPerson({ groupData }: TeamGroup) {
-	return (
-		<div style={{ marginBottom: '5rem' }}>
-			<div
-				className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-8"
-				style={{ justifyContent: 'center' }}
-			>
-				{groupData.map((src, i) => (
-					<div
-						className="personContainer"
-						key={`container__${src.name}`}
-						style={{ marginRight: '1rem', marginLeft: '1rem' }}
-					>
-						<div
-							className="personImage flex"
-							style={{ justifyContent: 'center' }}
-						>
-							<Image
-								className={`teamImage`}
-								id={`teamImage__${i}`}
-								src={`${imagesURL}our-team/${src.path_url}`}
-								alt={src.name}
-								width={400}
-								height={400}
-								style={{
-									objectFit: 'fill',
-									objectPosition: 'top',
-									borderRadius: '50%',
-									marginTop: '1rem',
-									marginBottom: '.5rem',
-									boxShadow: '5px 5px 5px var(--lightgreyblue)',
-								}}
-							/>
-						</div>
-						<div
-							className="personName p-2"
-							style={{
-								textAlign: 'center',
-								fontWeight: 'bold',
-								fontSize: '1.2rem',
-								height: '5rem',
-								color: 'var(--darkblue)',
-							}}
-						>
-							{src.name}
-						</div>
-						<div
-							className="personPosition p-2"
-							style={{
-								textAlign: 'center',
-								fontWeight: 'bold',
-								color: 'var(--darkblue)',
-							}}
-						>
-							{src.position_en}
-						</div>
-						<div
-							className="personDescription p-2"
-							style={{ textAlign: 'center' }}
-						>
-							{src.description_en}
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
-	);
+        const CardContent = (
+          <>
+            {/* IMAGE */}
+            <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
+              <Image
+                src={`${imagesURL}our-team/${person.path_url}`}
+                alt={person.name}
+                fill
+                style={{ objectFit: 'cover' }}
+                className="transition-transform duration-300"
+                priority={index < 2} // Preload the first 2 images
+                loading={index >= 2 ? 'lazy' : 'eager'}
+              />
+            </div>
+
+            {/* TEXT */}
+            <div className="p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-semibold text-[var(--darkblue)]">
+                {person.name}
+              </h3>
+              <p className="text-[var(--mainblue)] text-sm sm:text-base mt-1">
+                {person.position_en}
+              </p>
+              {person.description_en && (
+                <p className="text-gray-500 italic mt-2 text-xs sm:text-sm leading-relaxed">
+                  “{person.description_en}”
+                </p>
+              )}
+            </div>
+          </>
+        );
+
+        return isAnimated ? (
+          <motion.div
+            key={person.id || index}
+            className="relative bg-white/60 border border-gray-100 rounded-2xl overflow-hidden shadow-md transition-shadow duration-300 hover:shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+          >
+            {CardContent}
+          </motion.div>
+        ) : (
+          <div
+            key={person.id || index}
+            className="relative bg-white/60 border border-gray-100 rounded-2xl overflow-hidden shadow-md transition-shadow duration-300 hover:shadow-lg"
+          >
+            {CardContent}
+          </div>
+        );
+      })}
+    </div>
+  );
 }

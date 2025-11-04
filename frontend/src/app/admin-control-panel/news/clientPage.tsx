@@ -27,8 +27,6 @@ export default function ClientAdminNewsPanel({ news }: newsProps) {
 	const [showAddArticlePopup, setAddArticlePopup] = useState(false);
 	const [pickedArticle, setPickedArticle] = useState(0);
 
-	console.log(news);
-
 	return (
 		<>
 			<OverlayAddNews

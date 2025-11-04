@@ -18,7 +18,7 @@ export default function OverlayCarousel({
 				top: '40px',
 				right: '1rem',
 				color: 'var(--foreground)',
-				maxHeight: '600px',
+				maxHeight: '400px',
 			}}
 		>
 			<div className="p-4">

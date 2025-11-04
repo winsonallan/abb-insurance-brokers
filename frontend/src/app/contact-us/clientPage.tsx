@@ -3,17 +3,22 @@
 import '../../../public/support/css/contact-us.css';
 import Image from 'next/image';
 import { imagesURL } from '../../../public/support/js/webState';
+import MainPoint from '@/components/mainPoint';
+import AOS from 'aos'
+import { useEffect } from 'react';
 
 export default function ContactUsClient() {
+	useEffect(() => {
+			AOS.init({ duration: 800, once: true, offset: 80 });
+		}, []);
+
 	return (
 		<div className="pageContent">
 			<div className="page-container pl-12 pr-12">
 				<main className="content-wrap">
-					<h1 className="text-3xl mb-12" style={{ color: 'var(--mainblue)' }}>
-						<b>Contact Us</b>
-					</h1>
+					<MainPoint pointText="Contact Us" />
 					<div className="flex">
-						<div className="formDiv w-full lg:w-[65%]">
+						<div className="formDiv w-full lg:w-[65%]" data-aos="fade-right">
 							<form action="">
 								<div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 									<div className="sm:col-span-3">
@@ -140,7 +145,7 @@ export default function ContactUsClient() {
 								</button>
 							</form>
 						</div>
-						<div className="contactDiv w-[35%] hidden lg:block pl-8">
+						<div className="contactDiv w-[35%] hidden lg:block pl-8" data-aos="fade-left">
 							<div className="contactInfo pl-8 borderLeftBlue">
 								<b style={{ color: 'var(--mainblue)' }}>
 									PT. ABB Insurance Brokers{' '}
@@ -183,7 +188,7 @@ export default function ContactUsClient() {
 							</div>
 						</div>
 					</div>
-					<div className="contactDiv block lg:hidden mt-12 w-full pl-0">
+					<div className="contactDiv block lg:hidden mt-12 w-full pl-0" data-aos="fade-up">
 						<div className="contactInfo">
 							<b style={{ color: 'var(--mainblue)' }}>
 								PT. ABB Insurance Brokers{' '}

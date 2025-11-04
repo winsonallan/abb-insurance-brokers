@@ -1,22 +1,21 @@
+'use client';
+
 import Carousel from '@/components/homeCarousel';
 import '../../public/support/css/homepage.css';
-import MainPoint from '@/components/mainPoint';
+import ModernHeading from '@/components/modernHeading';
 import TeamPerson from '@/components/teamPerson';
-import { apiURL } from '../../public/support/js/webState.js';
+import { apiURL, imagesURL } from '../../public/support/js/webState.js';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 async function fetchCarouselImages() {
-	const data = await fetch(`${apiURL}misc-images/carousels`, {
-		method: 'GET',
-	});
+	const data = await fetch(`${apiURL}misc-images/carousels`, { method: 'GET' });
 	const dataJSON = await data.json();
-
 	return dataJSON;
 }
 
 async function fetchAllBoard() {
-	const data = await fetch(`${apiURL}team`, {
-		method: 'GET',
-	});
+	const data = await fetch(`${apiURL}team`, { method: 'GET' });
 	const dataJSON = await data.json();
 	return dataJSON;
 }
@@ -27,84 +26,150 @@ const { data: allData } = await fetchAllBoard();
 export default function Home() {
 	return (
 		<>
+			{/* --- HERO CAROUSEL --- */}
 			<Carousel imagesData={imagesData} />
 
-			<div className="pageContent pb-0">
-				<main className="pb-6 pl-4 pr-4 md:pl-16 md:pr-16 2xl:pl-48 2xl:pr-48">
-					<MainPoint pointText="Who We Are" pointClassName="whiteLeftPoint" />
-					<p className="mb-12 text-center md:text-left">
-						PT ABB Insurance Brokers is one of Indonesia’s leading licensed
-						insurance brokerage firms, regulated by the Financial Services
-						Authority (OJK). Headquartered in Jakarta, we operate with a team of
-						highly experienced professionals who specialize in designing and
-						managing insurance and risk management programs through a trusted
-						national and international network. Our approach blends expertise,
-						innovation, and personalized service — ensuring every solution we
-						deliver is strategic, compliant, and tailored to your business
-						goals. From corporate enterprises to specialized industries, we
-						bring clarity, protection, and measurable value to every
-						partnership.
-					</p>
-					<MainPoint
-						pointText="Why Choose Us"
-						pointClassName="whiteLeftPoint"
-					/>
-					<p className="mb-12 text-center md:text-left">
-						At ABB, we believe effective insurance management starts with
-						understanding. We act as an extension of your business — not just
-						your broker, but your partner in managing risk, optimizing coverage,
-						and ensuring claims are handled swiftly and fairly. What sets us
-						apart is our commitment to responsiveness, reliability, and results.
-						We respond to your needs promptly, negotiate the best possible terms
-						with both local and international insurers, and deliver programs
-						that are practical, cost-effective, and built around your
-						priorities. With ABB, you gain more than just insurance — you gain
-						peace of mind, knowing your protection is guided by professionals
-						who truly care about your success.
-					</p>
-					<MainPoint pointText="Our Vision" pointClassName="whiteLeftPoint" />
-					<p className="mb-12 text-center md:text-left">
-						Our vision is to become Indonesia’s most trusted and
-						forward-thinking insurance brokerage, known for delivering clarity,
-						confidence, and value in every partnership. We strive to elevate the
-						standards of insurance services by combining deep industry
-						expertise, innovative thinking, and unwavering integrity. Through a
-						seamless balance of human insight and technology, we aim to empower
-						individuals and organizations to navigate risk intelligently —
-						transforming insurance from a necessary cost into a strategic
-						advantage that supports long-term growth and security.
-					</p>
-					<MainPoint pointText="Our Mission" pointClassName="whiteLeftPoint" />
-					<p className="mb-12 text-center md:text-left">
-						Our mission is to protect what matters most — our clients’ people,
-						assets, and ambitions — through comprehensive insurance and risk
-						management solutions that are tailored, transparent, and effective.
-						We are committed to guiding every client with professionalism,
-						responsiveness, and care, ensuring that each recommendation is built
-						on a true understanding of their business. By continuously improving
-						our expertise, embracing innovation, and fostering lasting
-						relationships, we seek to provide peace of mind and measurable value
-						that extends far beyond the policy itself.
-					</p>
-					<MainPoint
-						pointText="Meet Our Experts"
-						pointClassName="whiteLeftPoint"
-					/>
-					<TeamPerson groupData={allData} />
-					<MainPoint pointText="Supported By" pointClassName="whiteLeftPoint" />
-					<p className="mb-12 text-center md:text-left">
-						Sed sed consequat arcu. Aenean molestie augue lorem, sit amet porta
-						nisl efficitur eget. Duis vitae massa urna. Nam cursus at ligula
-						hendrerit faucibus. Donec laoreet quis enim vitae laoreet. Proin ac
-						gravida lacus. Orci varius natoque penatibus et magnis dis
-						parturient montes, nascetur ridiculus mus. Nunc luctus nisi nibh,
-						eget auctor purus mattis imperdiet. Nulla condimentum imperdiet
-						blandit. Duis volutpat auctor ex et dictum. Suspendisse potenti. Sed
-						eget urna nisl. Phasellus non metus aliquam, porta lectus quis,
-						vestibulum augue. Suspendisse consectetur tincidunt sem malesuada
-						elementum. Quisque sollicitudin lectus molestie nunc accumsan, in
-						porttitor elit rutrum. Vivamus et sagittis nunc.
-					</p>
+			{/* --- PAGE CONTENT --- */}
+			<div className="pageContent w-full bg-[#f8fbff] relative">
+				<main className="content-wrap w-full px-8 md:px-16 lg:px-32 xl:px-48 space-y-52 py-32">
+
+					{/* WHO WE ARE */}
+					<section className="relative grid md:grid-cols-2 gap-16 items-center overflow-hidden px-16">
+						<motion.div
+							className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(0,120,255,0.08),transparent_70%)]"
+							initial={{ opacity: 0 }}
+							whileInView={{ opacity: 1 }}
+							viewport={{ once: true }}
+							transition={{ duration: 1 }}
+						/>
+						<div>
+							<ModernHeading title="Who We Are" />
+							<motion.p
+								className="mt-8 text-gray-700 text-lg md:text-xl leading-relaxed tracking-wide"
+								initial={{ opacity: 0, y: 30 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ duration: 0.7 }}
+							>
+								PT ABB Insurance Brokers is a licensed and OJK-regulated firm that provides
+								strategic, transparent, and client-focused insurance solutions. Our mission
+								is to turn complexity into clarity — helping organizations manage risk with
+								confidence and precision. With deep expertise and a global reach, we design
+								programs that protect what truly matters: people, assets, and ambitions.
+							</motion.p>
+						</div>
+
+						<motion.div
+							className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl"
+							initial={{ opacity: 0, scale: 0.9 }}
+							whileInView={{ opacity: 1, scale: 1 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.7 }}
+						>
+							<Image
+								src={`${imagesURL}whoarewe.jpeg`}
+								alt="ABB Team"
+								fill
+								className="object-cover"
+							/>
+							<div className="absolute inset-0 bg-gradient-to-t from-[#00163a]/70 via-transparent to-transparent" />
+						</motion.div>
+					</section>
+
+					{/* WHY CHOOSE US */}
+					<section className="relative py-24 px-10 md:px-16 rounded-3xl bg-gradient-to-br from-[#e9f3ff] to-[#f8fbff] shadow-[0_0_40px_-10px_rgba(0,0,0,0.08)]">
+						<ModernHeading title="Why Choose Us" accent centered />
+						<div className="mt-12 grid md:grid-cols-3 gap-10">
+							{[
+								{
+									icon: '🧠',
+									title: 'Strategic Expertise',
+									desc: 'Our specialists analyze your unique risks and tailor insurance strategies that align with your business objectives.'
+								},
+								{
+									icon: '🤝',
+									title: 'Global Network',
+									desc: 'We leverage relationships with both local and international insurers to secure optimal coverage and competitive terms.'
+								},
+								{
+									icon: '⚡',
+									title: 'Agile Service',
+									desc: 'Our proactive, client-first culture ensures swift responses, transparent communication, and seamless claims support.'
+								}
+							].map((item, i) => (
+								<motion.div
+									key={i}
+									className="p-8 rounded-2xl bg-white/70 backdrop-blur-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
+									initial={{ opacity: 0, y: 20 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									transition={{ duration: 0.5, delay: i * 0.15 }}
+								>
+									<div className="text-4xl mb-4">{item.icon}</div>
+									<h3 className="text-xl font-semibold text-[var(--darkoceanblue)] mb-2">{item.title}</h3>
+									<p className="text-gray-700 text-base leading-relaxed">{item.desc}</p>
+								</motion.div>
+							))}
+						</div>
+					</section>
+
+					{/* VISION / MISSION */}
+					<section className="relative px-16 grid md:grid-cols-2 gap-20 items-center">
+						<motion.div
+							className="relative p-10 bg-white/60 backdrop-blur-lg rounded-3xl shadow-md"
+							initial={{ opacity: 0, x: -30 }}
+							whileInView={{ opacity: 1, x: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.6 }}
+						>
+							<ModernHeading title="Our Vision" />
+							<p className="mt-6 text-gray-700 text-lg leading-relaxed">
+								To be Indonesia’s most trusted and forward-thinking insurance broker —
+								empowering clients with clarity, protection, and measurable value.
+							</p>
+						</motion.div>
+
+						<motion.div
+							className="relative p-10 bg-gradient-to-br from-[#002e74] to-[#0041b2] text-white rounded-3xl shadow-lg"
+							initial={{ opacity: 0, x: 30 }}
+							whileInView={{ opacity: 1, x: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.6 }}
+						>
+							<ModernHeading title="Our Mission" light />
+							<p className="mt-6 text-lg leading-relaxed opacity-90">
+								To protect what matters most through transparent, practical, and scalable
+								insurance and risk management solutions that adapt to your evolving needs.
+							</p>
+						</motion.div>
+					</section>
+
+					{/* TEAM */}
+					<section className="relative py-20 px-16">
+						<div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(0,80,255,0.05),transparent_70%)]" />
+						<ModernHeading title="Meet Our Experts" centered />
+						<TeamPerson groupData={allData} />
+					</section>
+
+					{/* SUPPORTED BY */}
+					<section className="relative py-20 px-8 rounded-3xl overflow-hidden bg-gradient-to-r from-[#f7faff] via-[#eef4ff] to-[#f7faff] shadow-[0_0_40px_-10px_rgba(0,0,0,0.08)]">
+						<ModernHeading title="Supported By" centered />
+						<motion.p
+							className="mt-6 text-gray-700 text-lg text-center leading-relaxed max-w-3xl mx-auto"
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+						>
+							We work with leading insurers and service providers to ensure every client
+							has access to reliable capacity, expertise, and responsive support when it
+							matters most.
+						</motion.p>
+						<div className="mt-10 flex gap-14 justify-center flex-wrap opacity-90">
+							<Image src={`${imagesURL}partners/ojk.png`} alt="Partner 1" width={140} height={60} />
+							<Image src={`${imagesURL}partners/ojk.png`} alt="Partner 1" width={140} height={60} />
+							<Image src={`${imagesURL}partners/ojk.png`} alt="Partner 1" width={140} height={60} />
+						</div>
+					</section>
 				</main>
 			</div>
 		</>

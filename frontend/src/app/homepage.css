@@ -1,0 +1,12 @@
+:root {
+  --darkoceanblue: #002e74;
+}
+
+.pageContent {
+  scroll-behavior: smooth;
+  background: linear-gradient(to bottom right, #ffffff, #f9fbff);
+}
+
+section {
+  position: relative;
+}
