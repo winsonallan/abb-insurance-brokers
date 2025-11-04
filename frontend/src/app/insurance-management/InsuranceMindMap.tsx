@@ -29,11 +29,11 @@ export default function InsuranceMindMap() {
 
 			assignDepth(root);
 
-			// 🎨 Color palette per depth
 			const colors = [
-				'var(--greenishblue)', // depth 1
-				'var(--lightgreenishblue)', // depth 0
-				'var(--lighteroceanblue)', // depth 2+
+				'var(--darkblue)', // depth 0 — strong anchor color for main topic
+				'var(--mainblue)', // depth 1 — softer but still prominent
+				'var(--lightishblue)', // depth 2 — gentle transition tone
+				'var(--lightskyblue)', // depth 3+ — light accent for leaf nodes
 			];
 
 			const lineWidths = [5, 3, 2, 1];

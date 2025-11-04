@@ -1,11 +1,9 @@
 'use client';
+
 import AOS from 'aos';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useEffect } from 'react';
-import ServiceBlueSection from '@/components/serviceBlueSection';
-import ServiceWhiteSection from '@/components/serviceWhiteSection';
-import SmallMainPoint from '@/components/smallMainPoint';
 import { imagesURL } from '../../../public/support/js/webState';
 
 const InsuranceMindMap = dynamic(() => import('./InsuranceMindMap'), {
@@ -14,212 +12,314 @@ const InsuranceMindMap = dynamic(() => import('./InsuranceMindMap'), {
 
 export default function InsuranceManagementClient() {
 	useEffect(() => {
-		AOS.init({
-			duration: 800,
-			once: true,
-			offset: 80,
-			easing: 'ease-in-out-sine',
-		});
-	});
+		AOS.init({ duration: 800, once: true, offset: 80 });
+	}, []);
 
 	return (
-		<div className="pageContent">
+		<div className="pageContent w-full">
 			<div className="page-container pl-12 pr-12">
-				<main className="content-wrap">
-					<h1
-						className="text-3xl mb-4"
-						style={{ color: 'var(--mainblue)' }}
-						data-aos="fade-right"
-					>
-						<b>Insurance Management</b>
-					</h1>
-
-					<p data-aos="fade-right">
-						Insurance should do more than just protect — it should empower. At
-						ABB, we approach insurance management as a partnership built on
-						transparency, understanding, and long-term value. Our goal is to
-						help you make confident decisions by identifying only the coverage
-						that truly serves your needs, ensuring every policy contributes real
-						protection and tangible value. We see insurance not as a luxury or a
-						formality, but as a strategic investment in your peace of mind and
-						business continuity. Whether you're seeking to safeguard assets,
-						reduce exposure, or optimize risk placement, our expertise is
-						focused on aligning the right coverage with the right purpose —
-						nothing more, nothing less.
-					</p>
-
-					{/* === Our Commitment === */}
-					<ServiceWhiteSection
-						heading="Our Commitment"
-						img_path="commitment.jpeg"
-						img_alt="Our Commitment"
-						aos="fade-right"
-						aos_delay="100"
-						html={
-							<>
-								<p className="text-gray-700 leading-relaxed mt-4">
-									We're committed to provide the best insurance services
-									possible that are intended to protect your most valuable
-									assets. We also believe that insurance should bring peace of
-									mind instead of uncertainty and needless expense. In order to
-									do that, we make sure that you understand completely on what
-									you're covered for and why by conducting open consultation
-									with each client.
-								</p>
-								<p className="text-gray-700 leading-relaxed mt-4">
-									We're also committed to thoroughly examine your unique
-									situation, whether it be personal or business related, so that
-									we can find the coverage that best suits your needs. Providing
-									you with the best insurance option for your money is the goal
-									behind every suggestion we make.
-								</p>
-								<p className="text-gray-700 leading-relaxed mt-4">
-									Finally, we will never suggest unnecessary policies to you. We
-									are not here to oversell; we are here to assist you in
-									safeguarding your interests. With each client we serve, this
-									philosophy establishes the basis of trust and defines our
-									work.
-								</p>
-							</>
-						}
-					/>
-
-					{/* === Our Approach === */}
-					<section
-						className="bg-[var(--lightbluebg,#f5f9ff)] rounded-2xl p-8 mt-10 mb-10 w-full lg:w-4/5 m-auto shadow-sm shadow-(color:--lightgreyblue)"
-						data-aos="fade-left"
-						data-aos-delay="200"
-					>
-						<SmallMainPoint
-							pointText="Our Approach"
-							pointClassName="whiteLeftPoint"
-							center={true}
-							color="var(--darkblue)"
-						/>
-						<p className="text-gray-700 leading-relaxed mt-4 text-center">
-							We recognize that each and every customer, whether they are big
-							corporations or individual policyholders, is different. This
-							results in us adopting a very individualized strategy. This means
-							that we thoroughly examine your goals, risk profile, and
-							circumstances before arriving at a solution that fits your needs.
-						</p>
-						<p className="text-gray-700 leading-relaxed mt-4 text-center">
-							In making sure that your coverage is effective and efficient, our
-							experts combine their technical expertise with practical
-							experience and in-depth market insights. We ensure that you
-							receive complete protection without needless complexity by
-							combining our access to various insurance programs with
-							individualized advice.
-						</p>
-						<div
-							className="image h-full w-full relative"
-							style={{
-								alignContent: 'center',
-								alignItems: 'center',
-								borderRadius: '.5rem',
-							}}
+				<main className="content-wrap w-full">
+					{/* HERO */}
+					<section className="pb-12" data-aos="fade-right">
+						<h1
+							className="text-3xl mb-4 font-bold"
+							style={{ color: 'var(--mainblue)' }}
 						>
-							<Image
-								src={`${imagesURL}our-services/insurance-management/approach.jpeg`}
-								width={500}
-								height={500}
-								alt="Our Approach"
-								style={{
-									objectFit: 'cover',
-									borderRadius: '.5rem',
-								}}
-								className="m-auto mt-8 transition-transform duration-300 hover:scale-[1.02]"
-							/>
+							Insurance Management
+						</h1>
+						<p className="text-gray-700 leading-relaxed mb-2">
+							Insurance should do more than just protect — it should enable
+							confidence and continuity. At ABB Insurance Brokers we manage
+							insurance as an ongoing service: placing appropriate cover,
+							clarifying policy intent, and keeping programs aligned with how
+							your business actually operates. We focus on clarity, practical
+							value and matching cover to genuine exposure.
+						</p>
+					</section>
+
+					{/* PHILOSOPHY (light gradient) */}
+					<section
+						className="py-12 px-6 rounded-xl"
+						style={{
+							background:
+								'linear-gradient(180deg, var(--whiteblue), var(--superlightoceanblue))',
+						}}
+						data-aos="fade-up"
+					>
+						<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+							{/* text */}
+							<div>
+								<h2
+									className="text-2xl font-bold mb-4"
+									style={{ color: 'var(--darkblue)' }}
+								>
+									Our Philosophy
+								</h2>
+								<p className="text-gray-700 mb-4 leading-relaxed">
+									We believe insurance must be intelligible and fit-for-purpose.
+									That means recommending only the cover that addresses
+									identifiable exposures, explaining limits and exclusions
+									clearly, and aligning placement with your financial and
+									operational objectives.
+								</p>
+								<p className="text-gray-700 leading-relaxed">
+									As brokers, we act on your behalf — sourcing markets,
+									negotiating terms, and managing the documentation so your
+									program delivers protection without needless complexity.
+								</p>
+							</div>
+
+							{/* image */}
+							<div className="relative h-56 lg:h-64 rounded-lg overflow-hidden">
+								<Image
+									src={`${imagesURL}our-services/insurance-management/approach.jpeg`}
+									alt="Our Philosophy"
+									fill
+									style={{ objectFit: 'cover' }}
+									sizes="(max-width: 1024px) 100vw, 50vw"
+									className="transition-transform duration-300 hover:scale-[1.02]"
+								/>
+							</div>
 						</div>
 					</section>
 
-					{/* === Your Advantage === */}
-					<ServiceBlueSection
-						heading="Your Advantage"
-						img_path="advantage.jpeg"
-						img_alt="Your Advantage"
-						aos="zoom-in"
-						aos_delay="150"
-						html={
-							<>
-								<p className="text-white leading-relaxed mt-4">
-									We're committed to provide the best insurance services
-									possible that are intended to protect your most valuable
-									assets. We also believe that insurance should bring peace of
-									mind instead of uncertainty and needless expense. In order to
-									do that, we make sure that you understand completely on what
-									you're covered for and why by conducting open consultation
-									with each client.
-								</p>
-								<p className="text-white leading-relaxed mt-4">
-									We're also committed to thoroughly examine your unique
-									situation, whether it be personal or business related, so that
-									we can find the coverage that best suits your needs. Providing
-									you with the best insurance option for your money is the goal
-									behind every suggestion we make.
-								</p>
-								<p className="text-white leading-relaxed mt-4">
-									Finally, we will never suggest unnecessary policies to you. We
-									are not here to oversell; we are here to assist you in
-									safeguarding your interests. With each client we serve, this
-									philosophy establishes the basis of trust and defines our
-									work.
-								</p>
-							</>
-						}
-					/>
+					{/* FOCUS AREAS (white) */}
+					<section className="py-12 mt-10" data-aos="fade-up">
+						<h2
+							className="text-2xl font-bold mb-6"
+							style={{ color: 'var(--darkblue)' }}
+						>
+							Our Focus Areas
+						</h2>
 
-					{/* === Explore Programs === */}
-					<section
-						className="rounded-2xl p-8 mt-10 mb-10 w-full lg:w-4/5 m-auto shadow-md shadow-(color:--lightgreyblue)"
-						style={{ background: 'var(--darkestgradient)' }}
-						data-aos="fade-up"
-						data-aos-delay="150"
-					>
-						<div className="flex flex-col sm:justify-center">
-							<div
-								className={`w-full text-center lg:text-left`}
-								style={{
-									marginBottom: '0',
-									paddingBottom: '.5rem',
-								}}
-							>
-								<h1 className="text-2xl text-center">
-									<b style={{ color: 'var(--lightskyblue)' }}>
-										Explore Our Insurance Programs
-									</b>
-								</h1>
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+							{/* Card 1 */}
+							<div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--almostwhite)]">
+								<div className="text-4xl mb-3">📋</div>
+								<h3
+									className="font-semibold mb-2"
+									style={{ color: 'var(--darkblue)' }}
+								>
+									Comprehensive Advisory
+								</h3>
+								<p className="text-gray-600 text-sm">
+									We assess exposure across contracts, operations and assets —
+									then prioritise protections that matter.
+								</p>
+							</div>
+
+							{/* Card 2 */}
+							<div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--almostwhite)]">
+								<div className="text-4xl mb-3">🔎</div>
+								<h3
+									className="font-semibold mb-2"
+									style={{ color: 'var(--darkblue)' }}
+								>
+									Market Insight
+								</h3>
+								<p className="text-gray-600 text-sm">
+									We access multiple insurers and programs so you get
+									competitive terms and appropriate capacity.
+								</p>
+							</div>
+
+							{/* Card 3 */}
+							<div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--almostwhite)]">
+								<div className="text-4xl mb-3">⚖️</div>
+								<h3
+									className="font-semibold mb-2"
+									style={{ color: 'var(--darkblue)' }}
+								>
+									Risk-aware Design
+								</h3>
+								<p className="text-gray-600 text-sm">
+									Program design aligns cover with business priorities —
+									limiting gaps and overlap across lines.
+								</p>
+							</div>
+
+							{/* Card 4 */}
+							<div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--almostwhite)]">
+								<div className="text-4xl mb-3">🔁</div>
+								<h3
+									className="font-semibold mb-2"
+									style={{ color: 'var(--darkblue)' }}
+								>
+									Efficient Administration
+								</h3>
+								<p className="text-gray-600 text-sm">
+									Policy management, endorsements and renewals handled with
+									documented processes and clear timelines.
+								</p>
 							</div>
 						</div>
-						<p
-							className="text-gray-700 leading-relaxed mt-4 text-center"
-							style={{ color: 'white' }}
+					</section>
+
+					{/* HOW WE WORK (stepper) */}
+					<section
+						className="py-12 mt-12 rounded-xl px-6"
+						style={{ background: 'var(--superlightoceanblue)' }}
+						data-aos="fade-up"
+					>
+						<h2
+							className="text-2xl font-bold mb-6"
+							style={{ color: 'var(--darkblue)' }}
 						>
-							We offer a wide mix of insurance programs because we believe
-							flexibility matters. You'll find everything here, from personal
-							coverage to more complicated corporate solutions. Maybe you need
-							health insurance. Maybe it's property, motor, travel, marine, or
-							business liability. Either way, we've got options that balance
-							price and protection, so you're not left deciding between security
-							and your budget.
-						</p>
-						<p
-							className="text-gray-700 leading-relaxed mt-4 mb-8 text-center finalParagraph"
-							style={{ color: 'white' }}
-						>
-							To make things simple, check out our interactive Insurance Program
-							Mindmap below. It's a visual guide that lays out all the kinds of
-							insurance we cover and shows how they fit together. Take a look —
-							see if what you need is included and get a feel for how our
-							programs work as part of one big, connected protection plan.
-						</p>
-						<div
-							className="w-full"
-							data-aos="fade-up"
-							data-aos-offset="0"
-							data-aos-anchor=".finalParagraph"
-						>
+							How We Work — Practical, Repeatable Steps
+						</h2>
+
+						<div className="relative">
+							{/* connector line on desktop */}
+							<div
+								className="hidden md:block absolute left-0 right-0 top-1/2 h-[2px]"
+								style={{ background: 'var(--lightgreyblue)', opacity: 0.6 }}
+							/>
+
+							<div className="flex flex-col md:flex-row gap-6 relative z-10">
+								{/* Step 1 */}
+								<div
+									className="flex-1 bg-white rounded-2xl p-6 shadow-sm border"
+									style={{ borderColor: 'var(--lightgreyblue)' }}
+								>
+									<div
+										className="w-10 h-10 mb-3 flex items-center justify-center rounded-full text-white font-bold"
+										style={{ background: 'var(--darkgradient)' }}
+									>
+										1
+									</div>
+									<h4
+										className="font-semibold mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
+										Discover
+									</h4>
+									<p className="text-gray-600 text-sm">
+										We conduct a focused intake: contracts, existing policies,
+										operations and exposures. This determines what can and
+										should be insured.
+									</p>
+								</div>
+
+								{/* Step 2 */}
+								<div
+									className="flex-1 bg-white rounded-2xl p-6 shadow-sm border"
+									style={{ borderColor: 'var(--lightgreyblue)' }}
+								>
+									<div
+										className="w-10 h-10 mb-3 flex items-center justify-center rounded-full text-white font-bold"
+										style={{ background: 'var(--darkgradient)' }}
+									>
+										2
+									</div>
+									<h4
+										className="font-semibold mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
+										Design
+									</h4>
+									<p className="text-gray-600 text-sm">
+										We propose program options — mixing lines, limits and
+										deductibles — so coverage matches your risk appetite and
+										budget.
+									</p>
+								</div>
+
+								{/* Step 3 */}
+								<div
+									className="flex-1 bg-white rounded-2xl p-6 shadow-sm border"
+									style={{ borderColor: 'var(--lightgreyblue)' }}
+								>
+									<div
+										className="w-10 h-10 mb-3 flex items-center justify-center rounded-full text-white font-bold"
+										style={{ background: 'var(--darkgradient)' }}
+									>
+										3
+									</div>
+									<h4
+										className="font-semibold mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
+										Place
+									</h4>
+									<p className="text-gray-600 text-sm">
+										We negotiate with insurers, obtain terms, and place the
+										chosen program — documenting coverage and obligations
+										clearly.
+									</p>
+								</div>
+
+								{/* Step 4 */}
+								<div
+									className="flex-1 bg-white rounded-2xl p-6 shadow-sm border"
+									style={{ borderColor: 'var(--lightgreyblue)' }}
+								>
+									<div
+										className="w-10 h-10 mb-3 flex items-center justify-center rounded-full text-white font-bold"
+										style={{ background: 'var(--darkgradient)' }}
+									>
+										4
+									</div>
+									<h4
+										className="font-semibold mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
+										Manage
+									</h4>
+									<p className="text-gray-600 text-sm">
+										Policy servicing, renewal planning and ongoing reviews keep
+										your protection current as risks evolve.
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					{/* MINDMAP */}
+					<section
+						className="py-16 mt-12"
+						data-aos="fade-up"
+						style={{
+							background:
+								'linear-gradient(180deg, var(--whiteblue), var(--background))',
+							borderRadius: '.5rem',
+						}}
+					>
+						<div className="px-6">
+							<h2
+								className="text-2xl font-bold mb-6"
+								style={{ color: 'var(--darkblue)' }}
+							>
+								Explore Our Insurance Programs
+							</h2>
+
+							<p className="text-gray-700 mb-6 max-w-3xl">
+								We offer a broad range of insurance programs — from personal
+								lines to complex corporate solutions such as property, marine,
+								aviation, liability and employee benefits. Use the mindmap below
+								to explore how these programs connect and where they might apply
+								to your business.
+							</p>
+
 							<InsuranceMindMap />
+						</div>
+					</section>
+
+					{/* CLOSING / COMMITMENT */}
+					<section className="py-12 mt-1" data-aos="fade-up">
+						<div className="px-6">
+							<h3
+								className="text-xl font-semibold mb-4"
+								style={{ color: 'var(--darkblue)' }}
+							>
+								Our Ongoing Commitment
+							</h3>
+							<p className="text-gray-700 leading-relaxed">
+								ABB will continue to act as your insurance partner — explaining
+								policy details, managing renewals, and supporting claims
+								advocacy where needed. We aim to keep your protection aligned
+								with the way you run your business, and to make insurance a
+								manageable, useful component of your risk strategy.
+							</p>
 						</div>
 					</section>
 				</main>

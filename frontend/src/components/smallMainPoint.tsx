@@ -20,15 +20,12 @@ export default function SmallMainPoint({
 				style={{
 					marginBottom: '0',
 					paddingBottom: '.5rem',
+					outline: 0,
 				}}
 			>
 				<h1
 					className="text-2xl"
-					style={
-						center
-							? { textAlign: 'center', color: { color } }
-							: { textAlign: 'left', color: { color } }
-					}
+					style={{ color: color, textAlign: center ? 'center' : 'left' }}
 				>
 					<b>{pointText}</b>
 				</h1>
