@@ -67,7 +67,7 @@ export default function InsuranceManagementClient() {
 							</div>
 
 							{/* image */}
-							<div className="relative h-56 lg:h-64 rounded-lg overflow-hidden">
+							<div className="relative h-56 lg:h-64 rounded-lg overflow-hidden finPhilo">
 								<Image
 									src={`${imagesURL}our-services/insurance-management/approach.jpeg`}
 									alt="Our Philosophy"
@@ -87,6 +87,8 @@ export default function InsuranceManagementClient() {
 							background:
 								'linear-gradient(180deg, var(--whiteblue), var(--background))',
 						}}
+						data-aos="fade-right"
+						data-aos-anchor=".finPhilo"
 					>
 						<div className="container mx-auto px-6 md:px-12 text-center">
 							<h2
