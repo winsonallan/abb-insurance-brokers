@@ -14,7 +14,12 @@ const InsuranceMindMap = dynamic(() => import('./InsuranceMindMap'), {
 
 export default function InsuranceManagementClient() {
 	useEffect(() => {
-		AOS.init({ duration: 800, once: true, offset: 80 });
+		AOS.init({
+			duration: 800,
+			once: true,
+			offset: 80,
+			easing: 'ease-in-out-sine',
+		});
 	});
 
 	return (
@@ -199,7 +204,7 @@ export default function InsuranceManagementClient() {
 							and your budget.
 						</p>
 						<p
-							className="text-gray-700 leading-relaxed mt-4 mb-8 text-center"
+							className="text-gray-700 leading-relaxed mt-4 mb-8 text-center finalParagraph"
 							style={{ color: 'white' }}
 						>
 							To make things simple, check out our interactive Insurance Program
@@ -208,7 +213,12 @@ export default function InsuranceManagementClient() {
 							see if what you need is included and get a feel for how our
 							programs work as part of one big, connected protection plan.
 						</p>
-						<div className="w-full" data-aos="fade-up">
+						<div
+							className="w-full"
+							data-aos="fade-up"
+							data-aos-offset="0"
+							data-aos-anchor=".finalParagraph"
+						>
 							<InsuranceMindMap />
 						</div>
 					</section>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ClaimsManagementClient from './clientPage';
 
 export const metadata: Metadata = {
 	title: 'Claims Management | ABB Insurance Brokers',
@@ -6,11 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function ClaimsManagement() {
-	return (
-		<div className="pageContent">
-			<div className="page-container pl-12 pr-12">
-				<main className="content-wrap">Claims Management</main>
-			</div>
-		</div>
-	);
+	return <ClaimsManagementClient />;
 }

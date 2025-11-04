@@ -132,7 +132,10 @@ export default function RiskManagementClient() {
 								></div>
 
 								{/* Step 1 */}
-								<div className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border border-gray-100">
+								<div
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
+									style={{ borderColor: 'var(--lightgreyblue)' }}
+								>
 									<div
 										className="w-10 h-10 mx-auto mb-4 flex items-center justify-center rounded-full text-white font-bold"
 										style={{ background: 'var(--darkgradient)' }}
@@ -154,7 +157,10 @@ export default function RiskManagementClient() {
 								</div>
 
 								{/* Step 2 */}
-								<div className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border border-gray-100">
+								<div
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
+									style={{ borderColor: 'var(--lightgreyblue)' }}
+								>
 									<div
 										className="w-10 h-10 mx-auto mb-4 flex items-center justify-center rounded-full text-white font-bold"
 										style={{ background: 'var(--darkgradient)' }}
@@ -175,7 +181,10 @@ export default function RiskManagementClient() {
 								</div>
 
 								{/* Step 3 */}
-								<div className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border border-gray-100">
+								<div
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
+									style={{ borderColor: 'var(--lightgreyblue)' }}
+								>
 									<div
 										className="w-10 h-10 mx-auto mb-4 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold"
 										style={{ background: 'var(--darkgradient)' }}
@@ -193,7 +202,10 @@ export default function RiskManagementClient() {
 								</div>
 
 								{/* Step 4 */}
-								<div className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border border-gray-100">
+								<div
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
+									style={{ borderColor: 'var(--lightgreyblue)' }}
+								>
 									<div
 										className="w-10 h-10 mx-auto mb-4 flex items-center justify-center rounded-full text-white font-bold"
 										style={{ background: 'var(--darkgradient)' }}
