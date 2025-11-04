@@ -1,16 +1,20 @@
 g[data-depth="1"] {
-	color: var(--greenishblue);
+	color: var(--darkblue);
 	font-size: 1.3rem;
 	font-weight: bold;
 }
 
 g[data-depth="2"] {
-	color: var(--lightgreenishblue);
+	color: var(--mainblue);
 	font-size: 1.15rem;
 }
 
 g[data-depth="3"] {
-	color: var(--lighteroceanblue);
+	color: var(--lightishblue);
+}
+
+g[data-depth="4"] {
+	color: var(--lightskyblue);
 }
 
 .markmap-foreign div {

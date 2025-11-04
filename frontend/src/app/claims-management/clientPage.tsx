@@ -57,8 +57,8 @@ export default function ClaimsManagementClient() {
 
 								{/* Step 1 */}
 								<div
-									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
-									style={{ borderColor: 'var(--lightgreyblue)' }}
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
+									style={{ borderColor: 'var(--lightoceanblue)' }}
 								>
 									<div
 										className="w-10 h-10 mx-auto mb-4 flex items-center justify-center rounded-full text-white font-bold"
@@ -66,7 +66,10 @@ export default function ClaimsManagementClient() {
 									>
 										1
 									</div>
-									<h3 className="font-semibold text-lg mb-2">
+									<h3
+										className="font-semibold text-lg mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
 										Initial Consultation - Understanding the Loss
 									</h3>
 									<p className="text-gray-600 text-sm">
@@ -82,8 +85,8 @@ export default function ClaimsManagementClient() {
 
 								{/* Step 2 */}
 								<div
-									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
-									style={{ borderColor: 'var(--lightgreyblue)' }}
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
+									style={{ borderColor: 'var(--lightoceanblue)' }}
 								>
 									<div
 										className="w-10 h-10 mx-auto mb-4 flex items-center justify-center rounded-full text-white font-bold"
@@ -91,7 +94,10 @@ export default function ClaimsManagementClient() {
 									>
 										2
 									</div>
-									<h3 className="font-semibold text-lg mb-2">
+									<h3
+										className="font-semibold text-lg mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
 										Claim Preparation - Gathering the Right Information
 									</h3>
 									<p className="text-gray-600 text-sm">
@@ -104,8 +110,8 @@ export default function ClaimsManagementClient() {
 
 								{/* Step 3 */}
 								<div
-									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
-									style={{ borderColor: 'var(--lightgreyblue)' }}
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
+									style={{ borderColor: 'var(--lightoceanblue)' }}
 								>
 									<div
 										className="w-10 h-10 mx-auto mb-4 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold"
@@ -113,7 +119,10 @@ export default function ClaimsManagementClient() {
 									>
 										3
 									</div>
-									<h3 className="font-semibold text-lg mb-2">
+									<h3
+										className="font-semibold text-lg mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
 										Submission & Negotiation - Advocating for You
 									</h3>
 									<p className="text-gray-600 text-sm">
@@ -126,8 +135,8 @@ export default function ClaimsManagementClient() {
 
 								{/* Step 4 */}
 								<div
-									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
-									style={{ borderColor: 'var(--lightgreyblue)' }}
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
+									style={{ borderColor: 'var(--lightoceanblue)' }}
 								>
 									<div
 										className="w-10 h-10 mx-auto mb-4 flex items-center justify-center rounded-full text-white font-bold"
@@ -135,7 +144,10 @@ export default function ClaimsManagementClient() {
 									>
 										4
 									</div>
-									<h3 className="font-semibold text-lg mb-2">
+									<h3
+										className="font-semibold text-lg mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
 										Resolution & Follow-up - Ensuring Complete Satisfaction
 									</h3>
 									<p className="text-gray-600 text-sm">

@@ -4,6 +4,7 @@ import AOS from 'aos';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useEffect } from 'react';
+import MiniHighlight from '@/components/miniHighlight';
 import { imagesURL } from '../../../public/support/js/webState';
 
 const InsuranceMindMap = dynamic(() => import('./InsuranceMindMap'), {
@@ -39,11 +40,7 @@ export default function InsuranceManagementClient() {
 
 					{/* PHILOSOPHY (light gradient) */}
 					<section
-						className="py-12 px-6 rounded-xl"
-						style={{
-							background:
-								'linear-gradient(180deg, var(--whiteblue), var(--superlightoceanblue))',
-						}}
+						className="py-12 px-6 rounded-xl bg-gray-50"
 						data-aos="fade-up"
 					>
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -84,81 +81,79 @@ export default function InsuranceManagementClient() {
 					</section>
 
 					{/* FOCUS AREAS (white) */}
-					<section className="py-12 mt-10" data-aos="fade-up">
-						<h2
-							className="text-2xl font-bold mb-6"
-							style={{ color: 'var(--darkblue)' }}
-						>
-							Our Focus Areas
-						</h2>
+					<section
+						className="py-20 mt-16"
+						style={{
+							background:
+								'linear-gradient(180deg, var(--whiteblue), var(--background))',
+						}}
+					>
+						<div className="container mx-auto px-6 md:px-12 text-center">
+							<h2
+								className="text-3xl md:text-2xl font-bold mb-12 "
+								style={{ color: 'var(--darkblue)' }}
+							>
+								Our Focus Areas
+							</h2>
 
-						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-							{/* Card 1 */}
-							<div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--almostwhite)]">
-								<div className="text-4xl mb-3">📋</div>
-								<h3
-									className="font-semibold mb-2"
-									style={{ color: 'var(--darkblue)' }}
-								>
-									Comprehensive Advisory
-								</h3>
-								<p className="text-gray-600 text-sm">
-									We assess exposure across contracts, operations and assets —
-									then prioritise protections that matter.
-								</p>
-							</div>
+							<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+								{/* Risk Identification */}
+								<div className="bg-white p-8 rounded-2xl border-l-4 border-(--mainblue) shadow-sm hover:shadow-xl transition-shadow duration-300 ease-in-out shadow-(color:--lightoceanblue)">
+									<div className="flex flex-col items-start text-left">
+										<div className="mb-4 text-(--mainblue)">
+											<i className="fas fa-search text-3xl"></i>
+										</div>
+										<h3 className="text-xl font-semibold mb-3 text-(--mainblue)">
+											Risk Identification
+										</h3>
+										<p className="text-gray-600">
+											We conduct thorough analyses to identify potential risks
+											in all business operations, ensuring no hidden
+											vulnerabilities go unnoticed.
+										</p>
+									</div>
+								</div>
 
-							{/* Card 2 */}
-							<div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--almostwhite)]">
-								<div className="text-4xl mb-3">🔎</div>
-								<h3
-									className="font-semibold mb-2"
-									style={{ color: 'var(--darkblue)' }}
-								>
-									Market Insight
-								</h3>
-								<p className="text-gray-600 text-sm">
-									We access multiple insurers and programs so you get
-									competitive terms and appropriate capacity.
-								</p>
-							</div>
+								{/* Risk Assessment */}
+								<div className="bg-white p-8 rounded-2xl border-l-4 border-(--mainblue) shadow-sm hover:shadow-xl transition-shadow duration-300 ease-in-out shadow-(color:--lightoceanblue)">
+									<div className="flex flex-col items-start text-left">
+										<div className="mb-4 text-(--mainblue)">
+											<i className="fas fa-balance-scale text-3xl"></i>
+										</div>
+										<h3 className="text-xl font-semibold mb-3 text-(--mainblue)">
+											Risk Assessment
+										</h3>
+										<p className="text-gray-600">
+											Our specialists evaluate each risk’s likelihood and
+											impact, creating a clear hierarchy of priorities for
+											informed decision-making.
+										</p>
+									</div>
+								</div>
 
-							{/* Card 3 */}
-							<div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--almostwhite)]">
-								<div className="text-4xl mb-3">⚖️</div>
-								<h3
-									className="font-semibold mb-2"
-									style={{ color: 'var(--darkblue)' }}
-								>
-									Risk-aware Design
-								</h3>
-								<p className="text-gray-600 text-sm">
-									Program design aligns cover with business priorities —
-									limiting gaps and overlap across lines.
-								</p>
-							</div>
-
-							{/* Card 4 */}
-							<div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--almostwhite)]">
-								<div className="text-4xl mb-3">🔁</div>
-								<h3
-									className="font-semibold mb-2"
-									style={{ color: 'var(--darkblue)' }}
-								>
-									Efficient Administration
-								</h3>
-								<p className="text-gray-600 text-sm">
-									Policy management, endorsements and renewals handled with
-									documented processes and clear timelines.
-								</p>
+								{/* Policy Optimization */}
+								<div className="bg-white p-8 rounded-2xl border-l-4 border-(--mainblue) shadow-sm hover:shadow-xl transition-shadow duration-300 ease-in-out shadow-(color:--lightoceanblue)">
+									<div className="flex flex-col items-start text-left">
+										<div className="mb-4 text-(--mainblue)">
+											<i className="fas fa-cogs text-3xl"></i>
+										</div>
+										<h3 className="text-xl font-semibold mb-3 text-(--mainblue)">
+											Policy Optimization
+										</h3>
+										<p className="text-gray-600">
+											We help clients align their policies with actual exposure
+											levels — reducing costs while ensuring full protection
+											where it truly matters.
+										</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</section>
 
 					{/* HOW WE WORK (stepper) */}
 					<section
-						className="py-12 mt-12 rounded-xl px-6"
-						style={{ background: 'var(--superlightoceanblue)' }}
+						className="py-12 mt-12 rounded-xl px-6 bg-gray-50"
 						data-aos="fade-up"
 					>
 						<h2
@@ -178,7 +173,7 @@ export default function InsuranceManagementClient() {
 							<div className="flex flex-col md:flex-row gap-6 relative z-10">
 								{/* Step 1 */}
 								<div
-									className="flex-1 bg-white rounded-2xl p-6 shadow-sm border"
+									className="flex-1 bg-white rounded-2xl p-6  shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
 									style={{ borderColor: 'var(--lightgreyblue)' }}
 								>
 									<div
@@ -202,7 +197,7 @@ export default function InsuranceManagementClient() {
 
 								{/* Step 2 */}
 								<div
-									className="flex-1 bg-white rounded-2xl p-6 shadow-sm border"
+									className="flex-1 bg-white rounded-2xl p-6  shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
 									style={{ borderColor: 'var(--lightgreyblue)' }}
 								>
 									<div
@@ -226,7 +221,7 @@ export default function InsuranceManagementClient() {
 
 								{/* Step 3 */}
 								<div
-									className="flex-1 bg-white rounded-2xl p-6 shadow-sm border"
+									className="flex-1 bg-white rounded-2xl p-6  shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
 									style={{ borderColor: 'var(--lightgreyblue)' }}
 								>
 									<div
@@ -250,7 +245,7 @@ export default function InsuranceManagementClient() {
 
 								{/* Step 4 */}
 								<div
-									className="flex-1 bg-white rounded-2xl p-6 shadow-sm border"
+									className="flex-1 bg-white rounded-2xl p-6  shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
 									style={{ borderColor: 'var(--lightgreyblue)' }}
 								>
 									<div
@@ -305,21 +300,54 @@ export default function InsuranceManagementClient() {
 					</section>
 
 					{/* CLOSING / COMMITMENT */}
-					<section className="py-12 mt-1" data-aos="fade-up">
-						<div className="px-6">
-							<h3
-								className="text-xl font-semibold mb-4"
-								style={{ color: 'var(--darkblue)' }}
-							>
-								Our Ongoing Commitment
-							</h3>
-							<p className="text-gray-700 leading-relaxed">
-								ABB will continue to act as your insurance partner — explaining
-								policy details, managing renewals, and supporting claims
-								advocacy where needed. We aim to keep your protection aligned
-								with the way you run your business, and to make insurance a
-								manageable, useful component of your risk strategy.
-							</p>
+					<section
+						className="py-16 mt-16 rounded-xl overflow-hidden"
+						style={{
+							background:
+								'linear-gradient(90deg, var(--darkblue) 0%, var(--lightoceanblue) 100%)',
+							color: 'white',
+						}}
+						data-aos="fade-up"
+					>
+						<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 px-8 items-center">
+							<div>
+								<h3 className="text-2xl font-bold mb-4">
+									Our Ongoing Commitment
+								</h3>
+								<p className="leading-relaxed text-white/90 mb-4">
+									ABB remains engaged well beyond policy placement. We review
+									program performance, advise on renewals, and assist with
+									claims advocacy when required — ensuring that your coverage
+									evolves with your business.
+								</p>
+								<p className="leading-relaxed text-white/90">
+									Our objective is continuity: to keep insurance effective,
+									auditable, and proportionate — so it supports your wider risk
+									strategy rather than complicating it.
+								</p>
+
+								<div className="mt-6">
+									<span
+										className="inline-block px-5 py-2 rounded-full text-sm font-medium"
+										style={{
+											backgroundColor: 'rgba(255,255,255,0.1)',
+											backdropFilter: 'blur(4px)',
+										}}
+									>
+										We stay engaged beyond policy placement.
+									</span>
+								</div>
+							</div>
+
+							<div className="relative h-56 lg:h-72 rounded-lg overflow-hidden shadow-lg">
+								<Image
+									src={`${imagesURL}our-services/insurance-management/commitment.jpeg`}
+									alt="Our Commitment"
+									fill
+									style={{ objectFit: 'cover', opacity: 0.85 }}
+									sizes="(max-width: 1024px) 100vw, 50vw"
+								/>
+							</div>
 						</div>
 					</section>
 				</main>

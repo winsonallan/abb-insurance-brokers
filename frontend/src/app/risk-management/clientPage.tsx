@@ -133,7 +133,7 @@ export default function RiskManagementClient() {
 
 								{/* Step 1 */}
 								<div
-									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
 									style={{ borderColor: 'var(--lightgreyblue)' }}
 								>
 									<div
@@ -142,7 +142,10 @@ export default function RiskManagementClient() {
 									>
 										1
 									</div>
-									<h3 className="font-semibold text-lg mb-2">
+									<h3
+										className="font-semibold text-lg mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
 										Identification — Map your exposures
 									</h3>
 									<p className="text-gray-600 text-sm">
@@ -158,7 +161,7 @@ export default function RiskManagementClient() {
 
 								{/* Step 2 */}
 								<div
-									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
 									style={{ borderColor: 'var(--lightgreyblue)' }}
 								>
 									<div
@@ -167,7 +170,10 @@ export default function RiskManagementClient() {
 									>
 										2
 									</div>
-									<h3 className="font-semibold text-lg mb-2">
+									<h3
+										className="font-semibold text-lg mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
 										Categorization — Group risks logically
 									</h3>
 									<p className="text-gray-600 text-sm">
@@ -182,7 +188,7 @@ export default function RiskManagementClient() {
 
 								{/* Step 3 */}
 								<div
-									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
 									style={{ borderColor: 'var(--lightgreyblue)' }}
 								>
 									<div
@@ -191,7 +197,10 @@ export default function RiskManagementClient() {
 									>
 										3
 									</div>
-									<h3 className="font-semibold text-lg mb-2">
+									<h3
+										className="font-semibold text-lg mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
 										Assessment — Score impact and likelihood
 									</h3>
 									<p className="text-gray-600 text-sm">
@@ -203,7 +212,7 @@ export default function RiskManagementClient() {
 
 								{/* Step 4 */}
 								<div
-									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightgreyblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightgreyblue)"
+									className="relative flex-1 text-center p-6 bg-white rounded-2xl shadow-md shadow-(color:--lightoceanblue) border hover:shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-(color:--lightoceanblue)"
 									style={{ borderColor: 'var(--lightgreyblue)' }}
 								>
 									<div
@@ -212,7 +221,10 @@ export default function RiskManagementClient() {
 									>
 										4
 									</div>
-									<h3 className="font-semibold text-lg mb-2">
+									<h3
+										className="font-semibold text-lg mb-2"
+										style={{ color: 'var(--darkblue)' }}
+									>
 										Recommendation — Prioritize actions
 									</h3>
 									<p className="text-gray-600 text-sm">
