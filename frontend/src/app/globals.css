@@ -14,12 +14,28 @@
 	--superlightblue: #f0f5ff;
 	--lightoceanblue: #90b5ff;
 	--lighteroceanblue: #bdd3ff;
+	--verylightoceanblue: #e9f0ff;
 	--superlightoceanblue: #f4f8ff;
 	--almostwhite: #f1f1f1;
 	--linkblue: #0d6efd;
 	--greenishblue: #40c8e0;
 	--lightgreenishblue: #96fff5;
 	--darkgreenishblue: #00bca9;
+	--darktolightgradient: linear-gradient(
+		180deg,
+		rgba(0, 0, 126, 1) 0%,
+		rgba(20, 25, 150, 1) 12%,
+		rgba(35, 45, 175, 1) 24%,
+		rgba(53, 60, 202, 1) 38%,
+		rgba(72, 78, 212, 1) 52%,
+		rgba(95, 104, 220, 1) 64%,
+		rgba(120, 132, 230, 1) 74%,
+		rgba(150, 165, 238, 1) 82%,
+		rgba(180, 195, 244, 1) 89%,
+		rgba(210, 222, 250, 1) 95%,
+		#f4f8ff 100%
+	);
+
 	--darkgradient: linear-gradient(
 		90deg,
 		rgba(0, 0, 126, 1) 0%,
@@ -51,6 +67,17 @@
 		rgba(243, 243, 254, 0.9) 48%,
 		rgb(252, 252, 252) 100%
 	);
+
+	--reverselightgradient: linear-gradient(
+		180deg,
+		var(--verylightoceanblue) 0%,
+		var(--superlightoceanblue) 12%,
+		rgba(243, 243, 254, 0.9) 34%,
+		rgb(252, 252, 252, 0.9) 50%,
+		rgba(243, 243, 254, 0.9) 64%,
+		var(--superlightoceanblue) 100%
+	);
+
 	--whiteblue: #f4f8ff;
 }
 

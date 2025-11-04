@@ -35,7 +35,14 @@ export default function ClaimsManagementClient() {
 							professionally and your rights are fully protected.
 						</p>
 						{/* How We Manage Your Claims */}
-						<section className="howManage mt-16" data-aos="fade-up">
+						<section
+							className="howManage mt-8 px-4 py-8"
+							style={{
+								background:
+									'linear-gradient(180deg, var(--whiteblue), var(--background))',
+							}}
+							data-aos="fade-up"
+						>
 							<h2
 								className="text-2xl mb-4 font-bold mt-8"
 								style={{ color: 'var(--darkblue)' }}
@@ -48,7 +55,7 @@ export default function ClaimsManagementClient() {
 								designed to minimize hassle and maximize recovery.
 							</p>
 
-							<div className="mt-8 relative flex flex-col md:flex-row items-start md:items-stretch justify-between gap-8 md:gap-4 max-w-6xl mx-auto">
+							<div className="mt-8 mb-8 relative flex flex-col md:flex-row items-start md:items-stretch justify-between gap-8 md:gap-4 max-w-6xl mx-auto">
 								{/* Step Connector (Desktop only) */}
 								<div
 									className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] z-0"
@@ -161,7 +168,7 @@ export default function ClaimsManagementClient() {
 						</section>
 						{/* Claim Support Services */}
 						<section
-							className="mt-16 claimSupportServices w-full mx-auto px-6"
+							className="mt-8 claimSupportServices w-full mx-auto px-4 py-8 bg-gray-50"
 							data-aos="fade-up"
 						>
 							{/* Section Heading */}
@@ -249,134 +256,141 @@ export default function ClaimsManagementClient() {
 					</main>
 				</div>
 			</div>
-			{/* Claim Expertise */}
 			<section
-				className="claimExpertise w-full px-6 flex flex-col lg:flex-row items-start gap-8 py-20  overflow-x-hidden"
+				className="w-full mb-16"
 				style={{
-					background: 'var(--superlightoceanblue)',
-					alignItems: 'center',
+					background: 'var(--reverselightgradient)',
 				}}
-				data-aos="fade-up"
-				data-aos-anchor=".closingParagraph"
 			>
-				{/* Image on the Left */}
-				<div
-					className="w-full lg:w-1/2 relative"
-					data-aos="fade-right"
-					data-aos-anchor=".closingParagraph"
-					style={{ minHeight: '420px' }}
-				>
-					<Image
-						src={`${imagesURL}our-services/claims-management/handshake.jpeg`} // replace with actual image
-						alt="Professional handshake"
-						fill
-						style={{ objectFit: 'cover', borderRadius: '0.75rem' }}
-					/>
-				</div>
-
-				{/* Text on the Right */}
-				<div
-					className="w-full lg:w-1/2 flex flex-col justify-center"
-					data-aos="fade-left"
+				{/* Claim Expertise */}
+				<section
+					className="claimExpertise w-full px-6 flex flex-col lg:flex-row items-start gap-8 py-20  overflow-x-hidden"
+					style={{
+						alignItems: 'center',
+					}}
+					data-aos="fade-up"
 					data-aos-anchor=".closingParagraph"
 				>
-					<h2
-						className="text-2xl font-bold mb-4"
-						style={{ color: 'var(--darkblue)' }}
+					{/* Image on the Left */}
+					<div
+						className="w-full lg:w-1/2 relative"
+						data-aos="fade-right"
+						data-aos-anchor=".closingParagraph"
+						style={{ minHeight: '420px' }}
 					>
-						The Difference Between a Claim and a Resolution
-					</h2>
+						<Image
+							src={`${imagesURL}our-services/claims-management/handshake.jpeg`} // replace with actual image
+							alt="Professional handshake"
+							fill
+							style={{ objectFit: 'cover', borderRadius: '0.75rem' }}
+						/>
+					</div>
 
-					<p className="text-gray-700 leading-relaxed mb-4 closingExpertParagraph">
-						Insurance claims are more than just paperwork — they define how
-						effectively your protection works. Poorly managed claims can result
-						in delays, disputes, and financial loss. With ABB Insurance Brokers,
-						you gain a proactive partner who understands policy interpretation
-						and insurer procedures, ensuring every step moves smoothly toward
-						resolution.
-					</p>
-
-					<p className="text-gray-700 leading-relaxed">
-						Our experience across industries — from construction and logistics
-						to finance and manufacturing — allows us to manage complex claims
-						efficiently. We don’t simply “file” your claim; we _strategically
-						navigate_ it, reviewing every detail to guarantee you receive the
-						settlement you’re entitled to without compromise.
-					</p>
-				</div>
-			</section>
-			{/* You're Never Left In The Dark Section */}
-			<section
-				className="w-full bg-gray-50 py-20 overflow-x-hidden"
-				data-aos-anchor=".closingExpertParagraph"
-				data-aos="fade-up"
-			>
-				<div
-					className="flex flex-col md:flex-row items-start gap-12 px-6 md:px-12"
-					style={{ alignItems: 'center' }}
-				>
-					{/* Left Text Section */}
-					<div className="flex-1">
+					{/* Text on the Right */}
+					<div
+						className="w-full lg:w-1/2 flex flex-col justify-center"
+						data-aos="fade-left"
+						data-aos-anchor=".closingParagraph"
+					>
 						<h2
-							className="text-2xl font-bold mb-6"
+							className="text-2xl font-bold mb-4"
 							style={{ color: 'var(--darkblue)' }}
 						>
-							You're Never Left in the Dark
+							The Difference Between a Claim and a Resolution
 						</h2>
 
-						<p className="text-gray-700 mb-6 leading-relaxed neverLeftDark">
-							We believe claim handling should be a collaborative and
-							transparent process. That's why we maintain open communication
-							throughout every step — updating you regularly and clarifying what
-							each milestone means. Our goal is not only to settle your claim
-							but also to strengthen your trust in the insurance process.
+						<p className="text-gray-700 leading-relaxed mb-4 closingExpertParagraph">
+							Insurance claims are more than just paperwork — they define how
+							effectively your protection works. Poorly managed claims can
+							result in delays, disputes, and financial loss. With ABB Insurance
+							Brokers, you gain a proactive partner who understands policy
+							interpretation and insurer procedures, ensuring every step moves
+							smoothly toward resolution.
 						</p>
 
 						<p className="text-gray-700 leading-relaxed">
-							Every claim, regardless of size, receives personal attention from
-							our professional team. Whether it’s a minor vehicle damage or a
-							complex property loss, you can expect the same level of care,
-							accuracy, and commitment.
+							Our experience across industries — from construction and logistics
+							to finance and manufacturing — allows us to manage complex claims
+							efficiently. We don’t simply “file” your claim; we _strategically
+							navigate_ it, reviewing every detail to guarantee you receive the
+							settlement you’re entitled to without compromise.
 						</p>
+					</div>
+				</section>
+				{/* You're Never Left In The Dark Section */}
+				<section
+					className="w-full py-20 overflow-x-hidden"
+					data-aos-anchor=".closingExpertParagraph"
+					data-aos="fade-up"
+				>
+					<div
+						className="flex flex-col md:flex-row items-start gap-12 px-6 md:px-12"
+						style={{ alignItems: 'center' }}
+					>
+						{/* Left Text Section */}
+						<div className="flex-1">
+							<h2
+								className="text-2xl font-bold mb-6"
+								style={{ color: 'var(--darkblue)' }}
+							>
+								You're Never Left in the Dark
+							</h2>
 
-						{/* Quote Box */}
-						<div className="mt-8 border-l-4 border-blue-600 pl-6 italic text-gray-800">
-							<p>
-								“Our success is measured not by how many claims we close, but by
-								how many clients feel supported from start to finish.”
+							<p className="text-gray-700 mb-6 leading-relaxed neverLeftDark">
+								We believe claim handling should be a collaborative and
+								transparent process. That's why we maintain open communication
+								throughout every step — updating you regularly and clarifying
+								what each milestone means. Our goal is not only to settle your
+								claim but also to strengthen your trust in the insurance
+								process.
 							</p>
+
+							<p className="text-gray-700 leading-relaxed">
+								Every claim, regardless of size, receives personal attention
+								from our professional team. Whether it’s a minor vehicle damage
+								or a complex property loss, you can expect the same level of
+								care, accuracy, and commitment.
+							</p>
+
+							{/* Quote Box */}
+							<div className="mt-8 border-l-4 border-blue-600 pl-6 italic text-gray-800">
+								<p>
+									“Our success is measured not by how many claims we close, but
+									by how many clients feel supported from start to finish.”
+								</p>
+							</div>
+						</div>
+
+						{/* Right Image */}
+						<div className="flex-1 w-full relative h-80 md:h-[420px] rounded-2xl overflow-hidden shadow-md closingChooseUs">
+							<Image
+								src={`${imagesURL}our-services/claims-management/collab.jpeg`} // replace with your actual image path later
+								alt="Collaboration Illustration"
+								fill
+								className="object-cover"
+								sizes="(max-width: 768px) 100vw, 50vw"
+							/>
 						</div>
 					</div>
-
-					{/* Right Image */}
-					<div className="flex-1 w-full relative h-80 md:h-[420px] rounded-2xl overflow-hidden shadow-md closingChooseUs">
-						<Image
-							src={`${imagesURL}our-services/claims-management/collab.jpeg`} // replace with your actual image path later
-							alt="Collaboration Illustration"
-							fill
-							className="object-cover"
-							sizes="(max-width: 768px) 100vw, 50vw"
-						/>
-					</div>
-				</div>
+				</section>
 			</section>
 			{/* Why Choose ABB */}
 			<section
-				className="w-full py-20 overflow-x-hidden"
-				style={{ background: 'var(--superlightoceanblue)' }}
+				className="w-95/100 py-20 overflow-x-hidden m-auto mb-16"
+				style={{
+					background: 'var(--darktolightgradient)',
+					borderRadius: '.5rem',
+				}}
 				data-aos-anchor=".neverLeftDark"
 				data-aos="fade-up"
 			>
 				<div className="px-6 md:px-12 flex flex-col gap-12">
 					{/* Section Header */}
 					<div>
-						<h2
-							className="text-2xl font-bold mb-4"
-							style={{ color: 'var(--darkblue)' }}
-						>
+						<h2 className="text-2xl font-bold mb-4" style={{ color: 'white' }}>
 							Why Choose ABB for Your Claim Management
 						</h2>
-						<p className="text-gray-700 leading-relaxed max-w-3xl">
+						<p className="text-white leading-relaxed max-w-3xl">
 							With ABB, you gain a dedicated partner who ensures every claim is
 							handled efficiently, fairly, and transparently. We act in your
 							best interest — not the insurer’s — so you can focus on recovery,

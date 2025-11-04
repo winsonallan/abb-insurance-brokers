@@ -40,7 +40,8 @@ export default function RiskManagementClient() {
 							<div
 								className="grid grid-cols-2 px-8 py-4"
 								style={{
-									backgroundColor: 'var(--superlightoceanblue)',
+									background:
+										'linear-gradient(180deg, var(--whiteblue), var(--background))',
 									borderRadius: '.5rem',
 								}}
 							>
@@ -105,7 +106,10 @@ export default function RiskManagementClient() {
 								</div>
 							</div>
 						</section>
-						<section className="riskProfiling mt-16" data-aos="fade-up">
+						<section
+							className="riskProfiling mt-16 bg-gray-50 px-8 py-4"
+							data-aos="fade-up"
+						>
 							<h2
 								className="text-2xl mb-4 font-bold mt-8"
 								style={{ color: 'var(--darkblue)' }}
@@ -124,7 +128,7 @@ export default function RiskManagementClient() {
 								business.
 							</p>
 
-							<div className="relative flex flex-col md:flex-row items-start md:items-stretch justify-between gap-8 md:gap-4 max-w-6xl mx-auto">
+							<div className="relative flex flex-col md:flex-row items-start md:items-stretch justify-between gap-8 md:gap-4 max-w-6xl mx-auto mb-8">
 								{/* Step Connector (Desktop only) */}
 								<div
 									className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] z-0"
@@ -244,7 +248,8 @@ export default function RiskManagementClient() {
 				data-aos="fade-up"
 				style={{
 					borderRadius: '.5rem',
-					background: 'var(--superlightoceanblue)',
+					background:
+						'linear-gradient(180deg, var(--whiteblue), var(--background))',
 				}}
 			>
 				<div className="max-w-6xl mx-auto px-6">
@@ -348,6 +353,101 @@ export default function RiskManagementClient() {
 								Example: Implement safety protocols, staff training, or
 								redundancy systems.
 							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			{/* Closing Section — Building Resilience Together */}
+			<section
+				className="w-95/100 py-20 overflow-x-hidden m-auto mb-16 mt-8"
+				style={{
+					background: 'var(--darktolightgradient)',
+					borderRadius: '.5rem',
+					color: 'white',
+				}}
+				data-aos="fade-up"
+			>
+				<div className="px-6 md:px-12 flex flex-col gap-12">
+					{/* Header */}
+					<div>
+						<h2 className="text-2xl font-bold mb-4">
+							Building Resilience, Together
+						</h2>
+						<p className="text-white/90 leading-relaxed max-w-3xl">
+							Risk management is more than analysis — it’s foresight in action.
+							At ABB, we work side by side with you to strengthen your
+							organization’s ability to withstand uncertainty, adapt quickly,
+							and thrive even in volatile conditions.
+						</p>
+					</div>
+
+					{/* Highlights */}
+					<div
+						className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
+						data-aos="fade-up"
+						data-aos-delay="100"
+					>
+						{/* Card 1 */}
+						<div
+							className="p-8 rounded-2xl shadow-sm border bg-white hover:shadow-lg transition duration-300 hover:-translate-y-1"
+							style={{
+								borderColor: 'var(--lightoceanblue)',
+								color: 'var(--darkblue)',
+							}}
+						>
+							<h3
+								className="text-xl font-semibold mb-3"
+								style={{ color: 'var(--mainblue)' }}
+							>
+								Proactive, Not Reactive
+							</h3>
+							<p className="text-gray-700 leading-relaxed">
+								We identify vulnerabilities before they become losses — ensuring
+								risk isn’t just managed, but minimized through strategic
+								foresight and continuous monitoring.
+							</p>
+						</div>
+
+						{/* Card 2 */}
+						<div
+							className="p-8 rounded-2xl shadow-sm border bg-white hover:shadow-lg transition duration-300 hover:-translate-y-1"
+							style={{
+								borderColor: 'var(--lightoceanblue)',
+								color: 'var(--darkblue)',
+							}}
+						>
+							<h3
+								className="text-xl font-semibold mb-3"
+								style={{ color: 'var(--mainblue)' }}
+							>
+								Integrated Risk Approach
+							</h3>
+							<p className="text-gray-700 leading-relaxed">
+								Our frameworks align insurance, operations, and compliance —
+								giving you a unified strategy that turns uncertainty into
+								opportunity.
+							</p>
+						</div>
+
+						{/* Card 3 */}
+						<div
+							className="p-8 rounded-2xl shadow-sm border bg-white hover:shadow-lg transition duration-300 hover:-translate-y-1"
+							style={{
+								borderColor: 'var(--lightoceanblue)',
+								color: 'var(--darkblue)',
+							}}
+						>
+							<h3
+								className="text-xl font-semibold mb-3"
+								style={{ color: 'var(--mainblue)' }}
+							>
+								Confidence Through Clarity
+							</h3>
+							<p className="text-gray-700 leading-relaxed">
+								Our transparent reporting and expert insights ensure you always
+								know where you stand — empowering confident decision-making
+								across every level of your organization.
+							</p>
 						</div>
 					</div>
 				</div>
